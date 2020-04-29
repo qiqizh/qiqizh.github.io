@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>Hello World | 长路漫漫</title>
+  <title>array 使用 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="定义是值的有序列表。数组中的每个值都叫做一个元素，每个元素在数组中有一个位置，以数字来表示，称为索引。每个数组都有一个length属性，就是这个属性让它区别于其他的js对象。  length的两个特殊行为：为数组增加元素时（使用索引添加，使用索引之外的属性不会触发），length会自动加一。为length属性设置一个小于当前长度的非负整数n时，当前那些下标大于等于n的元素会从数组中删除。Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://qiqizh.github.io/2020/04/28/hello-world/index.html">
+<meta property="og:title" content="array 使用">
+<meta property="og:url" content="https://qiqizh.github.io/2019/03/06/array/index.html">
 <meta property="og:site_name" content="长路漫漫">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="定义是值的有序列表。数组中的每个值都叫做一个元素，每个元素在数组中有一个位置，以数字来表示，称为索引。每个数组都有一个length属性，就是这个属性让它区别于其他的js对象。  length的两个特殊行为：为数组增加元素时（使用索引添加，使用索引之外的属性不会触发），length会自动加一。为length属性设置一个小于当前长度的非负整数n时，当前那些下标大于等于n的元素会从数组中删除。Array">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-28T03:56:59.329Z">
-<meta property="article:modified_time" content="2020-04-28T03:56:59.329Z">
+<meta property="article:published_time" content="2019-03-06T03:17:38.000Z">
+<meta property="article:modified_time" content="2020-04-29T04:03:20.653Z">
 <meta property="article:author" content="qiqi">
+<meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="长路漫漫" type="application/atom+xml">
@@ -166,40 +167,134 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-array" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      array 使用
     </h1>
   
 
         
-        <a href="/2020/04/28/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-28T03:56:59.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+        <a href="/2019/03/06/array/" class="archive-article-date">
+  	<time datetime="2019-03-06T03:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>是值的有序列表。数组中的每个值都叫做一个元素，每个元素在数组中有一个位置，以数字来表示，称为索引。<br>每个数组都有一个length属性，就是这个属性让它区别于其他的js对象。</p>
+<ul>
+<li>length的两个特殊行为：<br>为数组增加元素时（使用索引添加，使用索引之外的属性不会触发），length会自动加一。<br>为length属性设置一个小于当前长度的非负整数n时，当前那些下标大于等于n的元素会从数组中删除。<h2 id="Array-对象属性"><a href="#Array-对象属性" class="headerlink" title="Array 对象属性"></a>Array 对象属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>constructor</td>
+<td>返回对创建此对象的数组函数的引用。</td>
+</tr>
+<tr>
+<td>length</td>
+<td>设置或返回数组中元素的数目。</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>使您有能力向对象添加属性和方法。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="Array-对象方法"><a href="#Array-对象方法" class="headerlink" title="Array 对象方法"></a>Array 对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>concat()</td>
+<td>连接两个或更多的数组，并返回结果。</td>
+</tr>
+<tr>
+<td>join()</td>
+<td>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</td>
+</tr>
+<tr>
+<td>pop()</td>
+<td>删除并返回数组的最后一个元素</td>
+</tr>
+<tr>
+<td>pop()</td>
+<td>删除并返回数组的最后一个元素</td>
+</tr>
+<tr>
+<td>push()</td>
+<td>向数组的末尾添加一个或更多元素，并返回新的长度。</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td>颠倒数组中元素的顺序。</td>
+</tr>
+<tr>
+<td>shift()</td>
+<td>删除并返回数组的第一个元素</td>
+</tr>
+<tr>
+<td>unshift()</td>
+<td>向数组的开头添加一个或更多元素，并返回新的长度。</td>
+</tr>
+<tr>
+<td>slice()</td>
+<td>从某个已有的数组返回选定的元素</td>
+</tr>
+<tr>
+<td>sort()</td>
+<td>对数组的元素进行排序</td>
+</tr>
+<tr>
+<td>splice()</td>
+<td>删除元素，并向数组添加新元素。</td>
+</tr>
+<tr>
+<td>toSource()</td>
+<td>返回该对象的源代码。</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td>把数组转换为字符串，并返回结果。</td>
+</tr>
+<tr>
+<td>toLocaleString()</td>
+<td>把数组转换为本地数组，并返回结果。</td>
+</tr>
+<tr>
+<td>valueOf()</td>
+<td>返回数组对象的原始值</td>
+</tr>
+</tbody></table>
+<h2 id="常用方法总结"><a href="#常用方法总结" class="headerlink" title="常用方法总结"></a>常用方法总结</h2><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.forEachI(item &#x3D;&gt; &#123;</span><br><span class="line">  console.log(item)</span><br><span class="line">&#125;)</span><br><span class="line">最常用的用来遍历数组的方法，需要注意的是该方法不会改变原数组，而且没有返回值</span><br></pre></td></tr></table></figure>
+<h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const newArr &#x3D; arr.map((item, index)&#x3D;&gt; &#123;console.log(item, index)&#125;)</span><br><span class="line">也是常用来遍历的方法，该方法会返回一个新的数组，但不会改变原数组，默认返回 undefined</span><br></pre></td></tr></table></figure>
+<h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1,5,3,22,6]</span><br><span class="line">const bigNum &#x3D; arr.find(item &#x3D;&gt; item &gt; 6)</span><br><span class="line">根据检索条件，找到数组中第一个满足条件的元素，若找不到则返回 undefined</span><br></pre></td></tr></table></figure>
+<h4 id="findIndex"><a href="#findIndex" class="headerlink" title="findIndex()"></a>findIndex()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1,5,3,22,6]</span><br><span class="line">const bigNumIndex &#x3D; arr.findIndex(item &#x3D;&gt; item &gt; 6)</span><br><span class="line">该方法与 find() 类似根据检索条件，不同的是该方法返回的是索引</span><br></pre></td></tr></table></figure>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1,5,3,22,6]</span><br><span class="line">const filterItem &#x3D; arr.filter(item &#x3D;&gt; item % 2 &#x3D;&#x3D;&#x3D; 0)</span><br><span class="line">这个方法是用来过滤的，该方法返回一个新数组，不改变原数组</span><br></pre></td></tr></table></figure>
+<h4 id="push-和-pop"><a href="#push-和-pop" class="headerlink" title="push() 和 pop()"></a>push() 和 pop()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">push() 方法在数组末尾添加一个元素，返回数组的长度,改变原数组</span><br><span class="line">const arr &#x3D; [1,3,5]</span><br><span class="line">const pushArrLen &#x3D; a.push(7)</span><br><span class="line">&#x3D;&gt; arr &#x3D; [1,3,5,7]  pushArrLen &#x3D; 4</span><br><span class="line">pop() 方法删除数组最后一个元素并返回该元素，改变原数组</span><br><span class="line">const arr &#x3D; [1,3,5]</span><br><span class="line">const popArrLen &#x3D; a.pop()</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; arr &#x3D; [1,3]  popArrLen &#x3D; 5</span><br></pre></td></tr></table></figure>
+<h4 id="unshift-和-shift"><a href="#unshift-和-shift" class="headerlink" title="unshift() 和 shift()"></a>unshift() 和 shift()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">unshift() 方法在数组开头添加一个元素，返回数组的长度</span><br><span class="line">const arr &#x3D; [1,3,5]</span><br><span class="line">const unshiftArrLen &#x3D; arr.unshift(7)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; arr &#x3D; [7,1,3,5]  unshiftArrLen &#x3D; 4</span><br><span class="line"></span><br><span class="line">shift() 方法删除数组第一个元素并返回该元素</span><br><span class="line">const arr &#x3D; [1,3,5]</span><br><span class="line">const shiftArrLen &#x3D; a.pop()</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; arr &#x3D; [3,5]  shiftArrLen &#x3D; 1</span><br></pre></td></tr></table></figure>
+<h4 id="concat-方法"><a href="#concat-方法" class="headerlink" title="concat() 方法"></a>concat() 方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">concat() 方法在一个数组后面拼接新的元素，可接收 n 个参数，参数可以是任意数据类型，如果是数组，则将数组跟原数组拼接，如果是其他数据类型，则将该元素添加到原数组后面</span><br><span class="line"></span><br><span class="line">该方法不改变原数组，会返回拼接好的新数组，因此可以 执行 链式操作</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [1,3,5]</span><br><span class="line"></span><br><span class="line">const concatArr &#x3D; arr.concat(2,4).concat(6,7,8).concat(&#39;hello world&#39;).concat(() &#x3D;&gt; &#123;&#125;, [9,10,[11,12]])</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; arr &#x3D; [1,3,5]</span><br><span class="line">   concatArr &#x3D; [1, 3, 5, 2, 4, 6, 7, 8, &#39;hello world&#39;, () &#x3D;&gt; &#123;&#125;, 9, 10, [11, 12]]</span><br></pre></td></tr></table></figure>
+<h4 id="reverse-方法"><a href="#reverse-方法" class="headerlink" title="reverse() 方法"></a>reverse() 方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reverse() 方法将一个数组倒置，该方法返回新的数组，且会改变原数组</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [1, 2, 3, 4]</span><br><span class="line">const reverseArr &#x3D; arr.reverse()</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; arr &#x3D; [4, 3, 2, 1]  reverseArr &#x3D; [4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+<h4 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort() 方法"></a>sort() 方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sort() 方法用于将数组排序，可以接收一个函数作为参数，当不传递参数时，sort 将按照内部定义的生序的规则进行排序，该方法返回排序后的数组，原数组将被改变。</span><br><span class="line">const a &#x3D;[1,55,6,7]</span><br><span class="line">const sortArr &#x3D; a.sort()</span><br><span class="line">升序</span><br><span class="line">sortArr &#x3D; arr.sort((a, b) &#x3D;&gt; a - b)</span><br><span class="line">降序</span><br><span class="line">sortArr &#x3D; arr.sort((a, b) &#x3D;&gt; b - a)</span><br></pre></td></tr></table></figure>
+<h4 id="join-和-split"><a href="#join-和-split" class="headerlink" title="join() 和 split()"></a>join() 和 split()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">join() 方法将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符，该方法只接收一个参数：即分隔符，该方法返回拼接后的字符串，不改变原数组。</span><br><span class="line">const arr &#x3D; [1, 2, &#39;h&#39;]</span><br><span class="line"></span><br><span class="line">const newArr &#x3D; arr.join(&#39;-&#39;)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt;  newArr &#x3D; &#39;1-2-h&#39;</span><br><span class="line">split() 方法将一个字符串分割为数组，接收一个参数，以该参数为分割符</span><br><span class="line">const str &#x3D; &#39;a jax&#39;</span><br><span class="line"></span><br><span class="line">const strArr1 &#x3D; str.split(&#39;&#39;)</span><br><span class="line">const strArr2 &#x3D; str.split(&#39;j&#39;)</span><br><span class="line">&#x3D;&gt;  strArr1 &#x3D; [&#39;a&#39;,&#39;j&#39;,&#39;a&#39;,&#39;x&#39;]</span><br><span class="line">strArr2 &#x3D; [&#39;a&#39;,&#39;ax&#39;]</span><br></pre></td></tr></table></figure>
+<h4 id="every-和-some"><a href="#every-和-some" class="headerlink" title="every() 和 some()"></a>every() 和 some()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">every() 方法接收一个函数作为参数，判断数组中每一项都是否满足条件，只有所有项都满足条件，才会返回true。</span><br><span class="line">const arr &#x3D; [1,5,2,4,11]</span><br><span class="line"></span><br><span class="line">const isBig &#x3D; arr.every(item &#x3D;&gt; item &gt; 5)</span><br><span class="line">const isSmall &#x3D; arr.every(item &#x3D;&gt; item &lt; 20)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; isBig &#x3D; true  isSmall &#x3D; false</span><br><span class="line">some() 方法接收一个函数作为参数，数组中只要有一项满足条件，则返回 true，如果都不满足条件，则返回 false</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [</span><br><span class="line">	&#123; price: 10, name: &#39;apple&#39; &#125;,</span><br><span class="line">	&#123; price: 20, name: &#39;orange&#39; &#125;,</span><br><span class="line">	&#123; price: 15, name: &#39;banana&#39; &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">const isCheap &#x3D; arr.some(item &#x3D;&gt; item.price &lt; 15)</span><br><span class="line"></span><br><span class="line">const isExpensive &#x3D; arr.some(item &#x3D;&gt; item.price &gt; 20)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; isCheap &#x3D; true  isExpensive &#x3D; false</span><br></pre></td></tr></table></figure>
+<h4 id="indexOf-和-lastIndexOf"><a href="#indexOf-和-lastIndexOf" class="headerlink" title="indexOf() 和 lastIndexOf()"></a>indexOf() 和 lastIndexOf()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">两个方法都用来查找索引，接收两个参数，第一个参数是要查找的元素，第二个参数是查找的起始位置(默认第一项和最后一项的位置)。都会返回该元素的正索引，不同的是当有第二个参数时，indexOf() 只查找该元素之后的元素，lastIndexOf() 只查找该元素之前的元素。若找到该元素则返回索引，若找不到则返回 -1</span><br><span class="line">const arr &#x3D; [1, 3, 5, 7, 9]</span><br><span class="line"></span><br><span class="line">const index &#x3D; arr.indexOf(7, 0)</span><br><span class="line">const lastIndex &#x3D; arr.lastIndexOf(7, 2)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; index &#x3D; 3  lastIndex &#x3D; -1</span><br></pre></td></tr></table></figure>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">slice(start, end) 接收两个参数，start &lt; end，返回 [start, end) 区间之间的元素数组，不改变原数组</span><br><span class="line">const arr &#x3D; [1, 2, 3, 4, 5, 6, 7, 8]</span><br><span class="line"></span><br><span class="line">const sliceArr &#x3D; arr.slice(3, 5)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt;  sliceArr &#x3D; [4, 5]</span><br></pre></td></tr></table></figure>
+<h4 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">splice() 方法向&#x2F;从数组中添加&#x2F;删除项目，然后返回被删除的项目。该方法会改变原始数组。</span><br><span class="line"></span><br><span class="line">splice(index, howmany, item1, item2...itemx)</span><br><span class="line"></span><br><span class="line">const arr &#x3D; [1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line">const spliceArr &#x3D; arr.splice(2, 3, 6, 7, 8)</span><br><span class="line"></span><br><span class="line">&#x3D;&gt; arr &#x3D; [1, 2, 6, 7, 8]  spliceArr &#x3D; [3, 4, 5]</span><br></pre></td></tr></table></figure>
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">功能强大</span><br><span class="line">reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。也就是：arr.reduce((prev, current, index, array) &#x3D;&gt; &#123;&#125;, initialValue)</span><br><span class="line">例如： </span><br><span class="line">数组求和：</span><br><span class="line">const arr &#x3D; [1,2,3,4,5]</span><br><span class="line">const sum &#x3D; arr.reduce((prev, current) &#x3D;&gt; prev + current, 0)		&#x3D;&gt; sum &#x3D; 15</span><br><span class="line"></span><br><span class="line">数组求积：</span><br><span class="line">const arr &#x3D; [1,2,3,4,5]</span><br><span class="line">const pow &#x3D; arr.reduce((prev, current) &#x3D;&gt; prev * current, 1)		&#x3D;&gt;  pow &#x3D; 120</span><br><span class="line"></span><br><span class="line">数组去重：</span><br><span class="line">const arr &#x3D; [1,3,4,2,5,3,4]</span><br><span class="line">const slimArr &#x3D; arr.reduce((prev, current) &#x3D;&gt; &#123;</span><br><span class="line">  if(prev.includes(current)) &#123;</span><br><span class="line">    return prev</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return prev.concat(current)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, [])</span><br><span class="line">求字符串的字节长度：</span><br><span class="line">const str &#x3D; &#39;charming javascript&#39;</span><br><span class="line">const byteLen &#x3D; str.split(&#39;&#39;).map(item &#x3D;&gt; item.charCodeAt() &gt; 255 ? 2 : 1).reduce((prev, current) &#x3D;&gt; prev + current, 0)</span><br><span class="line"></span><br><span class="line">求对象里的数乘积再求和：</span><br><span class="line">const fruitArr &#x3D; [</span><br><span class="line"> &#123; name: &#39;apple&#39;, price: 10, quantity: 2 &#125;,</span><br><span class="line"> &#123; name: &#39;orange&#39;, price: 15, quantity: 4 &#125;,</span><br><span class="line"> &#123; name: &#39;banana&#39;, price: 5, quantity: 3 &#125;,</span><br><span class="line">]</span><br><span class="line">const totalPrice &#x3D; fruitArr.reduce((prev, current) &#x3D;&gt; &#123;</span><br><span class="line"> return prev + current.price * current.quantity</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -228,7 +323,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -278,7 +395,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2020/04/28/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2019/03/06/array/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +409,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/29/test/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/28/git/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          test
+          git 的使用
         
       </div>
     </a>
   
   
-    <a href="/2019/04/28/git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git 的使用</div>
+    <a href="/2019/01/15/markdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown 的基本语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
