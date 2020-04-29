@@ -312,6 +312,201 @@
 
 
   
+    <article id="post-lizi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/lizi/">插件的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/29/lizi/" class="archive-article-date">
+  	<time datetime="2019-05-29T11:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="粒子动图"><a href="#粒子动图" class="headerlink" title="粒子动图"></a>粒子动图</h3><ul>
+<li>安装<br><code>npm i vue-particles</code></li>
+<li>main.js 引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import vueParticles  from  &#39;vue-particles&#39;</span><br><span class="line">Vue.use(vueParticles)</span><br></pre></td></tr></table></figure></li>
+<li>页面使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;vue-particles</span><br><span class="line">        color&#x3D;&quot;#dedede&quot;</span><br><span class="line">        :particleOpacity&#x3D;&quot;0.7&quot;</span><br><span class="line">        :particlesNumber&#x3D;&quot;80&quot;</span><br><span class="line">        shapeType&#x3D;&quot;circle&quot;</span><br><span class="line">        :particleSize&#x3D;&quot;4&quot;</span><br><span class="line">        linesColor&#x3D;&quot;#dedede&quot;</span><br><span class="line">        :linesWidth&#x3D;&quot;1&quot;</span><br><span class="line">        :lineLinked&#x3D;&quot;true&quot;</span><br><span class="line">        :lineOpacity&#x3D;&quot;0.4&quot;</span><br><span class="line">        :linesDistance&#x3D;&quot;150&quot;</span><br><span class="line">        :moveSpeed&#x3D;&quot;3&quot;</span><br><span class="line">        :hoverEffect&#x3D;&quot;true&quot;</span><br><span class="line">        hoverMode&#x3D;&quot;grab&quot;</span><br><span class="line">        :clickEffect&#x3D;&quot;true&quot;</span><br><span class="line">        clickMode&#x3D;&quot;push&quot;</span><br><span class="line">      &gt;</span><br><span class="line">&lt;&#x2F;vue-particles&gt;</span><br></pre></td></tr></table></figure></li>
+<li>属性配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">color: String类型。默认&#39;#dedede&#39;。粒子颜色。</span><br><span class="line">particleOpacity: Number类型。默认0.7。粒子透明度。</span><br><span class="line">particlesNumber: Number类型。默认80。粒子数量。</span><br><span class="line">shapeType: String类型。默认&#39;circle&#39;。可用的粒子外观类型有：&quot;circle&quot;,&quot;edge&quot;,&quot;triangle&quot;, &quot;polygon&quot;,&quot;star&quot;。</span><br><span class="line">particleSize: Number类型。默认80。单个粒子大小。</span><br><span class="line">linesColor: String类型。默认&#39;#dedede&#39;。线条颜色。</span><br><span class="line">linesWidth: Number类型。默认1。线条宽度。</span><br><span class="line">lineLinked: 布尔类型。默认true。连接线是否可用。</span><br><span class="line">lineOpacity: Number类型。默认0.4。线条透明度。</span><br><span class="line">linesDistance: Number类型。默认150。线条距离。</span><br><span class="line">moveSpeed: Number类型。默认3。粒子运动速度。</span><br><span class="line">hoverEffect: 布尔类型。默认true。是否有hover特效。</span><br><span class="line">hoverMode: String类型。默认true。可用的hover模式有: &quot;grab&quot;, &quot;repulse&quot;, &quot;bubble&quot;。</span><br><span class="line">clickEffect: 布尔类型。默认true。是否有click特效。</span><br><span class="line">clickMode: String类型。默认true。可用的click模式有: &quot;push&quot;, &quot;remove&quot;,&quot;repulse&quot;, &quot;bubble&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="vue-clipboard2-粘贴板"><a href="#vue-clipboard2-粘贴板" class="headerlink" title="vue-clipboard2 粘贴板"></a>vue-clipboard2 粘贴板</h3></li>
+<li>安装<br><code>npm install --save vue-clipboard2</code></li>
+<li>main.js 引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueClipboard from &#39;vue-clipboard2&#39;</span><br><span class="line">Vue.use(VueClipboard)</span><br></pre></td></tr></table></figure></li>
+<li>页面使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;&#123;&#123;invitationCode&#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;..&#x2F;..&#x2F;static&#x2F;img&#x2F;d1.png&quot; </span><br><span class="line">v-clipboard:copy&#x3D;&quot;invitationCode&quot; </span><br><span class="line">v-clipboard:success&#x3D;&quot;copy&quot; </span><br><span class="line">v-clipboard:error&#x3D;&quot;onError&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">copy(e) &#123;</span><br><span class="line">        console.log(e.text);</span><br><span class="line"> &#125;,</span><br><span class="line">onError(e) &#123;</span><br><span class="line">    console.log(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+第二种方法</li>
+<li>页面使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class&#x3D;&quot;copy_btn&quot; @click&#x3D;&quot;copy(record.phone)&quot;&gt;复制&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure></li>
+<li>js使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">copy(val) &#123;</span><br><span class="line">    this.$copyText(val).then(</span><br><span class="line">        res &#x3D;&gt; &#123;</span><br><span class="line">        this.$message.success(&quot;已成功复制，可直接去粘贴&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line">        err &#x3D;&gt; &#123;</span><br><span class="line">        this.$message.info(&quot;复制失败&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="vue-json-excel-excel导出"><a href="#vue-json-excel-excel导出" class="headerlink" title="vue-json-excel excel导出"></a>vue-json-excel excel导出</h3></li>
+<li>安装<br><code>npm install vue-json-excel -S</code></li>
+<li>main.js 引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import JsonExcel from &#39;vue-json-excel&#39;</span><br><span class="line"></span><br><span class="line">Vue.component(&#39;downloadExcel&#39;, JsonExcel)</span><br></pre></td></tr></table></figure></li>
+<li>页面使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;download-excel</span><br><span class="line">    class &#x3D; &quot;export-excel-wrapper&quot;</span><br><span class="line">    :data &#x3D; uploadData &#x2F;&#x2F;导出的数据</span><br><span class="line">    :fields &#x3D; json_fields</span><br><span class="line">    :name &#x3D; uploadName&gt;</span><br><span class="line">    &lt;!-- 上面可以自定义自己的样式，还可以引用其他组件button --&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;yellow&quot; @click&#x3D;&quot;outputExcel&quot;&gt;导出Excel&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;!-- &lt;el-button type&#x3D;&quot;primary&quot; size&#x3D;&quot;small&quot;&gt;导出EXCEL&lt;&#x2F;el-button&gt; --&gt;</span><br><span class="line">&lt;&#x2F;download-excel&gt;</span><br></pre></td></tr></table></figure></li>
+<li>配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">json_fields：自主选择要导出的字段，若不指定，默认导出全部数据中心全部字段</span><br><span class="line">json_fields: &#123;</span><br><span class="line">    &quot;标题&quot;: &#39;title&#39;</span><br><span class="line">    &quot;说明&quot;: &#39;desc&#39;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/插件//" class="article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/29/lizi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-share" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/06/share/">微信朋友圈分享</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/06/share/" class="archive-article-date">
+  	<time datetime="2019-05-06T05:44:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装sdk"><a href="#安装sdk" class="headerlink" title="安装sdk"></a>安装sdk</h3><p><code>npm install weixin-js-sdk --save</code></p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js 引入微信 sdk<br><code>import wx from &#39;weixin-js-sdk</code></p>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$post(&#39;&#x2F;vue&#x2F;weixinjiekou&#39;, params).then(data &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 分享标题等参数</span><br><span class="line">  const shareTitle &#x3D; obj.title</span><br><span class="line">  const shareDesc &#x3D; obj.desc</span><br><span class="line">  const shareLink &#x3D; obj.userShare ? obj.link + data.flag : obj.link</span><br><span class="line">  const shareImgUrl &#x3D; obj.img</span><br><span class="line">  const config &#x3D; &#123;</span><br><span class="line">   title: shareTitle, &#x2F;&#x2F; 分享标题</span><br><span class="line">   desc: shareDesc, &#x2F;&#x2F; 分享描述</span><br><span class="line">   link: shareLink, &#x2F;&#x2F; 分享链接</span><br><span class="line">   imgUrl: shareImgUrl, &#x2F;&#x2F; 分享图标</span><br><span class="line">   type: &#39;&#39;, &#x2F;&#x2F; 分享类型,music、video或link，不填默认为link</span><br><span class="line">   dataUrl: &#39;&#39;, &#x2F;&#x2F; 如果type是music或video，则要提供数据链接，默认为空</span><br><span class="line">   success: function (data) &#123;</span><br><span class="line">       &#x2F;&#x2F;分享功能</span><br><span class="line">        wechat.config(&#123;</span><br><span class="line">        debug: false,</span><br><span class="line">        appId: data.appid, &#x2F;&#x2F; 和获取Ticke的必须一样--必填</span><br><span class="line">        timestamp: data.timestamp, &#x2F;&#x2F; 必填，生成签名的时间戳</span><br><span class="line">        nonceStr: data.noncestr, &#x2F;&#x2F; 必填，生成签名的随机串</span><br><span class="line">        signature: data.signature, &#x2F;&#x2F; 必填，签名，见附录1</span><br><span class="line">        &#x2F;&#x2F; 需要分享的列表项:发送给朋友，分享到朋友圈，分享到QQ，分享到QQ空间</span><br><span class="line">        jsApiList: [</span><br><span class="line">            &#39;onMenuShareTimeline&#39;, &#39;onMenuShareAppMessage&#39;, &#39;onMenuShareQQ&#39;, &#39;onMenuShareWeibo&#39;,</span><br><span class="line">            &#39;onMenuShareQZone&#39;</span><br><span class="line">        ]</span><br><span class="line">        &#125;)</span><br><span class="line">   &#125;,</span><br><span class="line">   cancel: function () &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ready"><a href="#ready" class="headerlink" title="ready()"></a>ready()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">ready 接口配置</span><br><span class="line"></span><br><span class="line">    wx.ready(function () &#123;</span><br><span class="line">        shareData &#x3D; &#123;</span><br><span class="line">            title: &#39;&#39;,  &#x2F;&#x2F; 分享标题</span><br><span class="line">            desc: data.desc, &#x2F;&#x2F; 分享描述</span><br><span class="line">            link: location.href.split(&#39;#&#39;)[0], &#x2F;&#x2F; 分享链接，此处的url不用转码</span><br><span class="line">            imgUrl: &#39;&#39;, &#x2F;&#x2F; 分享图标</span><br><span class="line">            success: function () &#123;</span><br><span class="line">                &#x2F;&#x2F; 设置成功</span><br><span class="line">                console.log(&quot;分享成功&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        &#x2F;&#x2F; 1.4.0 新接口 (只调用这个接口在安卓下是无效的)</span><br><span class="line">        wx.updateAppMessageShareData(shareData);</span><br><span class="line">        wx.updateTimelineShareData(shareData);</span><br><span class="line"></span><br><span class="line">        wx.onMenuShareAppMessage(shareData);</span><br><span class="line">        wx.onMenuShareTimeline(shareData);</span><br><span class="line">        wx.onMenuShareWeibo(shareData);</span><br><span class="line">        wx.onMenuShareQZone(shareData);</span><br><span class="line">        wx.onMenuShareQQ(shareData);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    window._bd_share_config &#x3D; &#123;</span><br><span class="line">        &quot;common&quot;: &#123;</span><br><span class="line">            &quot;bdSnsKey&quot;: &#123;&#125;,</span><br><span class="line">            &quot;bdText&quot;: &quot;$&#123;topic.title&#125;&quot;,</span><br><span class="line">            &quot;bdDesc&quot;:&quot;$&#123;topic.remark&#125;&quot;,</span><br><span class="line">            &quot;bdMini&quot;: &quot;2&quot;,</span><br><span class="line">            &quot;bdMiniList&quot;: false,</span><br><span class="line">            &quot;bdPic&quot;: &quot;&quot;,</span><br><span class="line">            &quot;bdStyle&quot;: &quot;0&quot;,</span><br><span class="line">            &quot;bdSize&quot;: &quot;16&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;share&quot;: &#123;&#125;,</span><br><span class="line">        &quot;image&quot;: &#123;</span><br><span class="line">            &quot;viewList&quot;: [&quot;qzone&quot;, &quot;tsina&quot;, &quot;weixin&quot;, &quot;sqq&quot;],</span><br><span class="line">            &quot;viewText&quot;: &#39;&lt;spring:message code&#x3D;&quot;res_share&quot;&#x2F;&gt;&#39;,</span><br><span class="line">            &quot;viewSize&quot;: &quot;16&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;selectShare&quot;: &#123;</span><br><span class="line">            &quot;bdContainerClass&quot;: null,</span><br><span class="line">            &quot;bdSelectMiniList&quot;: [&quot;qzone&quot;, &quot;tsina&quot;, &quot;weixin&quot;, &quot;sqq&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a>config</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> wechat.config(&#123;</span><br><span class="line">   debug: false,</span><br><span class="line">   appId: data.appid, &#x2F;&#x2F; 和获取Ticke的必须一样--必填，公众号的唯一标识</span><br><span class="line">   timestamp: data.timestamp, &#x2F;&#x2F; 必填，生成签名的时间戳</span><br><span class="line">   nonceStr: data.noncestr, &#x2F;&#x2F; 必填，生成签名的随机串</span><br><span class="line">   signature: data.signature, &#x2F;&#x2F; 必填，签名，见附录1</span><br><span class="line">   &#x2F;&#x2F; 需要分享的列表项:发送给朋友，分享到朋友圈，分享到QQ，分享到QQ空间</span><br><span class="line">   jsApiList: [</span><br><span class="line">    &#39;onMenuShareTimeline&#39;, &#39;onMenuShareAppMessage&#39;, &#39;onMenuShareQQ&#39;, &#39;onMenuShareWeibo&#39;,</span><br><span class="line">    &#39;onMenuShareQZone&#39;, &#39;startRecord&#39;, &#39;stopRecord&#39;, &#39;onVoiceRecordEnd&#39;, &#39;playVoice&#39;,</span><br><span class="line">    &#39;pauseVoice&#39;, &#39;stopVoice&#39;, &#39;onVoicePlayEnd&#39;, &#39;uploadVoice&#39;, &#39;downloadVoice&#39;,</span><br><span class="line">    &#39;chooseImage&#39;, &#39;previewImage&#39;, &#39;uploadImage&#39;, &#39;downloadImage&#39;, &#39;translateVoice&#39;,</span><br><span class="line">    &#39;getNetworkType&#39;, &#39;openLocation&#39;, &#39;getLocation&#39;, &#39;hideOptionMenu&#39;, &#39;showOptionMenu&#39;,</span><br><span class="line">    &#39;hideMenuItems&#39;, &#39;showMenuItems&#39;, &#39;hideAllNonBaseMenuItem&#39;, &#39;showAllNonBaseMenuItem&#39;,</span><br><span class="line">    &#39;closeWindow&#39;, &#39;scanQRCode&#39;, &#39;chooseWXPay&#39;, &#39;openProductSpecificView&#39;, &#39;addCard&#39;,</span><br><span class="line">    &#39;chooseCard&#39;, &#39;openCard&#39;</span><br><span class="line">   ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/06/share/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -615,7 +810,7 @@
 <li>斜体加粗<br>要倾斜和加粗的文字左右分别用三个*号包起来</li>
 <li>删除线<br>要加删除线的文字左右分别用两个~~号包起来<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt; n个…<br>貌似可以一直加下去<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2>三个或者三个以上的 - 或者 * 都可以<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2>![图片alt](图片地址 ‘’图片title’’)</li>
 </ul>
-<p>图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加<br>上传本地图片直接点击导航栏的图片标志，选择图片即可 （路径是相对路径）</p>
+<p>图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加<br>上传本地图片直接点击导航栏的图片标志，选择图片即可 （路径是相对路径）<br>或者直接用img标签<br><code>&lt;img src=&quot;../images/p1.jpg&quot; width=&quot;20%&quot;  /&gt;</code></p>
 <h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><a href="超链接地址" title="超链接title">超链接名</a><br>title可加可不加<br><code>&lt;a href=&quot;超链接地址&quot; target=&quot;_blank&quot;&gt;超链接名&lt;/a&gt;</code></p>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>无序列表用 - + * 任何一种都可以<br>有序列表  数字加点<br>列表嵌套 上一级和下一级之间敲三个空格即可</p>
 <h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br></pre></td></tr></table></figure>
@@ -808,7 +1003,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>sky<br><img src="../images/p1.jpg" alt="Image text"><br><img src="../images/p2.jpg" alt="Image text"><br><img src="../images/p4.jpg" alt="Image text"></li>
+<li>sky<img src="../images/p1.jpg" width="20%"  />
+<img src="../images/p2.jpg" width="20%"  />
+<img src="../images/p4.jpg" width="20%"  />
+
+</li>
 </ul>
 
       
