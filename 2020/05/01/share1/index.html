@@ -16,7 +16,7 @@
 <meta property="og:description" content="QQ分享 QQ分享需要引入的一个js1&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;app&#x2F;qzlike&#x2F;qzopensl.js#jsdate&#x3D;20111201&quot; charset&#x3D;&quot;utf-8&quot;&gt;&lt;&amp;#x2">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-01T07:35:27.000Z">
-<meta property="article:modified_time" content="2020-05-12T07:50:13.554Z">
+<meta property="article:modified_time" content="2020-05-12T08:37:01.332Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -44,7 +44,8 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<!-- <div class="overlay" style="background: #4d4d4d"></div> -->
+<div class="overlay" ></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -197,6 +198,7 @@
 <li>先定义变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ftit &#x3D; &#39;&#39;; &#x2F;&#x2F; 分享的文章得标题</span><br><span class="line"></span><br><span class="line">var flink &#x3D; &#39;&#39;; &#x2F;&#x2F; 分享的logo</span><br></pre></td></tr></table></figure>
 （1）ftit 可以获取文章得标题，<br>（2）flit 可以获取文章内容得第一张图片作为分享出去得logo，或者这个参数也可以设置为网站的logo，可以把logo放在服务器，获取一个固定的链接</li>
 <li>把参数直接拼到路径的后边<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.open(&#39;https:&#x2F;&#x2F;sns.qzone.qq.com&#x2F;cgi-bin&#x2F;qzshare&#x2F;cgi_qzshare_onekey?url&#x3D;&#39; + encodeURIComponent(document.location) + &#39;?sharesource&#x3D;qzone&amp;title&#x3D;&#39; + ftit + &#39;&amp;pics&#x3D;&#39; + flink + &#39;&amp;summary&#x3D;&#39; + &#39;&#39;);</span><br><span class="line">&#x2F;&#x2F;pics是文章标题 summary是文章简介</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="微博分享"><a href="#微博分享" class="headerlink" title="微博分享"></a>微博分享</h3></li>
 <li>定义变量</li>
 <li>appkey，这个参数要去微博进行注册申请<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.open(&#39;http:&#x2F;&#x2F;service.weibo.com&#x2F;share&#x2F;share.php?url&#x3D;&#39; + encodeURIComponent(document.location) + &#39;?sharesource&#x3D;weibo&amp;title&#x3D;&#39; + ftit + &#39;&amp;pic&#x3D;&#39; + flink + &#39;&amp;appkey&#x3D;**********&#39;);</span><br></pre></td></tr></table></figure>

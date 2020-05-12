@@ -16,7 +16,7 @@
 <meta property="og:description" content="官方地址: [https:&#x2F;&#x2F;www.nuxtjs.cn&#x2F;] nuxt 与 vue的区别 nuxt 是基于vue的开箱即用的框架，语法和vue相同, 但更利于seo npm run generate 可以将项目中各页面变为html页面，可以有自己的title和meta，静态站点。 nuxt 是服务端渲染，部署的时候和vue项目部署时不同。 nuxt没有入口文件，可以在layout&#x2F;default.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-11-10T09:01:55.000Z">
-<meta property="article:modified_time" content="2020-04-29T07:26:58.091Z">
+<meta property="article:modified_time" content="2020-05-12T08:38:24.594Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -44,7 +44,8 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<!-- <div class="overlay" style="background: #4d4d4d"></div> -->
+<div class="overlay" ></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -197,7 +198,7 @@
 <li>nuxt 是基于vue的开箱即用的框架，语法和vue相同, 但更利于seo</li>
 <li>npm run generate 可以将项目中各页面变为html页面，可以有自己的title和meta，静态站点。</li>
 <li>nuxt 是服务端渲染，部署的时候和vue项目部署时不同。</li>
-<li>nuxt没有入口文件，可以在layout/default.vue 中设置，所有配置在  nuxt.config.js 中完成。</li>
+<li>nuxt没有入口文件，可以在layout/default.vue 中设置，所有配置在  nuxt.config.js 中完成。<a id="more"></a></li>
 <li>nuxt 没有路由，在page页面新建的文件夹就是路由，比如在page中 新建 fee文件夹，里面有个index.vue页面，则此页面的路由就是 /fee<br>动态路由: 比如在fee新建一个detail页面，里面有 _id.vue ，则此页面路由是 /fee/detail/:id</li>
 <li>生命周期部分不同<br>asyncData -&gt; fetch -&gt; beforeCreate -&gt; created -&gt; beforeMount -&gt; mounted -&gt; beforeUpdate -&gt; updated -&gt; beforeDestroy -&gt; destroyed<br>beforeMount 之前的周期都是在服务器上，所以在created里的window和localstorage是找不到的。<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3></li>
 <li>安装<br><code>npx create-nuxt-app &lt;项目名&gt;</code><br>会集成一些服务，可以选element或antd vue，集成axios</li>
