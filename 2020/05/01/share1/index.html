@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>文章分类 | 长路漫漫</title>
+  <title>vue中文章分享到QQ/微博、微信 ♚ | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="https://qiqizh.github.io/tags/index.html">
+  <meta name="description" content="QQ分享 QQ分享需要引入的一个js1&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;app&#x2F;qzlike&#x2F;qzopensl.js#jsdate&#x3D;20111201&quot; charset&#x3D;&quot;utf-8&quot;&gt;&lt;&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue中文章分享到QQ&#x2F;微博、微信 ♚">
+<meta property="og:url" content="https://qiqizh.github.io/2020/05/01/share1/index.html">
 <meta property="og:site_name" content="长路漫漫">
+<meta property="og:description" content="QQ分享 QQ分享需要引入的一个js1&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;app&#x2F;qzlike&#x2F;qzopensl.js#jsdate&#x3D;20111201&quot; charset&#x3D;&quot;utf-8&quot;&gt;&lt;&amp;#x2">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-28T06:56:24.000Z">
-<meta property="article:modified_time" content="2020-04-28T06:57:14.320Z">
+<meta property="article:published_time" content="2020-05-01T07:35:27.000Z">
+<meta property="article:modified_time" content="2020-05-12T07:50:13.554Z">
 <meta property="article:author" content="qiqi">
+<meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="长路漫漫" type="application/atom+xml">
@@ -169,27 +172,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-share1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文章分类
+      vue中文章分享到QQ/微博、微信 ♚
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2020-04-28T06:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+        <a href="/2020/05/01/share1/" class="archive-article-date">
+  	<time datetime="2020-05-01T07:35:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="QQ分享"><a href="#QQ分享" class="headerlink" title="QQ分享"></a>QQ分享</h3><ul>
+<li>QQ分享需要引入的一个js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;app&#x2F;qzlike&#x2F;qzopensl.js#jsdate&#x3D;20111201&quot; charset&#x3D;&quot;utf-8&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>先定义变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ftit &#x3D; &#39;&#39;; &#x2F;&#x2F; 分享的文章得标题</span><br><span class="line"></span><br><span class="line">var flink &#x3D; &#39;&#39;; &#x2F;&#x2F; 分享的logo</span><br></pre></td></tr></table></figure>
+（1）ftit 可以获取文章得标题，<br>（2）flit 可以获取文章内容得第一张图片作为分享出去得logo，或者这个参数也可以设置为网站的logo，可以把logo放在服务器，获取一个固定的链接</li>
+<li>把参数直接拼到路径的后边<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.open(&#39;https:&#x2F;&#x2F;sns.qzone.qq.com&#x2F;cgi-bin&#x2F;qzshare&#x2F;cgi_qzshare_onekey?url&#x3D;&#39; + encodeURIComponent(document.location) + &#39;?sharesource&#x3D;qzone&amp;title&#x3D;&#39; + ftit + &#39;&amp;pics&#x3D;&#39; + flink + &#39;&amp;summary&#x3D;&#39; + &#39;&#39;);</span><br><span class="line">&#x2F;&#x2F;pics是文章标题 summary是文章简介</span><br></pre></td></tr></table></figure>
+<h3 id="微博分享"><a href="#微博分享" class="headerlink" title="微博分享"></a>微博分享</h3></li>
+<li>定义变量</li>
+<li>appkey，这个参数要去微博进行注册申请<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.open(&#39;http:&#x2F;&#x2F;service.weibo.com&#x2F;share&#x2F;share.php?url&#x3D;&#39; + encodeURIComponent(document.location) + &#39;?sharesource&#x3D;weibo&amp;title&#x3D;&#39; + ftit + &#39;&amp;pic&#x3D;&#39; + flink + &#39;&amp;appkey&#x3D;**********&#39;);</span><br></pre></td></tr></table></figure>
+<h3 id="微信分享"><a href="#微信分享" class="headerlink" title="微信分享"></a>微信分享</h3></li>
+<li>引入js-sdk <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import wx from &#39;weixin-js-sdk&#39;; &#x2F;&#x2F;&quot;weixin-js-sdk&quot;: &quot;^1.3.2&quot;</span><br></pre></td></tr></table></figure></li>
+<li>调用服务端接口获取到<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、appId &#x2F;&#x2F; 必填，公众号的唯一标识</span><br><span class="line"></span><br><span class="line">2、timestamp &#x2F;&#x2F;必填，生成签名的时间戳</span><br><span class="line"></span><br><span class="line">3、nonceStr &#x2F;&#x2F;必填，生成签名的随机串</span><br><span class="line"></span><br><span class="line">4、signature &#x2F;&#x2F;必填，签名</span><br><span class="line"></span><br><span class="line">5、jsApiList：[&#39;onMenuShareAppMessage&#39;, &#39;onMenuShareTimeline&#39;] </span><br><span class="line"> &#x2F;&#x2F;必填，需要使用的JS接口列表 微信，朋友圈</span><br></pre></td></tr></table></figure></li>
+<li>当ajax请求的时候post需要传入的参数是页面当前的地址的域名，例如key是address，那么就是<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var address &#x3D; location.href.split(&#39;#&#39;)[0];</span><br></pre></td></tr></table></figure></li>
+<li>ajax请求要加请求头<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">headers: &#123;</span><br><span class="line">  &#39;Content-type&#39;: &#39;application&#x2F;x-www-form-urlencoded&#39;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li>这个也是必加的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">transformRequest: [function(data) &#123;</span><br><span class="line"></span><br><span class="line">  let ret &#x3D; &#39;&#39;</span><br><span class="line"></span><br><span class="line">  for(let it in data) &#123;</span><br><span class="line"></span><br><span class="line">    ret +&#x3D; encodeURIComponent(it) + &#39;&#x3D;&#39; + encodeURIComponent(data[it]) + &#39;&amp;&#39;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return ret</span><br><span class="line"></span><br><span class="line">&#125;],</span><br></pre></td></tr></table></figure></li>
+<li>当接口调用成功拿到服务端返回的数据之后这时候需要调用微信js-sdk的config函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">wx.config(&#123;</span><br><span class="line"></span><br><span class="line">  debug: false, &#x2F;&#x2F; 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，    仅在pc端时才会打印。</span><br><span class="line"></span><br><span class="line">  appId: res.data.data.appId, &#x2F;&#x2F; 必填，公众号的唯一标识</span><br><span class="line"></span><br><span class="line">  timestamp: res.data.data.timestamp, &#x2F;&#x2F; 必填，生成签名的时间戳</span><br><span class="line"></span><br><span class="line">  nonceStr: res.data.data.nonceStr, &#x2F;&#x2F; 必填，生成签名的随机串</span><br><span class="line"></span><br><span class="line">  signature: res.data.data.signature, &#x2F;&#x2F; 必填，签名</span><br><span class="line"></span><br><span class="line">  jsApiList: [&#39;onMenuShareAppMessage&#39;, &#39;onMenuShareTimeline&#39;] &#x2F;&#x2F; 必填，需要使用的JS接口列表</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>定义三个变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var ftit &#x3D; &#39;&#39;; &#x2F;&#x2F; 这个可以是文章的标题</span><br><span class="line"></span><br><span class="line">var flink &#x3D; &#39;&#39;; &#x2F;&#x2F;这个可以是文章中的第一张图片 还可以是网站的logo</span><br><span class="line"></span><br><span class="line">var str &#x3D; location.href; &#x2F;&#x2F;这个是分享出的点击进去的链接</span><br><span class="line"></span><br><span class="line">var address  &#x3D; str.replace(&quot;#&quot;, &quot;?#&quot;); </span><br><span class="line">&#x2F;&#x2F; 这里定义一个address 把拿到的当前页面的路径在#前边拼接一个‘?’，这是因为微信分享的时候对vue的哈希模式下的‘#’不友好，所以对当前的路径要做这个兼容，还可以使用vue的history模式也可以避免这个问题</span><br></pre></td></tr></table></figure></li>
+<li>微信分享<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">wx.ready(function() &#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F;分享到朋友圈</span><br><span class="line"></span><br><span class="line">  wx.onMenuShareTimeline(&#123;</span><br><span class="line"></span><br><span class="line">    title: ftit, &#x2F;&#x2F; 分享标题</span><br><span class="line"></span><br><span class="line">    link: address, &#x2F;&#x2F; 分享链接（注意要对#进行处理）</span><br><span class="line"></span><br><span class="line">    imgUrl: &#39;&#39;, &#x2F;&#x2F; 分享图标（可以获取文章的第一张图片，如果没有第一张图片的时候可以选择分享一个固定的官网的logo）</span><br><span class="line"></span><br><span class="line">    success: function() &#123;</span><br><span class="line"></span><br><span class="line">     &#x2F;&#x2F; 在这里提示&quot;成功分享到朋友圈&quot;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    cancel: function() &#123;</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 在这里提示&quot;分享失败,您取消了分享!&quot;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"> &#x2F;&#x2F;分享给朋友</span><br><span class="line"></span><br><span class="line">  wx.onMenuShareAppMessage(&#123;</span><br><span class="line"></span><br><span class="line">    title: ftit, &#x2F;&#x2F; 分享标题</span><br><span class="line"></span><br><span class="line">    desc: $this.content, &#x2F;&#x2F; 分享描述</span><br><span class="line"></span><br><span class="line">    link: address, &#x2F;&#x2F; 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span><br><span class="line"></span><br><span class="line">    imgUrl: &#39;&#x2F;icon.jpg&#39;, &#x2F;&#x2F; 分享图标</span><br><span class="line"></span><br><span class="line">    type: &#39;link&#39;, &#x2F;&#x2F; 分享类型,music、video或link，不填默认为link</span><br><span class="line"></span><br><span class="line">    dataUrl: &#39;&#39;, &#x2F;&#x2F; 如果type是music或video，则要提供数据链接，默认为空</span><br><span class="line"></span><br><span class="line">    success: function() &#123;</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 在这里提示&quot;成功分享给朋友&quot;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    cancel: function() &#123;</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 在这里提示&quot;分享失败,您取消了分享!&quot;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
       
 
       
@@ -218,6 +241,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -268,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2020/05/01/share1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,6 +314,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2020/05/09/test1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          test1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/29/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">test</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -330,7 +383,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
