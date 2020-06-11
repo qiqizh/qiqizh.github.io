@@ -170,6 +170,238 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-npm-desc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/04/npm-desc/">npm</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/04/npm-desc/" class="archive-article-date">
+  	<time datetime="2020-06-04T10:45:33.821Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="npm-处理-node-modules-目录结构"><a href="#npm-处理-node-modules-目录结构" class="headerlink" title="npm 处理 node_modules 目录结构"></a>npm 处理 node_modules 目录结构</h3><p>假设项目<code>App</code>中有如下三个依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">    A: &quot;1.0.0&quot;,</span><br><span class="line">    B: &quot;1.0.0&quot;,</span><br><span class="line">    C: &quot;1.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>A</code>、<code>B</code>、<code>C</code>三个模块又有如下依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A@1.0.0 -&gt; D@1.0.0</span><br><span class="line"></span><br><span class="line">B@1.0.0 -&gt; D@2.0.0</span><br><span class="line"></span><br><span class="line">C@1.0.0 -&gt; D@1.0.0</span><br></pre></td></tr></table></figure>
+
+<h5 id="npm-2-x-嵌套结构"><a href="#npm-2-x-嵌套结构" class="headerlink" title="npm 2.x - 嵌套结构"></a>npm 2.x - 嵌套结构</h5><p><code>npm 2.x</code>安装依赖方式比较简单直接，以递归的方式，按照包依赖的树形结构下载填充本地目录结构，也就是说每个包都会将该包的依赖安装到当前包所在的<code>node_modules</code>目录中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── A@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@1.0.0</span><br><span class="line">│   ├── B@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@2.0.0</span><br><span class="line">│   └── C@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@1.0.0</span><br></pre></td></tr></table></figure>
+
+<h5 id="npm-3-x-扁平结构"><a href="#npm-3-x-扁平结构" class="headerlink" title="npm 3.x - 扁平结构"></a>npm 3.x - 扁平结构</h5><p><code>npm 3.x</code>则采用了扁平化的结构来安装组织<code>node_modules</code>。也就是在执行<code>npm install</code>的时候，按照<code>package.json</code> 里依赖的顺序依次解析，<strong>遇到新的包就把它安装在第一级目录，后续安装如果遇到一级目录已经存在的包，会先按照约定版本判断版本，如果符合版本约定则忽略，否则会按照<code>npm 2.x</code>的方式依次挂在依赖包目录下</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── A@1.0.0</span><br><span class="line">│   ├── D@1.0.0</span><br><span class="line">│   ├── B@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@2.0.0</span><br><span class="line">│   └── C@1.0.0</span><br></pre></td></tr></table></figure>
+
+<p>再在项目中安装模块<code>E@1.0.0</code>（依赖于模块<code>D@2.0.0</code>），目录结构变为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── A@1.0.0</span><br><span class="line">│   ├── D@1.0.0</span><br><span class="line">│   ├── B@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@2.0.0</span><br><span class="line">│   └── C@1.0.0</span><br><span class="line">│   ├── E@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@2.0.0</span><br></pre></td></tr></table></figure>
+
+<p><code>B</code>、<code>E</code>模块下都包含了依赖的模块<code>D@2.0.0</code>，存在代码冗余的情况。</p>
+<p>再在项目中安装模块<code>F@1.0.0</code>（依赖于模块<code>D@1.0.0</code>）。由于<code>D@1.0.0</code>已经存在于项目根目录下的<code>node_modules</code> 下，所以在安装<code>F</code>模块的时候，无需再在其依赖包中安装<code>D@1.0.0</code>模块，目录结构变为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── A@1.0.0</span><br><span class="line">│   ├── D@1.0.0</span><br><span class="line">│   ├── B@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@2.0.0</span><br><span class="line">│   └── C@1.0.0</span><br><span class="line">│   ├── E@1.0.0</span><br><span class="line">│   │   └── node_modules</span><br><span class="line">│   │   │   └── D@2.0.0</span><br><span class="line">│   └── F@1.0.0</span><br></pre></td></tr></table></figure>
+
+<p>从以上结构可以看出，<code>npm 3.x</code>并没有完美的解决<code>npm 2.x</code>中的问题，甚至还会退化到<code>npm 2.x</code>的行为。</p>
+<p>为了解决目录中存在很多副本的情况，（在<code>A</code>、<code>C</code>模块的依赖模块<code>D</code>升级到<code>2.0.0</code>前提下）可以通过<code>npm dedupe</code>指令把所有二级的依赖模块<code>D@2.0.0</code>重定向到一级目录下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">│   ├── A@1.0.0</span><br><span class="line">│   ├── D@2.0.0</span><br><span class="line">│   ├── B@1.0.0</span><br><span class="line">│   └── C@1.0.0</span><br><span class="line">│   ├── E@1.0.0</span><br><span class="line">│   └── F@1.0.0</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>node_modules路径查找机制：模块再找对应的依赖包时，<code>nodejs</code>会尝试从当前模块所在目录开始，尝试在它的<code>node_modules</code> 文件夹里加载相应模块，如果没有找到，那么就再向上一级目录移动，直到全局安装路径中的<code>node_modules</code>为止。</p>
+</blockquote>
+<h5 id="npm-5-x-package-lock-json"><a href="#npm-5-x-package-lock-json" class="headerlink" title="npm 5.x - package-lock.json"></a>npm 5.x - package-lock.json</h5><p>从<code>npm 5.x</code>开始，安装组织<code>node_modules</code>和<code>npm 3.x</code>一样采用了扁平化的方式，最大的变化是增加了 <a href="https://docs.npmjs.com/files/package-lock.json" target="_blank" rel="noopener">package-lock.json</a> 文件。</p>
+<p><code>npm</code>为了让开发者<strong>在安全的前提下使用最新的依赖包</strong>，在<code>package.json</code>中通常做了锁定大版本的操作，这样在每次<code>npm install</code>的时候都会拉取依赖包大版本下的最新的版本。</p>
+<p><code>package-lock.json</code>文件精确描述了<code>node_modules</code> 目录下所有的包的树状依赖结构，每个包的版本号都是完全精确的。以<code>sass-loader</code>在<code>package-lock.json</code>中为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">  &quot;sass-loader&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;7.1.0&quot;,</span><br><span class="line">    &quot;resolved&quot;: &quot;http:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;sass-loader&#x2F;download&#x2F;sass-loader-7.1.0.tgz&quot;,</span><br><span class="line">    &quot;integrity&quot;: &quot;sha1-Fv1ROMuLQkv4p1lSihly1yqtBp0&#x3D;&quot;,</span><br><span class="line">    &quot;dev&quot;: true,</span><br><span class="line">    &quot;requires&quot;: &#123;</span><br><span class="line">      &quot;clone-deep&quot;: &quot;^2.0.1&quot;,</span><br><span class="line">      &quot;loader-utils&quot;: &quot;^1.0.1&quot;,</span><br><span class="line">      &quot;lodash.tail&quot;: &quot;^4.1.1&quot;,</span><br><span class="line">      &quot;neo-async&quot;: &quot;^2.5.0&quot;,</span><br><span class="line">      &quot;pify&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">      &quot;semver&quot;: &quot;^5.5.0&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;dependencies&quot;: &#123;</span><br><span class="line">      &quot;pify&quot;: &#123;</span><br><span class="line">        &quot;version&quot;: &quot;3.0.0&quot;,</span><br><span class="line">        &quot;resolved&quot;: &quot;http:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;pify&#x2F;download&#x2F;pify-3.0.0.tgz&quot;,</span><br><span class="line">        &quot;integrity&quot;: &quot;sha1-5aSs0sEB&#x2F;fPZpNB&#x2F;DbxNtJ3SgXY&#x3D;&quot;,</span><br><span class="line">        &quot;dev&quot;: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>package-lock.json</code>的详细描述主要由<code>version</code>、<code>resolved</code>、<code>integrity</code>、<code>dev</code>、<code>requires</code>、<code>dependencies</code>这几个字段构成</p>
+<ul>
+<li><p><code>version</code>：包唯一的版本号</p>
+</li>
+<li><p><code>resolved</code>：安装源</p>
+</li>
+<li><p><code>integrity</code>：表明包完整性的hash值（验证包是否已失效）</p>
+</li>
+<li><p><code>dev</code>：如果为true，则此依赖关系仅是顶级模块的开发依赖关系或者是一个的传递依赖关系</p>
+</li>
+<li><p><code>requires</code>：依赖包所需要的所有依赖项，对应依赖包<code>package.json</code>里<code>dependencies</code>中的依赖项</p>
+</li>
+<li><p><code>dependencies</code>：依赖包<code>node_modules</code>中依赖的包，与顶层的<code>dependencies</code>一样的结构</p>
+</li>
+</ul>
+<p>打开根目录的<code>node_modules</code>会发现安装了<code>sass-loader</code>所需要的所有依赖包，这些依赖包中除了<code>pify</code>以外，所有依赖包的大版本号都与<code>sass-loader</code>所需要的一致。</p>
+<p>到根目录的<code>node_modules</code>找到<code>pify</code>依赖包，发现版本为<code>4.0.1</code>。</p>
+<p>找到<code>sass-loader</code>项目依赖包，打开其<code>node_modules</code>发现其中也存在个<code>pify</code>依赖包，但版本为<code>3.0.0</code>。这个版本的<code>sass-loader</code>真正依赖的是这个版本的<code>pify</code>。</p>
+<p>通过以上几个步骤，说明<code>package-lock.json</code>文件和<code>node_modules</code>目录结构是一一对应的，即项目目录下存在<code>package-lock.json</code>可以让每次安装生成的依赖目录结构保持相同</p>
+<h3 id="npm-中的依赖包"><a href="#npm-中的依赖包" class="headerlink" title="npm 中的依赖包"></a>npm 中的依赖包</h3><ul>
+<li><p>dependencies - 业务依赖**</p>
+</li>
+<li><p>devDependencies - 开发依赖**</p>
+</li>
+<li><p>peerDependencies - 同伴依赖**</p>
+</li>
+<li><p>bundledDependencies / bundleDependencies - 打包依赖**</p>
+</li>
+<li><p>optionalDependencies - 可选依赖**</p>
+</li>
+</ul>
+<h5 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a><strong>dependencies</strong></h5><p>这种依赖在项目最终上线或者发布<code>npm</code>包时所需要，即其中的依赖项应该属于线上代码的一部分。比如框架<code>vue</code>，第三方的组件库<code>element-ui</code>等，这些依赖包都是必须装在这个选项里供生产环境使用。</p>
+<p>通过命令<code>npm install/i packageName -S/--save</code>把包装在此依赖项里。如果没有指定版本，直接写一个包的名字，则安装当前npm仓库中这个包的最新版本。如果要指定版本的，可以把版本号写在包名后面，比如<code>npm i vue@3.0.1 -S</code>。</p>
+<blockquote>
+<p>从<code>npm 5.x</code>开始，可以不用手动添加<code>-S/--save</code>指令，直接执行<code>npm i packageName</code>把依赖包添加到<code>dependencies</code>中去。</p>
+</blockquote>
+<h5 id="devDependencies"><a href="#devDependencies" class="headerlink" title="devDependencies"></a><strong>devDependencies</strong></h5><p>这种依赖只在项目开发时所需要，即其中的依赖项不应该属于线上代码的一部分。比如构建工具<code>webpack</code>、<code>gulp</code>，预处理器<code>babel-loader</code>、<code>scss-loader</code>，测试工具<code>e2e</code>、<code>chai</code>等，这些都是辅助开发的工具包，无须在生产环境使用。</p>
+<p>通过命令<code>npm install/i -D/--save-dev</code>把包安装成开发依赖。如果想缩减安装包，可以使用命令<code>npm i --production</code>忽略开发依赖，只安装基本依赖，这通常在线上机器（或者<code>QA</code>环境）上使用。</p>
+<blockquote>
+<p><strong>千万别以为只有在<code>dependencies</code>中的模块才会被一起打包，而在<code>devDependencies</code>中的不会！模块能否被打包，取决于项目里是否被引入了该模块！</strong> 在业务项目中<code>dependencies</code>和<code>devDependencies</code>没有什么本质区别，只是单纯的一个规范作用，在执行<code>npm i</code>时两个依赖下的模块都会被下载；而在发布<code>npm</code>包的时候，包中的<code>dependencies</code>依赖项在安装该包的时候会被一起下载，<code>devDependencies</code>依赖项则不会。</p>
+</blockquote>
+<h5 id="peerDependencies"><a href="#peerDependencies" class="headerlink" title="peerDependencies"></a><strong>peerDependencies</strong></h5><p>这种依赖的作用是提示宿主环境去安装插件在<code>peerDependencies</code>中所指定依赖的包，然后插件所依赖的包永远都是宿主环境统一安装的<code>npm</code>包，最终解决插件与所依赖包不一致的问题。</p>
+<p><code>element-ui@2.6.3</code>只是提供一套基于<code>vue</code>的<code>ui</code>组件库，但它要求宿主环境需要安装指定的<code>vue</code>版本，所以你可以看到<code>element</code>项目中的<code>package.json</code>中具有一项配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;peerDependencies&quot;: &#123;</span><br><span class="line">    &quot;vue&quot;: &quot;^2.5.16&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它要求宿主环境安装<code>3.0.0 &gt; vue@ &gt;= 2.5.16</code>的版本，也就是<code>element-ui</code>的运行依赖宿主环境提供的该版本范围的<code>vue</code>依赖包。</p>
+<h5 id="bundledDependencies-bundleDependencies"><a href="#bundledDependencies-bundleDependencies" class="headerlink" title="bundledDependencies / bundleDependencies"></a><strong>bundledDependencies / bundleDependencies</strong></h5><p>这种依赖跟<code>npm pack</code>打包命令有关。假设<code>package.json</code>中有如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;font-end&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;fe1&quot;: &quot;^0.3.2&quot;,</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    ...</span><br><span class="line">    &quot;fe2&quot;: &quot;^1.0.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;bundledDependencies&quot;: [</span><br><span class="line">    &quot;fe1&quot;,</span><br><span class="line">    &quot;fe2&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行打包命令<code>npm pack</code>，会生成<code>front-end-1.0.0.tgz</code>压缩包，并且该压缩包中包含<code>fe1</code>和<code>fe2</code>两个安装包，这样使用者执行<code>npm install front-end-1.0.0.tgz</code>也会安装这两个依赖。</p>
+<h5 id="optionalDependencies"><a href="#optionalDependencies" class="headerlink" title="optionalDependencies"></a><strong>optionalDependencies</strong></h5><p>这种依赖中的依赖项即使安装失败了，也不影响整个安装的过程。需要注意的是，如果一个依赖同时出现在<code>dependencies</code>和<code>optionalDependencies</code>中，那么<code>optionalDependencies</code>会获得更高的优先级，可能造成一些预期之外的效果，所以尽量要避免这种情况发生。</p>
+<h4 id="依赖包版本号"><a href="#依赖包版本号" class="headerlink" title="依赖包版本号"></a>依赖包版本号</h4><p>一个<code>npm</code>依赖包的版本格式一般为：<strong>主版本号.次版本号.修订号</strong>（<code>x.y.z</code>），每个号的含义是：</p>
+<ul>
+<li><p><strong>主版本号</strong>（也叫大版本，<code>major version</code>）</p>
+<p>大版本的改动很可能是一次颠覆性的改动，也就意味着可能存在与低版本不兼容的<code>API</code>或者用法，（比如 <code>vue 2 -&gt; 3</code>)。</p>
+</li>
+<li><p><strong>次版本号</strong>（也叫小版本，<code>minor version</code>）</p>
+<p>小版本的改动应当兼容同一个大版本内的<code>API</code>和用法，因此应该让开发者无感。所以我们通常只说大版本号，很少会精确到小版本号。</p>
+</li>
+<li><p><strong>修订号</strong>（也叫补丁，<code>patch</code>）</p>
+<p>一般用于修复<code>bug</code>或者很细微的变更，也需要保持向前兼容。</p>
+<p>例如： </p>
+<ul>
+<li><p><strong>“1.2.3”</strong></p>
+<p>表示精确版本号。任何其他版本号都不匹配。在一些比较重要的线上项目中，建议使用这种方式锁定版本。</p>
+</li>
+<li><p><strong>“^1.2.3”</strong></p>
+<p>表示兼容补丁和小版本更新的版本号。官方的定义是“能够兼容除了最左侧的非 0 版本号之外的其他变化”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;^1.2.3&quot; 等价于 &quot;&gt;&#x3D; 1.2.3 &lt; 2.0.0&quot;。即只要最左侧的 &quot;1&quot; 不变，其他都可以改变。所以 &quot;1.2.4&quot;, &quot;1.3.0&quot; 都可以兼容。</span><br><span class="line"></span><br><span class="line">&quot;^0.2.3&quot; 等价于 &quot;&gt;&#x3D; 0.2.3 &lt; 0.3.0&quot;。因为最左侧的是 &quot;0&quot;，那么只要第二位 &quot;2&quot; 不变，其他的都兼容，比如 &quot;0.2.4&quot; 和 &quot;0.2.99&quot;。</span><br><span class="line"></span><br><span class="line">&quot;^0.0.3&quot; 等价于 &quot;&gt;&#x3D; 0.0.3 &lt; 0.0.4&quot;。大版本号和小版本号都为 &quot;0&quot; ，所以也就等价于精确的 &quot;0.0.3&quot;。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>“~1.2.3”</strong></p>
+<p>表示只兼容补丁更新的版本号。关于 <code>~</code> 的定义分为两部分：如果列出了小版本号（第二位），则只兼容补丁（第三位）的修改；如果没有列出小版本号，则兼容第二和第三位的修改。我们分两种情况理解一下这个定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;~1.2.3&quot; 列出了小版本号 &quot;2&quot;，因此只兼容第三位的修改，等价于 &quot;&gt;&#x3D; 1.2.3 &lt; 1.3.0&quot;。</span><br><span class="line"></span><br><span class="line">&quot;~1.2&quot; 也列出了小版本号 &quot;2&quot;，因此和上面一样兼容第三位的修改，等价于 &quot;&gt;&#x3D; 1.2.0 &lt; 1.3.0&quot;。</span><br><span class="line"></span><br><span class="line">&quot;~1&quot; 没有列出小版本号，可以兼容第二第三位的修改，因此等价于 &quot;&gt;&#x3D; 1.0.0 &lt; 2.0.0&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>“1.x” 、”1.X”、1.*“、”1”、”*“</strong></p>
+<p>表示使用通配符的版本号。x、X、* 和 （空） 的含义相同，都表示可以匹配任何内容。具体来说：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;*&quot; 、&quot;x&quot; 或者 （空） 表示可以匹配任何版本。</span><br><span class="line"></span><br><span class="line">&quot;1.x&quot;, &quot;1.*&quot; 和 &quot;1&quot; 表示匹配主版本号为 &quot;1&quot; 的所有版本，因此等价于 &quot;&gt;&#x3D; 1.0.0 &lt; 2.0.0&quot;。</span><br><span class="line"></span><br><span class="line">&quot;1.2.x&quot;, &quot;1.2.*&quot; 和 &quot;1.2&quot; 表示匹配版本号以 &quot;1.2&quot; 开头的所有版本，因此等价于 &quot;&gt;&#x3D; 1.2.0 &lt; 1.3.0&quot;。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>“1.2.3-alpha.1”、”1.2.3-beta.1”、”1.2.3-rc.1”</strong></p>
+<p>带预发布关键词的版本号。先说说几个预发布关键词的定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alpha(α)：预览版，或者叫内部测试版；一般不向外部发布，会有很多bug；一般只有测试人员使用。</span><br><span class="line"></span><br><span class="line">beta(β)：测试版，或者叫公开测试版；这个阶段的版本会一直加入新的功能；在alpha版之后推出。</span><br><span class="line"></span><br><span class="line">rc(release candidate)：最终测试版本；可能成为最终产品的候选版本，如果未出现问题则可发布成为正式版本。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;1.2.4-alpha.1&quot;表示接受 &quot;1.2.4-alpha&quot; 版本下所有大于 1 的预发布版本。因此 &quot;1.2.4-alpha.7&quot; 是符合要求的，但 &quot;1.2.4-beta.1&quot; 和 &quot;1.2.5-alpha.2&quot; 都不符合。此外如果是正式版本（不带预发布关键词），只要版本号符合要求即可，不检查预发布版本号，例如 &quot;1.2.5&quot;, &quot;1.3.0&quot; 都是认可的。</span><br><span class="line"></span><br><span class="line">&quot;~1.2.4-alpha.1&quot; 表示 &quot;&gt;&#x3D;1.2.4-alpha.1 &lt; 1.3.0&quot;。这样 &quot;1.2.5&quot;, &quot;1.2.4-alpha.2&quot; 都符合条件，而 &quot;1.2.5-alpha.1&quot;, &quot;1.3.0&quot; 不符合。</span><br><span class="line"></span><br><span class="line">&quot;^1.2.4-alpha.1&quot; 表示 &quot;&gt;&#x3D;1.2.4-alpha.1 &lt; 2.0.0&quot;。这样 &quot;1.2.5&quot;, &quot;1.2.4-alpha.2&quot;, &quot;1.3.0&quot; 都符合条件，而 &quot;1.2.5-alpha.1&quot;, &quot;2.0.0&quot; 不符合。</span><br></pre></td></tr></table></figure>
+
+版本号还有更多的写法，例如范围（`a - b`），大于等于号（`&gt;=`），小于等于号（`&lt;=`），或（`||`）等等
+
+##### 依赖包版本管理
+
+1、 在大版本相同的前提下，如果一个模块在`package.json`中的小版本要**大于**`package-lock.json`中的小版本，则在执行`npm install`时，会将该模块更新到大版本下的最新的版本，并将版本号更新至`package-lock.json`。如果**小于**，则被`package-lock.json`中的版本锁定。
+
+2、如果一个模块在`package.json`和`package-lock.json`中的大版本不相同，则在执行`npm install`时，都将根据`package.json`中大版本下的最新版本进行更新，并将版本号更新至`package-lock.json`。
+
+3、如果一个模块在`package.json`中有记录，而在`package-lock.json`中无记录，执行`npm install`后，则会在`package-lock.json`生成该模块的详细记录。同理，一个模块在`package.json`中无记录，而在`package-lock.json`中有记录，执行`npm install`后，则会在`package-lock.json`删除该模块的详细记录。
+
+4、如果要更新某个模块大版本下的最新版本（升级小版本号），请执行如下命令：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update packageName # npm updata 只更新顶层模块，而不更新依赖的依赖</span><br></pre></td></tr></table></figure>
+
+5、如果要更新到指定版本号（升级大版本号），请执行如下命令：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install packageName@x.x.x</span><br></pre></td></tr></table></figure>
+
+6、 卸载某个模块，请执行如下命令：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall packageName</span><br></pre></td></tr></table></figure>
+
+7、安装模块的确切版本：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install packageName -D&#x2F;S --save-exact</span><br></pre></td></tr></table></figure>
+
+### npm scripts 脚本
+
+`package.json`中的 [scripts](https://docs.npmjs.com/misc/scripts) 字段可以用来自定义脚本命令，它的每一个属性，对应一段脚本。以`vue-cli3`为例：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;serve&quot;: &quot;vue-cli-service serve&quot;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+&gt;`npm run`是`npm run-script`的缩写，一般都使用前者，但是后者可以更好地反应这个命令的本质
+
+##### 工作原理
+
+`package.json`中的字段 [bin](https://docs.npmjs.com/files/package.json.html#bin) 表示的是一个**可执行文件到指定文件源的映射**。通过`npm bin`指令显示当前项目的`bin`目录的路径。例如在`@vue/cli`的`package.json`中：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">  &quot;vue&quot;: &quot;bin&#x2F;vue.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/04/npm-desc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-phone-web" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1009,99 +1241,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/06/nuxt-seo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue-newpage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/01/vue-newpage/">vue 打开新页面</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/01/vue-newpage/" class="archive-article-date">
-  	<time datetime="2020-03-01T12:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="vue项目新打开页面"><a href="#vue项目新打开页面" class="headerlink" title="vue项目新打开页面"></a>vue项目新打开页面</h3><h4 id="router-link-跳转"><a href="#router-link-跳转" class="headerlink" title="router-link 跳转"></a>router-link 跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 直接写上跳转的地址</span><br><span class="line">&lt;router-link to&#x3D;&quot;&#x2F;detail&#x2F;one&quot;&gt;</span><br><span class="line">  &lt;span class&#x3D;&quot;spanfour&quot; &gt;link跳转&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;router-link&gt;</span><br><span class="line">&#x2F;&#x2F; 添加参数</span><br><span class="line">&lt;router-link :to&#x3D;&quot;&#123;path:&#39;&#x2F;detail&#x2F;two&#39;, query:&#123;id:1，name:&#39;vue&#39;&#125;&#125;&quot;&gt;</span><br><span class="line"> &lt;&#x2F;router-link&gt;</span><br><span class="line">&#x2F;&#x2F; 参数获取</span><br><span class="line">id &#x3D; this.$route.query.id</span><br><span class="line">&#x2F;&#x2F; 新窗口打开</span><br><span class="line">&lt;router-link :to&#x3D;&quot;&#123;path:&#39;&#x2F;detail&#x2F;three&#39;, query:&#123;id:1，name:&#39;vue&#39;&#125;&#125;&quot; target&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">&lt;&#x2F;router-link&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="this-router-push跳转"><a href="#this-router-push跳转" class="headerlink" title="this.$router.push跳转"></a>this.$router.push跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">toDeail (e) &#123;</span><br><span class="line">   this.$router.push(&#123;path: &quot;&#x2F;detail&quot;, query: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> &#x2F;&#x2F; 参数获取</span><br><span class="line"> id &#x3D; this.$route.query.id</span><br><span class="line"> </span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   this.$router.push(&#123;name: &quot;&#x2F;detail&quot;, params: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> &#x2F;&#x2F; 注意地址需写在 name后面</span><br><span class="line"> &#x2F;&#x2F;参数获取，params和query区别，query参数在地址栏显示，params的参数不在地址栏显示</span><br><span class="line"> id &#x3D; this.$route.params.id</span><br></pre></td></tr></table></figure>
-
-<h4 id="this-router-replace跳转"><a href="#this-router-replace跳转" class="headerlink" title="this.$router.replace跳转"></a>this.$router.replace跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;和push的区别，push有记录一个history，replace没有</span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   this.$router.replace(&#123;name: &#39;&#x2F;detail&#39;, params: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="resolve跳转"><a href="#resolve跳转" class="headerlink" title="resolve跳转"></a>resolve跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">resolve页面跳转可用新页面打开</span><br><span class="line"> 2.1.0版本后，使用路由对象的resolve方法解析路由，可以得到location、router、href等目标路由的信息。得到href就可以使用window.open 打开新窗口</span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   const new &#x3D; this.$router.resolve(&#123;name: &#39;&#x2F;detail&#39;, params: &#123;id: e&#125;&#125;)</span><br><span class="line">   window.open(new.href,&#39;_blank&#39;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题： nuxt项目中用 nuxt-link 或者 resolve 会使请求被拦截或者速度变慢？ emmmm 还不知道原因 </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/01/vue-newpage/">展开全文 >></a>
         </p>
       
 
