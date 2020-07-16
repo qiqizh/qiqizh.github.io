@@ -16,7 +16,7 @@
 <meta property="og:description" content="粒子动图 安装npm i vue-particles main.js 引入123import Vue from &#39;vue&#39;import vueParticles  from  &#39;vue-particles&#39;Vue.use(vueParticles) 页面使用123456789101112131415161718&lt;vue-particles        col">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-05-29T11:33:04.000Z">
-<meta property="article:modified_time" content="2020-06-11T10:59:36.031Z">
+<meta property="article:modified_time" content="2020-07-13T02:25:51.346Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -222,6 +222,42 @@
 
 <p>然后把修改的源码提交：</p>
 <p><code>git add - f node_modules/vue-json-excel/JsonExcel.vue</code></p>
+<h3 id="vue-awesome-swiper"><a href="#vue-awesome-swiper" class="headerlink" title="vue-awesome-swiper"></a>vue-awesome-swiper</h3><ul>
+<li><p>下载 插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-awesome-swiper -S</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>引入插件</p>
+<p>在plugins里创建一个swiper.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import VueAwesomeSwiper from &#39;vue-awesome-swiper&#39;</span><br><span class="line">import &#39;swiper&#x2F;css&#x2F;swiper.css&#39;</span><br><span class="line">&#x2F;&#x2F; import &#39;swiper&#x2F;swiper-bundle.css&#39;</span><br><span class="line">export default ()&#x3D;&gt;&#123;</span><br><span class="line">    Vue.use(VueAwesomeSwiper)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>插件在页面的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;swiper class&#x3D;&quot;swiper&quot; :options&#x3D;&quot;swiperOption&quot;&gt;</span><br><span class="line">                  &lt;swiper-slide&gt;&lt;div class&#x3D;&quot;item ad3&quot;&gt;&lt;&#x2F;div&gt;&lt;&#x2F;swiper-slide&gt;</span><br><span class="line">                  &lt;swiper-slide&gt;&lt;div class&#x3D;&quot;item ad2&quot;&gt;&lt;&#x2F;div&gt;&lt;&#x2F;swiper-slide&gt;</span><br><span class="line">                  &lt;swiper-slide&gt;&lt;div class&#x3D;&quot;item ad1&quot;&gt;&lt;&#x2F;div&gt;&lt;&#x2F;swiper-slide&gt;</span><br><span class="line">                  &lt;!-- &lt;div class&#x3D;&quot;swiper-pagination&quot; slot&#x3D;&quot;pagination&quot;&gt;&lt;&#x2F;div&gt; --&gt;</span><br><span class="line">              &lt;&#x2F;swiper&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Data 里设置参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">swiperOption: &#123;</span><br><span class="line">  slidesPerView: 2.1,</span><br><span class="line">  centeredSlides: false,</span><br><span class="line">  spaceBetween: 0,</span><br><span class="line">  grabCursor: true,</span><br><span class="line">  pagination: &#123;</span><br><span class="line">  el: &#39;.swiper-pagination&#39;,</span><br><span class="line">  clickable: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>问题</p>
+<p>页面不生效，原因是</p>
+<p>  “swiper”: “^5.2.0”,</p>
+<p>   “vue-awesome-swiper”: “^4.1.1”,</p>
+<p>版本号的问题</p>
+</li>
+</ul>
 
       
 

@@ -170,6 +170,181 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-share" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/06/share/">微信朋友圈分享</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/06/share/" class="archive-article-date">
+  	<time datetime="2019-05-06T05:44:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装sdk"><a href="#安装sdk" class="headerlink" title="安装sdk"></a>安装sdk</h3><p><code>npm install weixin-js-sdk --save</code></p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js 引入微信 sdk<br><code>import wx from &#39;weixin-js-sdk</code></p>
+        
+          <a class="article-more-a" href="/2019/05/06/share/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/06/share/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/29/webpack/">webpack</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/29/webpack/" class="archive-article-date">
+  	<time datetime="2019-04-29T09:41:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="webpack-配置"><a href="#webpack-配置" class="headerlink" title="webpack 配置"></a>webpack 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  entry: &quot;.&#x2F;app&#x2F;entry&quot;, &#x2F;&#x2F; string | object | array</span><br><span class="line">  &#x2F;&#x2F; Webpack打包的入口</span><br><span class="line">  output: &#123;  &#x2F;&#x2F; 定义webpack如何输出的选项</span><br><span class="line">    path: path.resolve(__dirname, &quot;dist&quot;), &#x2F;&#x2F; string</span><br><span class="line">    &#x2F;&#x2F; 所有输出文件的目标路径</span><br><span class="line">    filename: &quot;[chunkhash].js&quot;, &#x2F;&#x2F; string</span><br><span class="line">    &#x2F;&#x2F; 「入口(entry chunk)」文件命名模版</span><br><span class="line">    publicPath: &quot;&#x2F;assets&#x2F;&quot;, &#x2F;&#x2F; string</span><br><span class="line">    &#x2F;&#x2F; 构建文件的输出目录</span><br><span class="line">    &#x2F;* 其它高级配置 *&#x2F;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;  &#x2F;&#x2F; 模块相关配置</span><br><span class="line">    rules: [ &#x2F;&#x2F; 配置模块loaders，解析规则</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.jsx?$&#x2F;,  &#x2F;&#x2F; RegExp | string</span><br><span class="line">        include: [ &#x2F;&#x2F; 和test一样，必须匹配选项</span><br><span class="line">          path.resolve(__dirname, &quot;app&quot;)</span><br><span class="line">        ],</span><br><span class="line">        exclude: [ &#x2F;&#x2F; 必不匹配选项（优先级高于test和include）</span><br><span class="line">          path.resolve(__dirname, &quot;app&#x2F;demo-files&quot;)</span><br><span class="line">        ],</span><br><span class="line">        loader: &quot;babel-loader&quot;, &#x2F;&#x2F; 模块上下文解析</span><br><span class="line">        options: &#123; &#x2F;&#x2F; loader的可选项</span><br><span class="line">          presets: [&quot;es2015&quot;]</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123; &#x2F;&#x2F;  解析模块的可选项</span><br><span class="line">    modules: [ &#x2F;&#x2F; 模块的查找目录</span><br><span class="line">      &quot;node_modules&quot;,</span><br><span class="line">      path.resolve(__dirname, &quot;app&quot;)</span><br><span class="line">    ],</span><br><span class="line">    extensions: [&quot;.js&quot;, &quot;.json&quot;, &quot;.jsx&quot;, &quot;.css&quot;], &#x2F;&#x2F; 用到的文件的扩展</span><br><span class="line">    alias: &#123; &#x2F;&#x2F; 模块别名列表</span><br><span class="line">      &quot;module&quot;: &quot;new-module&quot;</span><br><span class="line">	  &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  devtool: &quot;source-map&quot;, &#x2F;&#x2F; enum</span><br><span class="line">  &#x2F;&#x2F; 为浏览器开发者工具添加元数据增强调试</span><br><span class="line">  plugins: [ &#x2F;&#x2F; 附加插件列表</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/04/29/webpack/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/29/webpack/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

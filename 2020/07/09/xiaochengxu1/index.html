@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>Archives: 2020 | 长路漫漫</title>
+  <title>小程序的一些基本使用 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="长路漫漫">
-<meta property="og:url" content="https://qiqizh.github.io/archives/2020/page/2/index.html">
+  <meta name="description" content="微信授权​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 scope ，用户选择对 scope 来进行授权，当授权给一个 scope 之后，其对应的所有接口都可以直接使用。 此类接口调用时：  如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；  如果用户已授权，可以直接调用接口；  如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序的一些基本使用">
+<meta property="og:url" content="https://qiqizh.github.io/2020/07/09/xiaochengxu1/index.html">
 <meta property="og:site_name" content="长路漫漫">
+<meta property="og:description" content="微信授权​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 scope ，用户选择对 scope 来进行授权，当授权给一个 scope 之后，其对应的所有接口都可以直接使用。 此类接口调用时：  如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；  如果用户已授权，可以直接调用接口；  如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fa">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-09T12:31:57.000Z">
+<meta property="article:modified_time" content="2020-07-16T10:42:24.417Z">
 <meta property="article:author" content="qiqi">
+<meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="长路漫漫" type="application/atom+xml">
@@ -168,36 +173,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-xiaochengxu1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小程序的一些基本使用
+    </h1>
+  
+
+        
+        <a href="/2020/07/09/xiaochengxu1/" class="archive-article-date">
+  	<time datetime="2020-07-09T12:31:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="微信授权"><a href="#微信授权" class="headerlink" title="微信授权"></a>微信授权</h3><p>​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 <code>scope</code> ，用户选择对 <code>scope</code> 来进行授权，当授权给一个 <code>scope</code> 之后，其对应的所有接口都可以直接使用。</p>
+<p>此类接口调用时：</p>
+<ul>
+<li><p>如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；</p>
+</li>
+<li><p>如果用户已授权，可以直接调用接口；</p>
+</li>
+<li><p>如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fail 回调</p>
+<a id="more"></a>
+
+<h5 id="获取用户授权设置"><a href="#获取用户授权设置" class="headerlink" title="获取用户授权设置"></a>获取用户授权设置</h5><p>Wx.getSetting</p>
+<p>获取用户的当前设置。<strong>返回值中只会出现小程序已经向用户请求过的<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/authorize.html" target="_blank" rel="noopener">权限</a></strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">wx.getSetting(&#123;</span><br><span class="line">  withSubscriptions: true, &#x2F;&#x2F;是否同时获取用户订阅消息的订阅状态，默认不获取。</span><br><span class="line">  success (res) &#123;</span><br><span class="line">    console.log(res.authSetting) &#x2F;&#x2F;用户授权结果</span><br><span class="line">    &#x2F;&#x2F; res.authSetting &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;   &quot;scope.userInfo&quot;: true,</span><br><span class="line">    &#x2F;&#x2F;   &quot;scope.userLocation&quot;: true</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">    console.log(res.subscriptionsSetting) </span><br><span class="line">    &#x2F;&#x2F;用户订阅消息设置，接口参数withSubscriptions值为true时才会返回</span><br><span class="line">    &#x2F;&#x2F; res.subscriptionsSetting &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;   mainSwitch: true, &#x2F;&#x2F; 订阅消息总开关</span><br><span class="line">    &#x2F;&#x2F;   itemSettings: &#123;   &#x2F;&#x2F; 每一项开关</span><br><span class="line">    &#x2F;&#x2F;     SYS_MSG_TYPE_INTERACTIVE: &#39;accept&#39;, &#x2F;&#x2F; 小游戏系统订阅消息</span><br><span class="line">    &#x2F;&#x2F;     SYS_MSG_TYPE_RANK: &#39;accept&#39;</span><br><span class="line">    &#x2F;&#x2F;     zun-LzcQyW-edafCVvzPkK4de2Rllr1fFpw2A_x0oXE: &#39;reject&#39;, &#x2F;&#x2F; 普通一次性订阅消息</span><br><span class="line">    &#x2F;&#x2F;     ke_OZC_66gZxALLcsuI7ilCJSP2OJ2vWo2ooUPpkWrw: &#39;ban&#39;,</span><br><span class="line">    &#x2F;&#x2F;   &#125;</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>#####         打开用户授权设置</code></pre><p>​        wx.openSetting</p>
+<p>​        调起客户端小程序设置界面，返回用户设置的操作结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wx.openSetting(&#123;</span><br><span class="line">  success (res) &#123;</span><br><span class="line">    console.log(res.authSetting)</span><br><span class="line">    &#x2F;&#x2F; res.authSetting &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F;   &quot;scope.userInfo&quot;: true,</span><br><span class="line">    &#x2F;&#x2F;   &quot;scope.userLocation&quot;: true</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<pre><code>#####         提前发起授权请求</code></pre><p>​        wx.authorize</p>
+<p>​    提前向用户发起授权请求。调用后会立刻弹窗询问用户是否同意授权小程序使用某项功能或获取用户的某些数据，但不会实际调用对应接口。如果用户之前已经同意授权，则不会出现弹窗，直接返回成功。更多用法详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/authorize.html" target="_blank" rel="noopener">用户授权</a>。</p>
+<p>参数：</p>
+<p>Scope 需要获取权限的 scope，详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/authorize.html#scope-列表" target="_blank" rel="noopener">scope 列表</a></p>
+<p>Success  接口调用成功的回调函数</p>
+<p>Fail  接口调用失败的回调函数</p>
+<p>Complete   接口调用结束的回调函数（调用成功、失败都会执行）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">wx.getSetting(&#123;</span><br><span class="line">  success(res) &#123;</span><br><span class="line">    if (!res.authSetting[&#39;scope.record&#39;]) &#123;</span><br><span class="line">      wx.authorize(&#123;</span><br><span class="line">        scope: &#39;scope.record&#39;,</span><br><span class="line">        success () &#123;</span><br><span class="line">          &#x2F;&#x2F; 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问</span><br><span class="line">          wx.startRecord()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<pre><code>#####         scope 列表                                对应接口                                                描述</code></pre><ul>
+<li><p>scope.userInfo——wx.getUserInfo———-用户信息</p>
+</li>
+<li><p>Scope.userLocation ——–wx.getLocation———–地理位置</p>
+</li>
+<li><p>Scope.userLoacationBackground——-wx.startLocationUpdateBackground  —后台定位</p>
+</li>
+<li><p>scope.address——-wx.chooseAddress—–通讯地址</p>
+</li>
+<li><p>Scope.invoiceTitle—–wx.chooseInvoiceTitle——发票抬头</p>
+</li>
+<li><p>Scope.invoice—–wx.chooseInvoice—获取发票</p>
+</li>
+<li><p>Scope.werun——-wx.gerWeRunData—–微信运动步数</p>
+</li>
+<li><p>Scope.record—–wx.startRecord——录音功能</p>
+</li>
+<li><p>Scope.writePhotosAlbum—–wx.saveImagePhotosAlbum,wx.saveVideoToPhotosAlbum—–保存到相册</p>
+</li>
+<li><p>scope.camera——camera 组件——摄像头</p>
+</li>
+</ul>
+<pre><code>##### 授权有效期
+
+一旦用户明确同意或拒绝过授权，其授权关系会记录在后台，直到用户主动删除小程序。
+
+##### 注意事项
+
+1. `wx.authorize({scope: &quot;scope.userInfo&quot;})`，不会弹出授权窗口，请使用  `&lt;button open-type=&quot;getUserInfo&quot;/&gt;`
+2. 需要授权 `scope.userLocation`、`scope.userLocationBackground` 时必须[配置地理位置用途说明](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#permission)。
+
+#### button
+
+属性---说明----默认值
+
+Size---按钮大小----default
+
+type---按钮样式类型---default
+
+Plain----按钮是否镂空，背景色透明----false
+
+Disabled---是否禁用-----false
+
+Loading----名称前是否带loading图标-----false
+
+Form-type----点击会触发form的submit/reset事件---string
+
+Open-type---微信开放能力---string
+
+Hover-class--按钮hover类名---string
+
+hover-stop-propagation----指定是否阻止本节点的祖先节点出现点击态--flae
+
+Lang---指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文-----en
+
+session-from-----会话来源，open-type=&quot;contact&quot;时有效
+
+send-message-title----会话内消息卡片标题，open-type=&quot;contact&quot;时有效
+
+send-message-path-----会话内消息卡片点击跳转小程序路径，open-type=&quot;contact&quot;时有效
+
+send-message-img----会话内消息卡片图片，open-type=&quot;contact&quot;时有效
+
+app-parameter----打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效
+
+show-message-card----是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示&quot;可能要发送的小程序&quot;提示，用户点击后可以快速发送小程序消息，open-type=&quot;contact&quot;时有效
+
+bindgetuserinfo---用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与[wx.getUserInfo](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserInfo.html)返回的一致，open-type=&quot;getUserInfo&quot;时有效
+
+bindcontact----客服消息回调，open-type=&quot;contact&quot;时有效
+
+bindgetphonenumber----获取用户手机号回调，open-type=getPhoneNumber时有效
+
+binderror----使用开放能力时，发生错误的回调，open-type=launchApp时有有效
+
+bindopensetting---在打开授权设置页后回调，open-type=openSetting时有效
+
+bindlaunchapp-----打开 APP 成功的回调，open-type=launchApp时有效</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/share1/" class="archive-article-date">
-  	<time datetime="2020-05-01T07:35:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/share1/">vue中文章分享到QQ/微博、微信 ♚</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -209,272 +344,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2020/07/09/xiaochengxu1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/test/" class="archive-article-date">
-  	<time datetime="2020-04-29T02:30:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/01/vue+%20vant%20+%20koa/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue+ vant + koa</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/test/">test</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-28T03:56:59.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/09/quill-editor/" class="archive-article-date">
-  	<time datetime="2020-03-09T03:22:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/09/quill-editor/">vue-quill-editor 的使用及图片插入</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/nuxt-seo/" class="archive-article-date">
-  	<time datetime="2020-03-06T03:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/nuxt-seo/">nuxt seo</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/vue-newpage/" class="archive-article-date">
-  	<time datetime="2020-03-01T12:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/vue-newpage/">vue 打开新页面</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/fee/" class="archive-article-date">
-  	<time datetime="2020-02-20T12:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/fee/">bug</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -498,8 +466,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
