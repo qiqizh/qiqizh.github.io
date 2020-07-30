@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
   <title>小程序的一些基本使用 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="微信授权​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 scope ，用户选择对 scope 来进行授权，当授权给一个 scope 之后，其对应的所有接口都可以直接使用。 此类接口调用时：  如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；  如果用户已授权，可以直接调用接口；  如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fa">
+  <meta name="description" content="微信授权">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序的一些基本使用">
 <meta property="og:url" content="https://qiqizh.github.io/2020/07/09/xiaochengxu1/index.html">
 <meta property="og:site_name" content="长路漫漫">
-<meta property="og:description" content="微信授权​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 scope ，用户选择对 scope 来进行授权，当授权给一个 scope 之后，其对应的所有接口都可以直接使用。 此类接口调用时：  如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；  如果用户已授权，可以直接调用接口；  如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fa">
+<meta property="og:description" content="微信授权">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-09T12:31:57.000Z">
-<meta property="article:modified_time" content="2020-07-16T10:42:24.417Z">
+<meta property="article:modified_time" content="2020-07-30T10:51:02.793Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="微信授权"><a href="#微信授权" class="headerlink" title="微信授权"></a>微信授权</h3><p>​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 <code>scope</code> ，用户选择对 <code>scope</code> 来进行授权，当授权给一个 <code>scope</code> 之后，其对应的所有接口都可以直接使用。</p>
+        <h3 id="微信授权"><a href="#微信授权" class="headerlink" title="微信授权"></a>微信授权</h3><a id="more"></a>
+
+<p>​    部分接口需要经过用户授权同意才能调用。我们把这些接口按使用范围分成多个 <code>scope</code> ，用户选择对 <code>scope</code> 来进行授权，当授权给一个 <code>scope</code> 之后，其对应的所有接口都可以直接使用。</p>
 <p>此类接口调用时：</p>
 <ul>
 <li><p>如果用户未接受或拒绝过此权限，会弹窗询问用户，用户点击同意后方可调用接口；</p>
@@ -201,7 +203,7 @@
 <li><p>如果用户已授权，可以直接调用接口；</p>
 </li>
 <li><p>如果用户已拒绝授权，则不会出现弹窗，而是直接进入接口 fail 回调</p>
-<a id="more"></a>
+<!-- more -->
 
 <h5 id="获取用户授权设置"><a href="#获取用户授权设置" class="headerlink" title="获取用户授权设置"></a>获取用户授权设置</h5><p>Wx.getSetting</p>
 <p>获取用户的当前设置。<strong>返回值中只会出现小程序已经向用户请求过的<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/authorize.html" target="_blank" rel="noopener">权限</a></strong></p>
@@ -412,7 +414,7 @@ bindlaunchapp-----打开 APP 成功的回调，open-type=launchApp时有效</cod
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          next/vue 实现伪静态
+          nuxt/vue 实现伪静态
         
       </div>
     </a>

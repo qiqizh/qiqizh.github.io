@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
   <title>wechat---小程序 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="常用方法 栗子  1&lt;view id&#x3D;&quot;tapTest&quot; data-hi&#x3D;&quot;WeChat&quot; bindtap&#x3D;&quot;tapName&quot;&gt; Click me! &lt;&#x2F;view&gt;  js 中 12345Page(&amp;#123;  tapName: function(event) &amp;#123;">
+  <meta name="description" content="常用方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wechat---小程序">
 <meta property="og:url" content="https://qiqizh.github.io/2020/06/01/xiaochengxu/index.html">
 <meta property="og:site_name" content="长路漫漫">
-<meta property="og:description" content="常用方法 栗子  1&lt;view id&#x3D;&quot;tapTest&quot; data-hi&#x3D;&quot;WeChat&quot; bindtap&#x3D;&quot;tapName&quot;&gt; Click me! &lt;&#x2F;view&gt;  js 中 12345Page(&amp;#123;  tapName: function(event) &amp;#123;">
+<meta property="og:description" content="常用方法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-01T13:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-15T08:43:51.402Z">
+<meta property="article:modified_time" content="2020-07-30T10:50:45.968Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+        <h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><a id="more"></a>
+
+<ul>
 <li>栗子</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view id&#x3D;&quot;tapTest&quot; data-hi&#x3D;&quot;WeChat&quot; bindtap&#x3D;&quot;tapName&quot;&gt; Click me! &lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
@@ -218,7 +220,7 @@
 <li>animationend. 会在一个 WXSS animation 动画完成时触发</li>
 <li>touchforcechange.   在支持 3D Touch 的 iPhone 设备，重按时会触发</li>
 </ul>
-<a id="more"></a>
+<!-- more -->
 
 <h4 id="微信授权"><a href="#微信授权" class="headerlink" title="微信授权"></a>微信授权</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class&#x3D;&quot;getPermiss&quot; wx:if&#x3D;&quot;&#123;&#123;isShowPermiss&#125;&#125;&quot;&gt;</span><br><span class="line">    &lt;view class&#x3D;&quot;permissContent&quot;&gt;</span><br><span class="line">        &lt;view class&#x3D;&quot;permiss_title&quot;&gt;用户授权&lt;&#x2F;view&gt;</span><br><span class="line">        &lt;view class&#x3D;&quot;permiss_content&quot;&gt;同意获取您的（头像和昵称）&lt;&#x2F;view&gt;</span><br><span class="line">        &lt;button bindgetuserinfo&#x3D;&quot;onGotUserInfo&quot; class&#x3D;&quot;ok&quot; openType&#x3D;&quot;getUserInfo&quot;&gt;允许&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;view bindtap&#x3D;&quot;canalePermiss&quot; class&#x3D;&quot;cancle&quot;&gt;拒绝&lt;&#x2F;view&gt;</span><br><span class="line">    &lt;&#x2F;view&gt;</span><br><span class="line">&lt;&#x2F;view&gt;</span><br></pre></td></tr></table></figure>
 
