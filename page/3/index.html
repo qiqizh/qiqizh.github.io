@@ -170,6 +170,267 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nuxt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/nuxt/">nuxt 的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/nuxt/" class="archive-article-date">
+  	<time datetime="2019-11-10T09:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>官方地址: [<a href="https://www.nuxtjs.cn/]" target="_blank" rel="noopener">https://www.nuxtjs.cn/]</a></p>
+<h3 id="nuxt-与-vue的区别"><a href="#nuxt-与-vue的区别" class="headerlink" title="nuxt 与 vue的区别"></a>nuxt 与 vue的区别</h3><ul>
+<li>nuxt 是基于vue的开箱即用的框架，语法和vue相同, 但更利于seo</li>
+<li>npm run generate 可以将项目中各页面变为html页面，可以有自己的title和meta，静态站点。</li>
+<li>nuxt 是服务端渲染，部署的时候和vue项目部署时不同。</li>
+<li>nuxt没有入口文件，可以在layout/default.vue 中设置，所有配置在  nuxt.config.js 中完成。
+        
+          <a class="article-more-a" href="/2019/11/10/nuxt/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/10/nuxt/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lizi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/lizi/">插件的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/29/lizi/" class="archive-article-date">
+  	<time datetime="2019-05-29T11:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="粒子动图"><a href="#粒子动图" class="headerlink" title="粒子动图"></a>粒子动图</h3><ul>
+<li>安装<br><code>npm i vue-particles</code></li>
+<li>main.js 引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import vueParticles  from  &#39;vue-particles&#39;</span><br><span class="line">Vue.use(vueParticles)</span><br></pre></td></tr></table></figure></li>
+<li>页面使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;vue-particles</span><br><span class="line">        color&#x3D;&quot;#dedede&quot;</span><br><span class="line">        :particleOpacity&#x3D;&quot;0.7&quot;</span><br><span class="line">        :particlesNumber&#x3D;&quot;80&quot;</span><br><span class="line">        shapeType&#x3D;&quot;circle&quot;</span><br><span class="line">        :particleSize&#x3D;&quot;4&quot;</span><br><span class="line">        linesColor&#x3D;&quot;#dedede&quot;</span><br><span class="line">        :linesWidth&#x3D;&quot;1&quot;</span><br><span class="line">        :lineLinked&#x3D;&quot;true&quot;</span><br><span class="line">        :lineOpacity&#x3D;&quot;0.4&quot;</span><br><span class="line">        :linesDistance&#x3D;&quot;150&quot;</span><br><span class="line">        :moveSpeed&#x3D;&quot;3&quot;</span><br><span class="line">        :hoverEffect&#x3D;&quot;true&quot;</span><br><span class="line">        hoverMode&#x3D;&quot;grab&quot;</span><br><span class="line">        :clickEffect&#x3D;&quot;true&quot;</span><br><span class="line">        clickMode&#x3D;&quot;push&quot;</span><br><span class="line">      &gt;</span><br><span class="line">&lt;&#x2F;vue-particles&gt;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/05/29/lizi/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/插件//" class="article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/29/lizi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-axios" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/13/axios/">axios</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/13/axios/" class="archive-article-date">
+  	<time datetime="2019-05-13T03:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>npm<br><code>npm install axios</code></li>
+<li>bower<br><code>bower install axios</code></li>
+<li>cdn<br><code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code>
+        
+          <a class="article-more-a" href="/2019/05/13/axios/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/13/axios/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-share" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
