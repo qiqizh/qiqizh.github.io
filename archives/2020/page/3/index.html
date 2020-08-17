@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>长路漫漫</title>
+  <title>Archives: 2020 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="长路漫漫">
-<meta property="og:url" content="https://qiqizh.github.io/page/2/index.html">
+<meta property="og:url" content="https://qiqizh.github.io/archives/2020/page/3/index.html">
 <meta property="og:site_name" content="长路漫漫">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="qiqi">
@@ -170,110 +170,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-phone-web" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/19/phone-web/">phone-web</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/19/phone-web/" class="archive-article-date">
-  	<time datetime="2020-05-19T10:53:32.668Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>-–</p>
-<p>title: 移动端–base</p>
-<p>date: 2019-12-13 20:52:41</p>
-<p>tags: 分类</p>
-<p>-–</p>
-<h4 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h4><p>物理像素</p>
-<p>逻辑像素</p>
-<h4 id="移动端的适配方案"><a href="#移动端的适配方案" class="headerlink" title="移动端的适配方案"></a>移动端的适配方案</h4>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
+    
       
       
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/19/phone-web/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-w" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+        <div class="archives">
     
-      <header class="article-header">
-        
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/03/01/vue-newpage/" class="archive-article-date">
+  	<time datetime="2020-03-01T12:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/15/w/">asyncData 的基本语法</a>
+      <a class="archive-article-title" href="/2020/03/01/vue-newpage/">vue 打开新页面</a>
     </h1>
   
 
-        
-        <a href="/2020/05/15/w/" class="archive-article-date">
-  	<time datetime="2020-05-15T12:51:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>asyncData</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">asyncData (context) &#123;</span><br><span class="line">     let id &#x3D; context.params.id</span><br><span class="line">     let axios &#x3D; context.$axios</span><br><span class="line">     let info &#x3D; &#123;&#125;</span><br><span class="line">     let pre &#x3D; &#123;&#125;</span><br><span class="line">     let next &#x3D; &#123;&#125;</span><br><span class="line">    return axios.get(&#39;&#x2F;api&#x2F;topic&#x2F;detail&#x2F;&#39;+ id).then((res) &#x3D;&gt;&#123;</span><br><span class="line">         if(res.data.code &#x3D;&#x3D; 0) &#123;</span><br><span class="line">             if(res.data.data&amp;&amp;res.data.data[0]) &#123;</span><br><span class="line">                 pre &#x3D; res.data.data[0]</span><br><span class="line">             &#125;</span><br><span class="line">             if(res.data.data&amp;&amp;res.data.data[2]) &#123;</span><br><span class="line">                 next &#x3D; res.data.data[2]</span><br><span class="line">             &#125;</span><br><span class="line">             if(res.data.data&amp;&amp;res.data.data[1]) &#123;</span><br><span class="line">                 let info1 &#x3D; res.data.data[1]</span><br><span class="line">                 &#x2F;&#x2F; info1.createdAt1 &#x3D; this.timeFormat(info1.createdAt)</span><br><span class="line">                 info &#x3D; info1</span><br><span class="line">             &#125;</span><br><span class="line">             return &#123; info, pre, next &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;,</span><br><span class="line"> </span><br><span class="line"> https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_27068845&#x2F;article&#x2F;details&#x2F;79382850</span><br></pre></td></tr></table></figure>
-
-<p>错误： NuxtServerError connect ECONNREFUSED 127.0.0.1:80</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">return axios.get(&#39;http:&#x2F;&#x2F;127.0.0.1:3000&#x2F;api&#x2F;topic&#x2F;detail&#x2F;&#39;+ id).then((res) &#x3D;&gt;&#123;</span><br><span class="line">    if(res.data.code &#x3D;&#x3D; 0) &#123;</span><br><span class="line">    if(res.data.data&amp;&amp;res.data.data[0]) &#123;</span><br><span class="line">    pre &#x3D; res.data.data[0]</span><br><span class="line">    &#125;</span><br><span class="line">    if(res.data.data&amp;&amp;res.data.data[2]) &#123;</span><br><span class="line">    next &#x3D; res.data.data[2]</span><br><span class="line">    &#125;</span><br><span class="line">    if(res.data.data&amp;&amp;res.data.data[1]) &#123;</span><br><span class="line">    let info1 &#x3D; res.data.data[1]</span><br><span class="line">    &#x2F;&#x2F; info1.createdAt1 &#x3D; this.timeFormat(info1.createdAt)</span><br><span class="line">    info &#x3D; info1</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123; info, pre, next &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -285,806 +209,7 @@
 		</ul>
 	</div>
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/15/w/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-korea" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/15/korea/">korea</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/15/korea/" class="archive-article-date">
-  	<time datetime="2020-05-15T12:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="键盘对应"><a href="#键盘对应" class="headerlink" title="键盘对应"></a>键盘对应</h3><table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>E</th>
-<th>F</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ㅁ</td>
-<td>ㅠ</td>
-<td>ㅊ</td>
-<td>ㅇ</td>
-<td>ㄷ</td>
-<td>ㄹ</td>
-</tr>
-<tr>
-<td>G</td>
-<td>H</td>
-<td>I</td>
-<td>J</td>
-<td>K</td>
-<td>L</td>
-</tr>
-<tr>
-<td>ㅎ</td>
-<td>ㅗ</td>
-<td>ㅑ</td>
-<td>ㅓ</td>
-<td>ㅏ</td>
-<td>ㅣ</td>
-</tr>
-<tr>
-<td>M</td>
-<td>N</td>
-<td>O</td>
-<td>P</td>
-<td>Q</td>
-<td>R</td>
-</tr>
-<tr>
-<td>ㅡ</td>
-<td>ㅜ</td>
-<td>ㅐ</td>
-<td>ㅔ</td>
-<td>ㅂ</td>
-<td>ㄱ</td>
-</tr>
-<tr>
-<td>S</td>
-<td>T</td>
-<td>U</td>
-<td>V</td>
-<td>W</td>
-<td>X</td>
-</tr>
-<tr>
-<td>ㄴ</td>
-<td>ㅅ</td>
-<td>ㅕ</td>
-<td>ㅍ</td>
-<td>ㅈ</td>
-<td>ㅌ</td>
-</tr>
-<tr>
-<td>Y</td>
-<td>Z</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ㅛ</td>
-<td>ㅋ</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="元音"><a href="#元音" class="headerlink" title="元音"></a>元音</h3><table>
-<thead>
-<tr>
-<th>ㅏ</th>
-<th>ㅓ</th>
-<th>ㅗ</th>
-<th>ㅜ</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[a]</td>
-<td>[eo]</td>
-<td>[o]</td>
-<td>[u]</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ㅑ</td>
-<td>ㅕ</td>
-<td>ㅛ</td>
-<td>ㅠ</td>
-<td>ㅡ</td>
-<td>ㅣ</td>
-</tr>
-<tr>
-<td>[ya]</td>
-<td>[yeo]</td>
-<td>[yo]</td>
-<td>[yu]</td>
-<td>[eu]</td>
-<td>[i]</td>
-</tr>
-</tbody></table>
-<h3 id="辅音"><a href="#辅音" class="headerlink" title="辅音"></a>辅音</h3><table>
-<thead>
-<tr>
-<th>ㄱ</th>
-<th>ㄷ</th>
-<th>ㅂ</th>
-<th>ㅈ</th>
-<th>ㅅ</th>
-<th>ㅁ</th>
-<th>ㅎ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>[k/g]</td>
-<td>[t/d]</td>
-<td>[p/b]</td>
-<td>[c/j]与i读j音</td>
-<td>[s/c]与i读 x音</td>
-<td>[m]</td>
-<td>[h]</td>
-</tr>
-<tr>
-<td>ㅋ</td>
-<td>ㅌ</td>
-<td>ㅍ</td>
-<td>ㅊ</td>
-<td></td>
-<td>ㅇ</td>
-<td>ㄹ</td>
-</tr>
-<tr>
-<td>[k]重音</td>
-<td>[t]重音</td>
-<td>[p]重音</td>
-<td>[ch]与i读q音</td>
-<td></td>
-<td>[ng]</td>
-<td>[l]</td>
-</tr>
-<tr>
-<td>ㄱㄱ</td>
-<td>ㄷㄷ</td>
-<td>ㅂㅂ</td>
-<td>ㅈㅈ</td>
-<td>ㅅㅅ</td>
-<td>ㄴ</td>
-<td></td>
-</tr>
-<tr>
-<td>[kk] 重读g音</td>
-<td>[tt]重读d音</td>
-<td>[pp]重读b音</td>
-<td>[jj]重读j音</td>
-<td>[ss]重读s音，与i读x音</td>
-<td>[n]</td>
-<td></td>
-</tr>
-</tbody></table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/15/korea/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-axios-method" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/13/axios-method/">axios-method</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/13/axios-method/" class="archive-article-date">
-  	<time datetime="2020-05-13T03:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h4><ul>
-<li><p>方法一 params传参</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line"></span><br><span class="line">  url: &#39;&#x2F;users&#39;,</span><br><span class="line"></span><br><span class="line">  method: &#39;get&#39;, &#x2F;&#x2F; 方法</span><br><span class="line"></span><br><span class="line">  params: &#123;</span><br><span class="line"></span><br><span class="line">   id: &#39;11111&#39;,</span><br><span class="line"></span><br><span class="line">   name: &#39;22222&#39;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>/users?id=11111&amp;name=22222</code></p>
-        
-          <a class="article-more-a" href="/2020/05/13/axios-method/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/分类//" class="article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/13/axios-method/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-test1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/09/test1/">test1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/09/test1/" class="archive-article-date">
-  	<time datetime="2020-05-09T10:31:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;contain&quot;&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;rno-map-dot J-homeRegionPoint animate style-1&quot; style&#x3D;&quot;left: 81.917%; top: 37.959%&quot;&gt; &lt;div class&#x3D;&quot;rno-map-dot-layer&quot;&gt;&lt;&#x2F;div&gt; &lt;span class&#x3D;&quot;rno-map-dot-text&quot;&gt;首尔&lt;&#x2F;span&gt; &lt;!-- 气泡提示 start --&gt; &lt;div class&#x3D;&quot;rno-bubble rno-bubble-bottom rno-map-bubble&quot;&gt; &lt;div class&#x3D;&quot;rno-bubble-inner&quot;&gt; &lt;h3 class&#x3D;&quot;rno-map-bubble-title&quot;&gt;1个可用区&lt;&#x2F;h3&gt; &lt;div class&#x3D;&quot;rno-map-bubble-cont&quot;&gt; &lt;p&gt;首尔(1)&lt;&#x2F;p&gt; &lt;&#x2F;div&gt; &lt;&#x2F;div&gt; &lt;&#x2F;div&gt; &lt;!-- 气泡提示 end --&gt; &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/05/09/test1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/09/test1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-share1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/share1/">vue中文章分享到QQ/微博、微信 ♚</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/01/share1/" class="archive-article-date">
-  	<time datetime="2020-05-01T07:35:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="QQ分享"><a href="#QQ分享" class="headerlink" title="QQ分享"></a>QQ分享</h3><ul>
-<li>QQ分享需要引入的一个js<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;app&#x2F;qzlike&#x2F;qzopensl.js#jsdate&#x3D;20111201&quot; charset&#x3D;&quot;utf-8&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
-<li>先定义变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ftit &#x3D; &#39;&#39;; &#x2F;&#x2F; 分享的文章得标题</span><br><span class="line"></span><br><span class="line">var flink &#x3D; &#39;&#39;; &#x2F;&#x2F; 分享的logo</span><br></pre></td></tr></table></figure>
-（1）ftit 可以获取文章得标题，<br>（2）flit 可以获取文章内容得第一张图片作为分享出去得logo，或者这个参数也可以设置为网站的logo，可以把logo放在服务器，获取一个固定的链接</li>
-<li>把参数直接拼到路径的后边<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.open(&#39;https:&#x2F;&#x2F;sns.qzone.qq.com&#x2F;cgi-bin&#x2F;qzshare&#x2F;cgi_qzshare_onekey?url&#x3D;&#39; + encodeURIComponent(document.location) + &#39;?sharesource&#x3D;qzone&amp;title&#x3D;&#39; + ftit + &#39;&amp;pics&#x3D;&#39; + flink + &#39;&amp;summary&#x3D;&#39; + &#39;&#39;);</span><br><span class="line">&#x2F;&#x2F;pics是文章标题 summary是文章简介</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/05/01/share1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/share1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/test/">test</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/test/" class="archive-article-date">
-  	<time datetime="2020-04-29T02:30:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/28/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-28T03:56:59.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/28/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-quill-editor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/09/quill-editor/">vue-quill-editor 的使用及图片插入</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/09/quill-editor/" class="archive-article-date">
-  	<time datetime="2020-03-09T03:22:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>npm 下载<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-quill-editor --save</span><br><span class="line">&#x2F;&#x2F; 或者</span><br><span class="line">yarn add vue-quill-editor</span><br></pre></td></tr></table></figure></li>
-<li>cdn 引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;path&#x2F;to&#x2F;quill.core.css&quot;&#x2F;&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;path&#x2F;to&#x2F;quill.snow.css&quot;&#x2F;&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;path&#x2F;to&#x2F;quill.bubble.css&quot;&#x2F;&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;path&#x2F;to&#x2F;quill.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;path&#x2F;to&#x2F;vue.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;path&#x2F;to&#x2F;dist&#x2F;vue-quill-editor.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">  Vue.use(window.VueQuillEditor)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/03/09/quill-editor/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/09/quill-editor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nuxt-seo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/06/nuxt-seo/">nuxt seo</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/06/nuxt-seo/" class="archive-article-date">
-  	<time datetime="2020-03-06T03:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="nuxt-如何做seo优化"><a href="#nuxt-如何做seo优化" class="headerlink" title="nuxt 如何做seo优化"></a>nuxt 如何做seo优化</h3><h4 id="head-里的设置"><a href="#head-里的设置" class="headerlink" title="head 里的设置"></a>head 里的设置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">head()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &#39;jokes home page&#39;,</span><br><span class="line">      meta: [&#123;</span><br><span class="line">        hid: &quot;description&quot;,</span><br><span class="line">        name: &quot;description&quot;,</span><br><span class="line">        content: &quot;this is funny jokes home page&quot;</span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        hid: &#39;viewport&#39;,</span><br><span class="line">        name: &#39;viewport&#39;,</span><br><span class="line">        content: &#39;width&#x3D;device-width, initial-scale&#x3D;1.0&#39;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1097,41 +222,57 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/06/nuxt-seo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/20/fee/" class="archive-article-date">
+  	<time datetime="2020-02-20T13:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/20/fee/">bug</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
 
-
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
+  
+
+    
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/archives/2020/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 
@@ -1155,9 +296,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

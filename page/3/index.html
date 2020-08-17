@@ -170,6 +170,196 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-newpage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/01/vue-newpage/">vue 打开新页面</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/01/vue-newpage/" class="archive-article-date">
+  	<time datetime="2020-03-01T12:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vue项目新打开页面"><a href="#vue项目新打开页面" class="headerlink" title="vue项目新打开页面"></a>vue项目新打开页面</h3><h4 id="router-link-跳转"><a href="#router-link-跳转" class="headerlink" title="router-link 跳转"></a>router-link 跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 直接写上跳转的地址</span><br><span class="line">&lt;router-link to&#x3D;&quot;&#x2F;detail&#x2F;one&quot;&gt;</span><br><span class="line">  &lt;span class&#x3D;&quot;spanfour&quot; &gt;link跳转&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;router-link&gt;</span><br><span class="line">&#x2F;&#x2F; 添加参数</span><br><span class="line">&lt;router-link :to&#x3D;&quot;&#123;path:&#39;&#x2F;detail&#x2F;two&#39;, query:&#123;id:1，name:&#39;vue&#39;&#125;&#125;&quot;&gt;</span><br><span class="line"> &lt;&#x2F;router-link&gt;</span><br><span class="line">&#x2F;&#x2F; 参数获取</span><br><span class="line">id &#x3D; this.$route.query.id</span><br><span class="line">&#x2F;&#x2F; 新窗口打开</span><br><span class="line">&lt;router-link :to&#x3D;&quot;&#123;path:&#39;&#x2F;detail&#x2F;three&#39;, query:&#123;id:1，name:&#39;vue&#39;&#125;&#125;&quot; target&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">&lt;&#x2F;router-link&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="this-router-push跳转"><a href="#this-router-push跳转" class="headerlink" title="this.$router.push跳转"></a>this.$router.push跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">toDeail (e) &#123;</span><br><span class="line">   this.$router.push(&#123;path: &quot;&#x2F;detail&quot;, query: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> &#x2F;&#x2F; 参数获取</span><br><span class="line"> id &#x3D; this.$route.query.id</span><br><span class="line"> </span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   this.$router.push(&#123;name: &quot;&#x2F;detail&quot;, params: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> &#x2F;&#x2F; 注意地址需写在 name后面</span><br><span class="line"> &#x2F;&#x2F;参数获取，params和query区别，query参数在地址栏显示，params的参数不在地址栏显示</span><br><span class="line"> id &#x3D; this.$route.params.id</span><br></pre></td></tr></table></figure>
+
+<h4 id="this-router-replace跳转"><a href="#this-router-replace跳转" class="headerlink" title="this.$router.replace跳转"></a>this.$router.replace跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;和push的区别，push有记录一个history，replace没有</span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   this.$router.replace(&#123;name: &#39;&#x2F;detail&#39;, params: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="resolve跳转"><a href="#resolve跳转" class="headerlink" title="resolve跳转"></a>resolve跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">resolve页面跳转可用新页面打开</span><br><span class="line"> 2.1.0版本后，使用路由对象的resolve方法解析路由，可以得到location、router、href等目标路由的信息。得到href就可以使用window.open 打开新窗口</span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   const new &#x3D; this.$router.resolve(&#123;name: &#39;&#x2F;detail&#39;, params: &#123;id: e&#125;&#125;)</span><br><span class="line">   window.open(new.href,&#39;_blank&#39;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题： nuxt项目中用 nuxt-link 或者 resolve 会使请求被拦截或者速度变慢？ emmmm 还不知道原因 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/01/vue-newpage/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fee" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/20/fee/">bug</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/20/fee/" class="archive-article-date">
+  	<time datetime="2020-02-20T13:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="tags-分类"><a href="#tags-分类" class="headerlink" title="tags: 分类"></a>tags: 分类</h2><h3 id="bug-list1"><a href="#bug-list1" class="headerlink" title="bug-list1"></a>bug-list1</h3><ul>
+<li><p>nuxt中fee页面刷新出现welcome页面，加载的是css不是项目中的，但是页面改了一个名字，刷新就出页面了，也没有出现错误。 神奇！！没找到原因啊 ，成功的避开了问题</p>
+</li>
+<li><p>打开弹窗时，底部页面滑动的问题。实现打开弹窗时，底部页面不动(位置保持不变)   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 判断有无class</span><br><span class="line">function hasClass(name) &#123;</span><br><span class="line">  let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + name + &#39;(\\s|$)&#39;);</span><br><span class="line">  return reg.test(document.body.className);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.addClass &#x3D; function(name)&#123;</span><br><span class="line">  &#x2F;&#x2F; document.addEventListener(&#39;scroll&#39;,function(e) &#123;</span><br><span class="line">  &#x2F;&#x2F;   console.log(&#39;body&#39;, document.documentElement.scrollTop)</span><br><span class="line">  &#x2F;&#x2F; &#125;)</span><br><span class="line">  &#x2F;&#x2F; return false</span><br><span class="line">  console.log(&#39;ddd&#39;, hasClass(name))</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  let bodyScrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  console.log(&#39;body&#39;, document.body.scrollTop)</span><br><span class="line">  console.log(&#39;bodyScrollTop&#39;,bodyScrollTop)</span><br><span class="line">  if (document.body.className &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">    document.body.className +&#x3D; name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let newClass &#x3D; document.body.className.split(&#39; &#39;);</span><br><span class="line">    newClass.push(name);</span><br><span class="line">    document.body.className &#x3D; newClass.join(&#39; &#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  document.body.style.top &#x3D; -bodyScrollTop + &#39;px&#39;;</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.removeClass &#x3D; function(name) &#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    let styleTop &#x3D; Math.abs(parseInt(document.body.style.top));</span><br><span class="line">    document.body.removeAttribute(&#39;style&#39;);</span><br><span class="line">    document.body.className &#x3D; document.body.className.replace(new RegExp(&#39;(\\s|^)&#39; + name + &#39;(\\s|$)&#39;), &#39;&#39;);</span><br><span class="line">    document.body.scrollTop &#x3D; document.documentElement.scrollTop &#x3D; styleTop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改后使用 nuxt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 判断有无class</span><br><span class="line">function hasClass(name) &#123;</span><br><span class="line">  let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + name + &#39;(\\s|$)&#39;);</span><br><span class="line">  return reg.test(document.body.className);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.addClass &#x3D; function(name)&#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  let bodyScrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  if (document.body.className &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">    document.body.className +&#x3D; name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let newClass &#x3D; document.body.className.split(&#39; &#39;);</span><br><span class="line">    newClass.push(name);</span><br><span class="line">    document.body.className &#x3D; newClass.join(&#39; &#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  let layout &#x3D; document.getElementById(&#39;__layout&#39;);</span><br><span class="line">  layout.style.transform &#x3D;&#39;translateY( -&#39; + bodyScrollTop + &#39;px)&#39;;</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.removeClass &#x3D; function(name) &#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    let layout &#x3D; document.getElementById(&#39;__layout&#39;);</span><br><span class="line">    let top &#x3D; 0;</span><br><span class="line">    if(layout.style.transform) &#123;</span><br><span class="line">      top &#x3D; layout.style.transform.split(&#39;(&#39;)[1].split(&#39;px&#39;)[0];</span><br><span class="line">    &#125;</span><br><span class="line">    let styleTop &#x3D; Math.abs(top);</span><br><span class="line">    layout.style &#x3D; &#39;&#39;;</span><br><span class="line">    document.body.removeAttribute(&#39;style&#39;);</span><br><span class="line">    document.body.className &#x3D; document.body.className.replace(new RegExp(&#39;(\\s|^)&#39; + name + &#39;(\\s|$)&#39;), &#39;&#39;);</span><br><span class="line">    document.body.scrollTop &#x3D; styleTop;</span><br><span class="line">    document.documentElement.scrollTop &#x3D; styleTop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    打开弹窗时使用： this.addClass()</p>
+<p>​    关闭弹窗时使用： this.removeClass()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">整体样式的设置，在body里去掉overflow-y: auto; overflow-y: hidden;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>antd vue 中 tabs 遍历，设置 activekey 无法激活显示页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a-tabs :activeKey&#x3D;&quot;keys&quot; @change&#x3D;&quot;callback&quot;  ref&#x3D;&quot;tabbar&quot;&gt;</span><br><span class="line">                   &lt;a-tab-pane :tab&#x3D;&quot;item.name&quot; :key&#x3D;&quot;item.id&quot; v-for&#x3D;&quot;item in tablist&quot;&gt;</span><br><span class="line">                   &lt;&#x2F;a-tab-pane&gt;</span><br><span class="line"> &lt;&#x2F;a-tabs&gt;</span><br></pre></td></tr></table></figure>
+
+<p>原因： keys 应该是数字，将字符变为数字</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/20/fee/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nuxt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -910,181 +1100,9 @@
 
 
   
-    <article id="post-demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/28/demo/">demo</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/28/demo/" class="archive-article-date">
-  	<time datetime="2018-01-28T06:23:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="响应式布局实现方案"><a href="#响应式布局实现方案" class="headerlink" title="响应式布局实现方案"></a>响应式布局实现方案</h2><p> 使用响应式布局只要开发一套就够，缺点就是CSS比较重</p>
-<blockquote>
-<p>响应式设计与自适应设计的区别：响应式开发一套界面，通过检测视口分辨率，针对不同客户端在客户端做代码处理，来展现不同的布局和内容；自适应需要开发多套界面，通过检测视口分辨率，来判断当前访问的设备是pc端、平板、手机，从而请求服务层，返回不同的页面。</p>
-</blockquote>
-<ul>
-<li>媒体查询<br> CSS3媒体查询可以让我们针对不同的媒体类型定义不同的样式，当重置浏览器窗口大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。<br> 如果我们选择600px,900px,1200px,1800px作为分割点，可以适配到常见的14个机型。<br> 还可以这样划分：480px,800px,1400px,1400px。<br> bootstrap中 768px, 992px, 1200px</li>
-<li>百分比布局<br> 通过百分比单位，可以使得浏览器中组件的宽和高随着浏览器的高度的变化而变化，从而实现响应式的效果。Bootstrap里面的栅格系统就是利用百分比来定义元素的宽高，CSS3支持最大最小高，可以将百分比和max(min)一起结合使用来定义元素在不同设备下的宽高。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/28/demo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-photo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/28/photo/">sky</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/28/photo/" class="archive-article-date">
-  	<time datetime="2018-01-28T06:23:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>sky</li>
-</ul>
-<img src="../images/p1.jpg" width="20%"  />
-<img src="../images/p2.jpg" width="20%"  />
-<img src="../images/p4.jpg" width="20%"  />
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">相册</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/28/photo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
