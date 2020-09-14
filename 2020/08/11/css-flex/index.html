@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>Archives: 2020 | 长路漫漫</title>
+  <title>css | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="长路漫漫">
-<meta property="og:url" content="https://qiqizh.github.io/archives/2020/page/2/index.html">
+  <meta name="description" content="css css 设置主题色 1234567body &amp;#123; --themeColor: #ff7c3c; &amp;#125; .tit.active &amp;#123;	   color: var(--themeColor);&amp;#125;  1document.body.style.setProperty(&#39;--themeColor&#39;, &#39;#278ce2&#39;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css">
+<meta property="og:url" content="https://qiqizh.github.io/2020/08/11/css-flex/index.html">
 <meta property="og:site_name" content="长路漫漫">
+<meta property="og:description" content="css css 设置主题色 1234567body &amp;#123; --themeColor: #ff7c3c; &amp;#125; .tit.active &amp;#123;	   color: var(--themeColor);&amp;#125;  1document.body.style.setProperty(&#39;--themeColor&#39;, &#39;#278ce2&#39;)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-11T11:40:00.000Z">
+<meta property="article:modified_time" content="2020-09-11T06:53:00.745Z">
 <meta property="article:author" content="qiqi">
+<meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="长路漫漫" type="application/atom+xml">
@@ -168,36 +173,185 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css-flex" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css
+    </h1>
+  
+
+        
+        <a href="/2020/08/11/css-flex/" class="archive-article-date">
+  	<time datetime="2020-08-11T11:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><ul>
+<li><p>css 设置主题色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body &#123; --themeColor: #ff7c3c; &#125; </span><br><span class="line"></span><br><span class="line">.tit.active &#123;</span><br><span class="line">	</span><br><span class="line">   color: var(--themeColor);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.body.style.setProperty(&#39;--themeColor&#39;, &#39;#278ce2&#39;)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>Css 伪类使用技巧</p>
+<p>1、 实现盒子阴影</p>
+<p>​        box-shadow 实现盒子阴影，重绘消耗过多，通过伪元素的透明度实现盒子阴影。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.before &#123;</span><br><span class="line">    padding: 1em;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    -webkit-transition: 0.2s;</span><br><span class="line">    transition: 0.2s;</span><br><span class="line">&#125;</span><br><span class="line">.before:hover &#123;</span><br><span class="line">    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);</span><br><span class="line">&#125;</span><br><span class="line">.after &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    padding: 1em;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">.after:before &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: absolute;  </span><br><span class="line">    top: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;  </span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: -1;</span><br><span class="line">    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);</span><br><span class="line">    opacity: 0;</span><br><span class="line">    will-change: opacity;</span><br><span class="line">    -webkit-transition: 0.2s;</span><br><span class="line">    transition: 0.2s;</span><br><span class="line">&#125;</span><br><span class="line">.after:hover:before &#123;</span><br><span class="line">    opacity: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、before 实现面包屑导航栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class&#x3D;&quot;breadcrumb&quot;&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Home&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Pictures&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;&lt;a href&#x3D;&quot;#&quot;&gt;Summer 15&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;Italy&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ul.breadcrumb &#123;</span><br><span class="line">    padding: 8px 16px;</span><br><span class="line">    list-style: none;</span><br><span class="line">    background-color: #eee;</span><br><span class="line">&#125;</span><br><span class="line">ul.breadcrumb li &#123;</span><br><span class="line">    display: inline;</span><br><span class="line">&#125;</span><br><span class="line">ul.breadcrumb li+li:before &#123;</span><br><span class="line">    padding: 8px;</span><br><span class="line">    color: black;</span><br><span class="line">    content: &quot;&#x2F;\00a0&quot;;</span><br><span class="line">&#125;</span><br><span class="line">ul.breadcrumb li a &#123;</span><br><span class="line">    color: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、伪元素实现悬停时按钮填充和边界浮动动画</p>
+<p>4、 after 实现三角箭头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&#39;container&#39;&gt;</span><br><span class="line">    &lt;img alt&#x3D;&#39;&#39; src&#x3D;&#39;http:&#x2F;&#x2F;placehold.it&#x2F;400x200&#39;&gt;</span><br><span class="line">    &lt;div class&#x3D;&#39;arrow-left&#39;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&#39;container new&#39;&gt;</span><br><span class="line">    &lt;div class&#x3D;&#39;arrow-right&#39;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;img alt&#x3D;&#39;&#39; src&#x3D;&#39;http:&#x2F;&#x2F;placehold.it&#x2F;400x200&#39;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.arrow-left:before &#123;</span><br><span class="line">    z-index: 9999;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    border-top: 20px solid transparent;</span><br><span class="line">    border-bottom: 20px solid transparent;</span><br><span class="line">    border-right: 20px solid #E9E9E9;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: -20px;</span><br><span class="line">    top: 80px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5、伪元素实现带角度的底部边界（倾斜的边界</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.edge--bottom &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    z-index: 1;</span><br><span class="line">&#125;</span><br><span class="line">.edge--bottom:after &#123;</span><br><span class="line">    background: inherit;</span><br><span class="line">    content: &#39;&#39;;</span><br><span class="line">    display: block;</span><br><span class="line">    height: 50%;</span><br><span class="line">    left: 0;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 0;</span><br><span class="line">    z-index: -1;</span><br><span class="line">&#125;</span><br><span class="line">.edge--bottom:after &#123;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    -webkit-transform: skewY(-1.5deg);</span><br><span class="line">    -ms-transform: skewY(-1.5deg);</span><br><span class="line">    transform: skewY(-1.5deg);</span><br><span class="line">    -webkit-transform-origin: 100%;</span><br><span class="line">    -ms-transform-origin: 100%;</span><br><span class="line">    transform-origin: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6、伪元素和平移（translate）变换实现的提示框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">       &lt;a rel&#x3D;&quot;nofollow&quot; rel&#x3D;&quot;noreferrer&quot; href&#x3D;&quot;#&quot; class&#x3D;&quot;btn tooltip top&quot;&gt;</span><br><span class="line">           &lt;span&gt;TOOLTIP TOP&lt;&#x2F;span&gt;</span><br><span class="line">           &lt;span class&#x3D;&quot;tooltip-content&quot;&gt;Lorem ipsum dolor sit amet&lt;&#x2F;span&gt;</span><br><span class="line">       &lt;&#x2F;a&gt;</span><br><span class="line">   &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.tooltip .tooltip-content::after &#123;</span><br><span class="line">    background: #05a8ff;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    height: 10px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    -webkit-transform: rotate(45deg);</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">    width: 10px;</span><br><span class="line">&#125;</span><br><span class="line">.tooltip.top .tooltip-content &#123;</span><br><span class="line">    bottom: calc(100% + 1.5em);</span><br><span class="line">    left: 50%;</span><br><span class="line">    -webkit-transform: translateX(-50%);</span><br><span class="line">    transform: translateX(-50%);</span><br><span class="line">&#125;</span><br><span class="line">.tooltip.top .tooltip-content::after &#123;</span><br><span class="line">    bottom: -5px;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -5px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>7、使用CSS3伪元素实现的自动打字动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;h1&gt;Typing Animation&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;p class&#x3D;&quot;tagline&quot;&gt;</span><br><span class="line">        &lt;span class&#x3D;&quot;tagline-skill&quot;&gt;&lt;span class&#x3D;&quot;tagline-skill_inner&quot;&gt;webdesign&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.tagline-skill_inner:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: -1px;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: -2px;</span><br><span class="line">    left: 0;</span><br><span class="line">    border-left: 1px solid #fff;</span><br><span class="line">    background-color: #2a2a28;</span><br><span class="line">    -webkit-animation: animatetoright 1s steps(10) infinite alternate;</span><br><span class="line">    animation: animatetoright 1s steps(10) infinite alternate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>8、CSS3 伪元素构建的文章水印背景</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    margin: 0;</span><br><span class="line">    font-weight: bold;</span><br><span class="line">    letter-spacing: -0.05rem;</span><br><span class="line">    line-height: 1;</span><br><span class="line">    text-transform: uppercase;</span><br><span class="line">    z-index: 10;</span><br><span class="line">&#125;</span><br><span class="line">h1:before &#123;</span><br><span class="line">    content: &quot;2018&#x2F;08&quot;;</span><br><span class="line">    font-family: monospace;</span><br><span class="line">    font-size: 10rem;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 2rem;</span><br><span class="line">    left: -2rem;</span><br><span class="line">    z-index: 0;</span><br><span class="line">    line-height: 1;</span><br><span class="line">    color: rgba(50, 25, 0, 0.1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>9、CSS3 用伪元素做页码摘要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    display: -webkit-box;</span><br><span class="line">    display: -webkit-flex;</span><br><span class="line">    display: -ms-flexbox;</span><br><span class="line">    display: flex;</span><br><span class="line">    -webkit-flex-flow: row nowrap;</span><br><span class="line">    -ms-flex-flow: row nowrap;</span><br><span class="line">    flex-flow: row nowrap;</span><br><span class="line">    -webkit-box-align: baseline;</span><br><span class="line">    -webkit-align-items: baseline;</span><br><span class="line">    -ms-flex-align: baseline;</span><br><span class="line">    align-items: baseline;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    -webkit-transition: color .2s ease-in-out;</span><br><span class="line">    transition: color .2s ease-in-out;</span><br><span class="line">&#125;</span><br><span class="line">a::before &#123;</span><br><span class="line">    height: .1em;</span><br><span class="line">    -webkit-box-flex: 1;</span><br><span class="line">    -webkit-flex: 1 1 auto;</span><br><span class="line">    -ms-flex: 1 1 auto;</span><br><span class="line">    flex: 1 1 auto;</span><br><span class="line">    -webkit-box-ordinal-group: 2;</span><br><span class="line">    -webkit-order: 1;</span><br><span class="line">    -ms-flex-order: 1;</span><br><span class="line">    order: 1;</span><br><span class="line">    background: left bottom&#x2F;contain repeat-x url(data:image&#x2F;svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3IDIiPjxjaXJjbGUgZmlsbD0iI2ZmZiIgY3g9IjMuNSIgY3k9IjEiIHI9IjEiLz48L3N2Zz4&#x3D;);</span><br><span class="line">    content: &#39;&#39;;</span><br><span class="line">&#125;</span><br><span class="line">a::after &#123;</span><br><span class="line">    -webkit-box-ordinal-group: 3;</span><br><span class="line">    -webkit-order: 2;</span><br><span class="line">    -ms-flex-order: 2;</span><br><span class="line">    order: 2;</span><br><span class="line">    content: &quot;p.&quot; attr(data-page);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>10、伪类兼容性</p>
+<p>​                IE8不支持CSS3中很多特性，比如伪元素nth-child，可以使用+号（代表相邻元素）来实现相同功能</p>
+<p>​                Google的IE9.js是解决IE5.5到IE8 CSS3特性兼容性问题的JS库</p>
+<p>链接[‘链接’, <a href="https://github.com/HongqingCao/my-code/tree/Pseudo-classes]" target="_blank" rel="noopener">https://github.com/HongqingCao/my-code/tree/Pseudo-classes]</a></p>
+</li>
+<li><p>Css 页面经典布局</p>
+<p>Flex 的用法</p>
+<p><a href="https://juejin.im/post/6866914148387651592?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://juejin.im/post/6866914148387651592?utm_source=gold_browser_extension</a></p>
+<p>轴： 主轴和交叉轴</p>
+<p>容器： 父容器和子容器</p>
+<p>默认情况下，主轴是从左到右的，交叉轴是垂直于主轴的。</p>
+<p>Flex_direction 决定主轴, 主轴决定交叉轴，设置在父容器上才生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-direction: row | row-reverse | column | column-reverse</span><br></pre></td></tr></table></figure>
+
+<p>Row:  主轴沿 水平方向向右</p>
+<p>Row-reverse: 主轴沿水平方向向左</p>
+<p>Column:  主轴变成y轴方向，从上到下</p>
+<p>Column-reverse: 主轴变成y轴方向，从下到上</p>
+<p>父容器：</p>
+<p> justify-content: 设置子元素在主轴上的对齐方式</p>
+<p>Align-items: 设置子元素在交叉轴上的对齐方式</p>
+<p>Justify-content:  flex-start 子元素沿主轴方向开始对齐</p>
+<p>Justify-content: flex-end 子元素沿主轴方向终点对齐</p>
+<p>Justify-content: center 子元素在主轴方向上居中对齐</p>
+<p>Justify-content: space-between 子元素在主轴上两端对齐，项目之间间隔相等</p>
+<p>Justify-content: space-around. 子元素在主轴上均匀排列每个元素，且每个元素分配相同的空间</p>
+<hr>
+<p>Align-items: flex-start  子元素在交叉轴上起点对齐</p>
+<p>Align-items: flex-end 子元素在交叉轴上终点对齐</p>
+<p>Align-items: center 子元素在交叉轴上居中对齐</p>
+<p>Align-items: baseline 子元素在交叉轴上以文字基线对齐</p>
+<p>Align-items: stretch 属性默认，项目未设置高度或设为auto 将铺满整个容器高度</p>
+</li>
+</ul>
+<p>  Flex-wrap 设置换行方式  </p>
+<p>  ​        wrap 允许换行</p>
+<p>  ​        nowrap 不允许换行</p>
+<p>  ​        wrap-reverse 允许逆向换行</p>
+<p>  Flex-flow 设置轴向与换行组合 是flex-direction flex-wrap 的组合</p>
+<p>  ​        flex-flow: row | column 单独设置 flex-direction</p>
+<p>  ​        flex-flow: wrap | nowrap | wrap-reverse. 单独设置 flex_wrap</p>
+<p>  ​        flex-flow: row wrap  同时设置flex-direction flex-wrap</p>
+<p>  Align-content 多行沿交叉轴对齐方式 ；多行时是行与行的对齐方式</p>
+<p>  ​        normal.  默认对齐</p>
+<p>  ​        flex-start. 基本位置对齐</p>
+<p>  ​        flex-end. 基本位置对齐</p>
+<p>  ​        center.  基本位置对齐</p>
+<p>  ​        baseline  基线对齐</p>
+<p>  ​        first baseline 基线对齐</p>
+<p>  ​        last baseline 基线对齐</p>
+<p>  ​        space-between 分布式对齐</p>
+<p>  ​        space-around 分布式对齐</p>
+<p>  ​        stretch 分布式对齐</p>
+<hr>
+<p>  子容器</p>
+<p>  <code>flex</code>属性  设置子容器在主轴是如何伸缩的</p>
+<p>  <code>align-self</code>属性   设置子容器如何沿交叉轴排列</p>
+<p>  Flex 是 flex-grow   flex-shrink.   flex-baisis 的缩写</p>
+<p>  Flex-grow 设置拓展比例  ； 子容器弹性伸展的比例</p>
+<p>  Flex-shrink 设置收缩比例  ；子容器弹性收缩的比例。0 是不收缩</p>
+<p>  Flex-basis 设置基准大小</p>
+<p>  ​        在不伸缩的情况下，flex-basis 给子容器设置大小才有作用</p>
+<p>  ​        当主轴为横向时， flex-direction: row | row-reverse</p>
+<p>  ​            flex-basis 设置大小为 宽度，并且覆盖width 值</p>
+<p>  ​        当主轴为纵向时 flex-direction: column | column-reverse</p>
+<p>  ​            flex-basis 设置的大小为高度，并且覆盖height 值</p>
+<p>  Order 设置排列顺序</p>
+<p>  Flex:1. ===== flex: 1 1 0%</p>
+<p>  Flex: 3 ===== flex: 3  1 0%</p>
+<p>  Align-self 作用规则</p>
+<p>  Align-self: flex-start. 起始端对齐；作用在子容器本身</p>
+<p>  Align-self: flex-end  末尾端对齐；</p>
+<p>  Align-self: baseline. 基线对齐。对齐的是第一行文字的基线</p>
+<p>  Align-self: stretch.  拉伸对齐</p>
+<ul>
+<li><p>Css 动画</p>
+</li>
+<li><p>flex 布局</p>
+</li>
+<li><p>rem 布局</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/12/vue-admin-md/" class="archive-article-date">
-  	<time datetime="2020-06-12T09:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/12/vue-admin-md/">vue-admin.md</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -209,224 +363,7 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/04/npm-desc/" class="archive-article-date">
-  	<time datetime="2020-06-04T10:45:33.821Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/04/npm-desc/">npm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/xiaochengxu/" class="archive-article-date">
-  	<time datetime="2020-06-01T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/xiaochengxu/">wechat---小程序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/phone-web/" class="archive-article-date">
-  	<time datetime="2020-05-19T10:53:32.668Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/phone-web/">phone-web</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/15/w/" class="archive-article-date">
-  	<time datetime="2020-05-15T12:51:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/15/w/">asyncData 的基本语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/15/korea/" class="archive-article-date">
-  	<time datetime="2020-05-15T12:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/15/korea/">korea</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/axios-method/" class="archive-article-date">
-  	<time datetime="2020-05-13T03:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/axios-method/">axios-method</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -439,123 +376,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2020/08/11/css-flex/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/09/test1/" class="archive-article-date">
-  	<time datetime="2020-05-09T10:31:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/09/01/editor%E6%8F%92%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          editor
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/20/css-%E7%89%B9%E6%95%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css 动效</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/09/test1/">test1</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/share1/" class="archive-article-date">
-  	<time datetime="2020-05-01T07:35:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/share1/">vue中文章分享到QQ/微博、微信 ♚</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/test/" class="archive-article-date">
-  	<time datetime="2020-04-29T02:30:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/test/">test</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -579,8 +505,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
