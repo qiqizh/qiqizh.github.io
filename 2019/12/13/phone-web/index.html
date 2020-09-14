@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>bug | 长路漫漫</title>
+  <title>移动端--base | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tags: 分类bug-list1 nuxt中fee页面刷新出现welcome页面，加载的是css不是项目中的，但是页面改了一个名字，刷新就出页面了，也没有出现错误。 神奇！！没找到原因啊 ，成功的避开了问题  打开弹窗时，底部页面滑动的问题。实现打开弹窗时，底部页面不动(位置保持不变)    1234567891011121314151617181920212223242526272829303">
+  <meta name="description" content="像素物理像素 逻辑像素 移动端的适配方案">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bug">
-<meta property="og:url" content="https://qiqizh.github.io/2020/02/20/fee/index.html">
+<meta property="og:title" content="移动端--base">
+<meta property="og:url" content="https://qiqizh.github.io/2019/12/13/phone-web/index.html">
 <meta property="og:site_name" content="长路漫漫">
-<meta property="og:description" content="tags: 分类bug-list1 nuxt中fee页面刷新出现welcome页面，加载的是css不是项目中的，但是页面改了一个名字，刷新就出页面了，也没有出现错误。 神奇！！没找到原因啊 ，成功的避开了问题  打开弹窗时，底部页面滑动的问题。实现打开弹窗时，底部页面不动(位置保持不变)    1234567891011121314151617181920212223242526272829303">
+<meta property="og:description" content="像素物理像素 逻辑像素 移动端的适配方案">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-20T13:52:41.000Z">
-<meta property="article:modified_time" content="2020-07-29T05:53:44.315Z">
+<meta property="article:published_time" content="2019-12-13T12:52:41.000Z">
+<meta property="article:modified_time" content="2020-09-14T07:37:30.775Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -173,50 +173,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-fee" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-phone-web" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      bug
+      移动端--base
     </h1>
   
 
         
-        <a href="/2020/02/20/fee/" class="archive-article-date">
-  	<time datetime="2020-02-20T13:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+        <a href="/2019/12/13/phone-web/" class="archive-article-date">
+  	<time datetime="2019-12-13T12:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="tags-分类"><a href="#tags-分类" class="headerlink" title="tags: 分类"></a>tags: 分类</h2><h3 id="bug-list1"><a href="#bug-list1" class="headerlink" title="bug-list1"></a>bug-list1</h3><ul>
-<li><p>nuxt中fee页面刷新出现welcome页面，加载的是css不是项目中的，但是页面改了一个名字，刷新就出页面了，也没有出现错误。 神奇！！没找到原因啊 ，成功的避开了问题</p>
-</li>
-<li><p>打开弹窗时，底部页面滑动的问题。实现打开弹窗时，底部页面不动(位置保持不变)   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 判断有无class</span><br><span class="line">function hasClass(name) &#123;</span><br><span class="line">  let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + name + &#39;(\\s|$)&#39;);</span><br><span class="line">  return reg.test(document.body.className);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.addClass &#x3D; function(name)&#123;</span><br><span class="line">  &#x2F;&#x2F; document.addEventListener(&#39;scroll&#39;,function(e) &#123;</span><br><span class="line">  &#x2F;&#x2F;   console.log(&#39;body&#39;, document.documentElement.scrollTop)</span><br><span class="line">  &#x2F;&#x2F; &#125;)</span><br><span class="line">  &#x2F;&#x2F; return false</span><br><span class="line">  console.log(&#39;ddd&#39;, hasClass(name))</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  let bodyScrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  console.log(&#39;body&#39;, document.body.scrollTop)</span><br><span class="line">  console.log(&#39;bodyScrollTop&#39;,bodyScrollTop)</span><br><span class="line">  if (document.body.className &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">    document.body.className +&#x3D; name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let newClass &#x3D; document.body.className.split(&#39; &#39;);</span><br><span class="line">    newClass.push(name);</span><br><span class="line">    document.body.className &#x3D; newClass.join(&#39; &#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  document.body.style.top &#x3D; -bodyScrollTop + &#39;px&#39;;</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.removeClass &#x3D; function(name) &#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    let styleTop &#x3D; Math.abs(parseInt(document.body.style.top));</span><br><span class="line">    document.body.removeAttribute(&#39;style&#39;);</span><br><span class="line">    document.body.className &#x3D; document.body.className.replace(new RegExp(&#39;(\\s|^)&#39; + name + &#39;(\\s|$)&#39;), &#39;&#39;);</span><br><span class="line">    document.body.scrollTop &#x3D; document.documentElement.scrollTop &#x3D; styleTop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <hr>
+<hr>
+<hr>
+<h4 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h4><p>物理像素</p>
+<p>逻辑像素</p>
+<h4 id="移动端的适配方案"><a href="#移动端的适配方案" class="headerlink" title="移动端的适配方案"></a>移动端的适配方案</h4><a id="more"></a>
 
-<p>修改后使用 nuxt</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 判断有无class</span><br><span class="line">function hasClass(name) &#123;</span><br><span class="line">  let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + name + &#39;(\\s|$)&#39;);</span><br><span class="line">  return reg.test(document.body.className);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.addClass &#x3D; function(name)&#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  let bodyScrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  if (document.body.className &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">    document.body.className +&#x3D; name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let newClass &#x3D; document.body.className.split(&#39; &#39;);</span><br><span class="line">    newClass.push(name);</span><br><span class="line">    document.body.className &#x3D; newClass.join(&#39; &#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  let layout &#x3D; document.getElementById(&#39;__layout&#39;);</span><br><span class="line">  layout.style.transform &#x3D;&#39;translateY( -&#39; + bodyScrollTop + &#39;px)&#39;;</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.removeClass &#x3D; function(name) &#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    let layout &#x3D; document.getElementById(&#39;__layout&#39;);</span><br><span class="line">    let top &#x3D; 0;</span><br><span class="line">    if(layout.style.transform) &#123;</span><br><span class="line">      top &#x3D; layout.style.transform.split(&#39;(&#39;)[1].split(&#39;px&#39;)[0];</span><br><span class="line">    &#125;</span><br><span class="line">    let styleTop &#x3D; Math.abs(top);</span><br><span class="line">    layout.style &#x3D; &#39;&#39;;</span><br><span class="line">    document.body.removeAttribute(&#39;style&#39;);</span><br><span class="line">    document.body.className &#x3D; document.body.className.replace(new RegExp(&#39;(\\s|^)&#39; + name + &#39;(\\s|$)&#39;), &#39;&#39;);</span><br><span class="line">    document.body.scrollTop &#x3D; styleTop;</span><br><span class="line">    document.documentElement.scrollTop &#x3D; styleTop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    打开弹窗时使用： this.addClass()</p>
-<p>​    关闭弹窗时使用： this.removeClass()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">整体样式的设置，在body里去掉overflow-y: auto; overflow-y: hidden;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>antd vue 中 tabs 遍历，设置 activekey 无法激活显示页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a-tabs :activeKey&#x3D;&quot;keys&quot; @change&#x3D;&quot;callback&quot;  ref&#x3D;&quot;tabbar&quot;&gt;</span><br><span class="line">                   &lt;a-tab-pane :tab&#x3D;&quot;item.name&quot; :key&#x3D;&quot;item.id&quot; v-for&#x3D;&quot;item in tablist&quot;&gt;</span><br><span class="line">                   &lt;&#x2F;a-tab-pane&gt;</span><br><span class="line"> &lt;&#x2F;a-tabs&gt;</span><br></pre></td></tr></table></figure>
-
-<p>原因： keys 应该是数字，将字符变为数字</p>
-</li>
-</ul>
+<p>s</p>
 
       
 
@@ -307,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2020/02/20/fee/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2019/12/13/phone-web/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +305,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/01/vue-newpage/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/20/fee/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vue 打开新页面
+          bug
         
       </div>
     </a>
   
   
-    <a href="/2019/12/13/phone-web/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">移动端--base</div>
+    <a href="/2019/11/10/nuxt/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nuxt 的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
