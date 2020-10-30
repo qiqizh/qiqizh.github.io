@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
-  <title>长路漫漫</title>
+  <title>nuxt 上判断设备进行跳转 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="长路漫漫">
-<meta property="og:url" content="https://qiqizh.github.io/page/4/index.html">
+  <meta name="description" content="设备判断方法 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192&#x2F;** * * @para">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nuxt 上判断设备进行跳转">
+<meta property="og:url" content="https://qiqizh.github.io/2020/09/21/nuxt-%E4%B8%8A%E5%88%A4%E6%96%AD%E8%AE%BE%E5%A4%87%E8%B7%B3%E8%BD%AC/index.html">
 <meta property="og:site_name" content="长路漫漫">
+<meta property="og:description" content="设备判断方法 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192&#x2F;** * * @para">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-21T13:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-27T01:32:55.333Z">
 <meta property="article:author" content="qiqi">
+<meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="长路漫漫" type="application/atom+xml">
@@ -168,127 +173,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-nuxt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-nuxt-上判断设备跳转" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/10/nuxt/">nuxt 的使用</a>
+    <h1 class="article-title" itemprop="name">
+      nuxt 上判断设备进行跳转
     </h1>
   
 
         
-        <a href="/2019/11/10/nuxt/" class="archive-article-date">
-  	<time datetime="2019-11-10T09:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+        <a href="/2020/09/21/nuxt-%E4%B8%8A%E5%88%A4%E6%96%AD%E8%AE%BE%E5%A4%87%E8%B7%B3%E8%BD%AC/" class="archive-article-date">
+  	<time datetime="2020-09-21T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>官方地址: [<a href="https://www.nuxtjs.cn/]" target="_blank" rel="noopener">https://www.nuxtjs.cn/]</a></p>
-<h3 id="nuxt-与-vue的区别"><a href="#nuxt-与-vue的区别" class="headerlink" title="nuxt 与 vue的区别"></a>nuxt 与 vue的区别</h3><ul>
-<li>nuxt 是基于vue的开箱即用的框架，语法和vue相同, 但更利于seo</li>
-<li>npm run generate 可以将项目中各页面变为html页面，可以有自己的title和meta，静态站点。</li>
-<li>nuxt 是服务端渲染，部署的时候和vue项目部署时不同。</li>
-<li>nuxt没有入口文件，可以在layout/default.vue 中设置，所有配置在  nuxt.config.js 中完成。
-        
-          <a class="article-more-a" href="/2019/11/10/nuxt/#more">more >></a>
-        
-      
+        <p>设备判断方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;*&#125; UA ,就是userAgent</span><br><span class="line"> * @returns  type: 设备类型</span><br><span class="line"> *           env: 访问环境(微信&#x2F;微博&#x2F;qq)         </span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line">function isWechat(UA) &#123;</span><br><span class="line">    return &#x2F;MicroMessenger&#x2F;i.test(UA) ? true : false;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function isWeibo(UA) &#123;</span><br><span class="line">    return &#x2F;Weibo&#x2F;i.test(UA) ? true : false;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function isQQ(UA) &#123;</span><br><span class="line">    return &#x2F;QQ&#x2F;i.test(UA) ? true : false;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function isMoible(UA) &#123;</span><br><span class="line">    return &#x2F;(Android|webOS|iPhone|iPod|tablet|BlackBerry|Mobile)&#x2F;i.test(UA)</span><br><span class="line">      ? true</span><br><span class="line">      : false;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function isIOS(UA) &#123;</span><br><span class="line">    return &#x2F;iPhone|iPad|iPod&#x2F;i.test(UA) ? true : false;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function isAndroid(UA) &#123;</span><br><span class="line">    return &#x2F;Android&#x2F;i.test(UA) ? true : false;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  export function deviceType(UA) &#123;</span><br><span class="line">    if (isMoible(UA)) &#123;</span><br><span class="line">      if (isIOS(UA)) &#123;</span><br><span class="line">        if (isWechat(UA)) &#123;</span><br><span class="line">          return &#123;</span><br><span class="line">            type: &quot;ios&quot;,</span><br><span class="line">            env: &quot;wechat&quot;</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        if (isWeibo(UA)) &#123;</span><br><span class="line">          return &#123;</span><br><span class="line">            type: &quot;ios&quot;,</span><br><span class="line">            env: &quot;weibo&quot;</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        if (isQQ(UA)) &#123;</span><br><span class="line">          return &#123;</span><br><span class="line">            type: &quot;ios&quot;,</span><br><span class="line">            env: &quot;qq&quot;</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        return &#123;</span><br><span class="line">          type: &quot;ios&quot;,</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">      if (isAndroid(UA)) &#123;</span><br><span class="line">        if (isWechat(UA)) &#123;</span><br><span class="line">          return &#123;</span><br><span class="line">            type: &quot;android&quot;,</span><br><span class="line">            env: &quot;wechat&quot;</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        if (isWeibo(UA)) &#123;</span><br><span class="line">          return &#123;</span><br><span class="line">            type: &quot;android&quot;,</span><br><span class="line">            env: &quot;weibo&quot;</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        if (isQQ(UA)) &#123;</span><br><span class="line">          return &#123;</span><br><span class="line">            type: &quot;android&quot;,</span><br><span class="line">            env: &quot;qq&quot;,</span><br><span class="line">          &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        return &#123;</span><br><span class="line">          type: &quot;android&quot;,</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      return &#123;</span><br><span class="line">        type: &quot;mobile&quot;,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        type: &quot;pc&quot;,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<a id="more"></a>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>在nu x t 根目录添加中间件.   Middleware 下新建一个 device.js 文件</p>
+<p>在 nuxt.config.js 里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router: &#123;</span><br><span class="line">   middleware: [&quot;device&quot;],</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>device.js 里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &#123; deviceType &#125; from &quot;.&#x2F;deviceList&quot;;</span><br><span class="line">export default function(context) &#123;</span><br><span class="line">  context.userAgent &#x3D; process.server</span><br><span class="line">    ? context.req.headers[&quot;user-agent&quot;]</span><br><span class="line">    : navigator.userAgent;</span><br><span class="line">  context.deviceType &#x3D; deviceType(context.userAgent);</span><br><span class="line">  if (context.deviceType.type &#x3D;&#x3D;&#x3D; &quot;pc&quot;) &#123;</span><br><span class="line">    &#x2F;&#x2F; context.redirect()  具体跳转---wait</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    &#x2F;&#x2F; context.redirect()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/10/nuxt/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue2.x 使用less" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/13/Vue2.x%20%E4%BD%BF%E7%94%A8less/">Vue2.x 使用less</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/13/Vue2.x%20%E4%BD%BF%E7%94%A8less/" class="archive-article-date">
-  	<time datetime="2019-10-13T12:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Vue2.x 使用less</p>
-<p>Web pack.base.conf.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     test: &#x2F;\.less$&#x2F;,</span><br><span class="line">     loader: &quot;style-loader!css-loader!less-loader&quot;,</span><br><span class="line">   &#125;,</span><br><span class="line">   &#123;</span><br><span class="line">     test: &#x2F;\.less$&#x2F;,</span><br><span class="line">     loader: &#39;vue-loader&#39;,</span><br><span class="line">     options: vueLoaderConfig</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
-
-
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -308,16 +248,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/13/Vue2.x%20%E4%BD%BF%E7%94%A8less/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://qiqizh.github.io/2020/09/21/nuxt-%E4%B8%8A%E5%88%A4%E6%96%AD%E8%AE%BE%E5%A4%87%E8%B7%B3%E8%BD%AC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/09/24/2020-09-24-nuxt%E4%B8%ADes6-%E8%BD%AC%E4%B8%BA-es5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nuxt中es6 转为 es5
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/20/es6-%E7%9A%84class/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">es6 的class</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -337,740 +345,14 @@
 
 
 
-
-  
-    <article id="post-npm-desc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/17/npm-desc/">npm</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/17/npm-desc/" class="archive-article-date">
-  	<time datetime="2019-08-17T13:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="npm-处理-node-modules-目录结构"><a href="#npm-处理-node-modules-目录结构" class="headerlink" title="npm 处理 node_modules 目录结构"></a>npm 处理 node_modules 目录结构</h3><p>假设项目<code>App</code>中有如下三个依赖：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">    A: &quot;1.0.0&quot;,</span><br><span class="line">    B: &quot;1.0.0&quot;,</span><br><span class="line">    C: &quot;1.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>A</code>、<code>B</code>、<code>C</code>三个模块又有如下依赖：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A@1.0.0 -&gt; D@1.0.0</span><br><span class="line"></span><br><span class="line">B@1.0.0 -&gt; D@2.0.0</span><br><span class="line"></span><br><span class="line">C@1.0.0 -&gt; D@1.0.0</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/08/17/npm-desc/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/17/npm-desc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lizi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/29/lizi/">插件的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/29/lizi/" class="archive-article-date">
-  	<time datetime="2019-05-29T11:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="粒子动图"><a href="#粒子动图" class="headerlink" title="粒子动图"></a>粒子动图</h3><ul>
-<li>安装<br><code>npm i vue-particles</code></li>
-<li>main.js 引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import vueParticles  from  &#39;vue-particles&#39;</span><br><span class="line">Vue.use(vueParticles)</span><br></pre></td></tr></table></figure></li>
-<li>页面使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;vue-particles</span><br><span class="line">        color&#x3D;&quot;#dedede&quot;</span><br><span class="line">        :particleOpacity&#x3D;&quot;0.7&quot;</span><br><span class="line">        :particlesNumber&#x3D;&quot;80&quot;</span><br><span class="line">        shapeType&#x3D;&quot;circle&quot;</span><br><span class="line">        :particleSize&#x3D;&quot;4&quot;</span><br><span class="line">        linesColor&#x3D;&quot;#dedede&quot;</span><br><span class="line">        :linesWidth&#x3D;&quot;1&quot;</span><br><span class="line">        :lineLinked&#x3D;&quot;true&quot;</span><br><span class="line">        :lineOpacity&#x3D;&quot;0.4&quot;</span><br><span class="line">        :linesDistance&#x3D;&quot;150&quot;</span><br><span class="line">        :moveSpeed&#x3D;&quot;3&quot;</span><br><span class="line">        :hoverEffect&#x3D;&quot;true&quot;</span><br><span class="line">        hoverMode&#x3D;&quot;grab&quot;</span><br><span class="line">        :clickEffect&#x3D;&quot;true&quot;</span><br><span class="line">        clickMode&#x3D;&quot;push&quot;</span><br><span class="line">      &gt;</span><br><span class="line">&lt;&#x2F;vue-particles&gt;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/05/29/lizi/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/插件//" class="article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/29/lizi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-axios" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/13/axios/">axios</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/13/axios/" class="archive-article-date">
-  	<time datetime="2019-05-13T03:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>npm<br><code>npm install axios</code></li>
-<li>bower<br><code>bower install axios</code></li>
-<li>cdn<br><code>&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code>
-        
-          <a class="article-more-a" href="/2019/05/13/axios/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/13/axios/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-share" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/06/share/">微信朋友圈分享</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/06/share/" class="archive-article-date">
-  	<time datetime="2019-05-06T05:44:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装sdk"><a href="#安装sdk" class="headerlink" title="安装sdk"></a>安装sdk</h3><p><code>npm install weixin-js-sdk --save</code></p>
-<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js 引入微信 sdk<br><code>import wx from &#39;weixin-js-sdk</code></p>
-        
-          <a class="article-more-a" href="/2019/05/06/share/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/06/share/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/29/webpack/">webpack</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/29/webpack/" class="archive-article-date">
-  	<time datetime="2019-04-29T09:41:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="webpack-配置"><a href="#webpack-配置" class="headerlink" title="webpack 配置"></a>webpack 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  entry: &quot;.&#x2F;app&#x2F;entry&quot;, &#x2F;&#x2F; string | object | array</span><br><span class="line">  &#x2F;&#x2F; Webpack打包的入口</span><br><span class="line">  output: &#123;  &#x2F;&#x2F; 定义webpack如何输出的选项</span><br><span class="line">    path: path.resolve(__dirname, &quot;dist&quot;), &#x2F;&#x2F; string</span><br><span class="line">    &#x2F;&#x2F; 所有输出文件的目标路径</span><br><span class="line">    filename: &quot;[chunkhash].js&quot;, &#x2F;&#x2F; string</span><br><span class="line">    &#x2F;&#x2F; 「入口(entry chunk)」文件命名模版</span><br><span class="line">    publicPath: &quot;&#x2F;assets&#x2F;&quot;, &#x2F;&#x2F; string</span><br><span class="line">    &#x2F;&#x2F; 构建文件的输出目录</span><br><span class="line">    &#x2F;* 其它高级配置 *&#x2F;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;  &#x2F;&#x2F; 模块相关配置</span><br><span class="line">    rules: [ &#x2F;&#x2F; 配置模块loaders，解析规则</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.jsx?$&#x2F;,  &#x2F;&#x2F; RegExp | string</span><br><span class="line">        include: [ &#x2F;&#x2F; 和test一样，必须匹配选项</span><br><span class="line">          path.resolve(__dirname, &quot;app&quot;)</span><br><span class="line">        ],</span><br><span class="line">        exclude: [ &#x2F;&#x2F; 必不匹配选项（优先级高于test和include）</span><br><span class="line">          path.resolve(__dirname, &quot;app&#x2F;demo-files&quot;)</span><br><span class="line">        ],</span><br><span class="line">        loader: &quot;babel-loader&quot;, &#x2F;&#x2F; 模块上下文解析</span><br><span class="line">        options: &#123; &#x2F;&#x2F; loader的可选项</span><br><span class="line">          presets: [&quot;es2015&quot;]</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123; &#x2F;&#x2F;  解析模块的可选项</span><br><span class="line">    modules: [ &#x2F;&#x2F; 模块的查找目录</span><br><span class="line">      &quot;node_modules&quot;,</span><br><span class="line">      path.resolve(__dirname, &quot;app&quot;)</span><br><span class="line">    ],</span><br><span class="line">    extensions: [&quot;.js&quot;, &quot;.json&quot;, &quot;.jsx&quot;, &quot;.css&quot;], &#x2F;&#x2F; 用到的文件的扩展</span><br><span class="line">    alias: &#123; &#x2F;&#x2F; 模块别名列表</span><br><span class="line">      &quot;module&quot;: &quot;new-module&quot;</span><br><span class="line">	  &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  devtool: &quot;source-map&quot;, &#x2F;&#x2F; enum</span><br><span class="line">  &#x2F;&#x2F; 为浏览器开发者工具添加元数据增强调试</span><br><span class="line">  plugins: [ &#x2F;&#x2F; 附加插件列表</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/04/29/webpack/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/web前端//" class="article-tag-list-link color1">web前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/29/webpack/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/28/git/">git 的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/28/git/" class="archive-article-date">
-  	<time datetime="2019-04-28T12:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="基础命令："><a href="#基础命令：" class="headerlink" title="基础命令："></a>基础命令：</h3><p>1、<br>    git status<br>    查看工作区、暂存区状态<br>2、<br>    git add [file name]<br>    将工作区的“新建/修改”添加到暂存区<br>3、<br>    git commit -m “commit message” [file name]<br>    将暂存区的内容提交到本地库<br>4、<br>    git log<br>    git reflog<br>    查看历史记录<br>5、<br>    基于索引值操作[推荐]<br>    git reset –hard [局部索引值]<br>    git reset –hard a6ace91<br>6、<br>    使用^符号：只能后退<br>    git reset –hard HEAD^<br>    注：一个^表示后退一步，n 个表示后退 n 步<br>7、<br>    使用<del>符号：只能后退<br>    git reset –hard HEAD</del>n<br>    注：表示后退 n 步<br>
-        
-          <a class="article-more-a" href="/2019/04/28/git/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/28/git/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/06/array/">array 使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/06/array/" class="archive-article-date">
-  	<time datetime="2019-03-06T03:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>是值的有序列表。数组中的每个值都叫做一个元素，每个元素在数组中有一个位置，以数字来表示，称为索引。<br>每个数组都有一个length属性，就是这个属性让它区别于其他的js对象。</p>
-<ul>
-<li>length的两个特殊行为：<br>为数组增加元素时（使用索引添加，使用索引之外的属性不会触发），length会自动加一。<br>为length属性设置一个小于当前长度的非负整数n时，当前那些下标大于等于n的元素会从数组中删除。<h2 id="Array-对象属性"><a href="#Array-对象属性" class="headerlink" title="Array 对象属性"></a>Array 对象属性</h2><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>constructor</td>
-<td>返回对创建此对象的数组函数的引用。</td>
-</tr>
-<tr>
-<td>length</td>
-<td>设置或返回数组中元素的数目。</td>
-</tr>
-<tr>
-<td>prototype</td>
-<td>使您有能力向对象添加属性和方法。</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/03/06/array/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/06/array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/15/markdown/">markdown 的基本语法</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/15/markdown/" class="archive-article-date">
-  	<time datetime="2019-01-15T12:51:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。<br>标准语法一般在#后跟个空格再写文字</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
-<li>加粗<br>要加粗的文字左右分别用两个*号包起来</li>
-<li>斜体<br>要倾斜的文字左右分别用一个*号包起来</li>
-<li>斜体加粗<br>要倾斜和加粗的文字左右分别用三个*号包起来</li>
-<li>删除线<br>要加删除线的文字左右分别用两个~~号包起来<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt; n个…<br>貌似可以一直加下去<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2>三个或者三个以上的 - 或者 * 都可以<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2>![图片alt](图片地址 ‘’图片title’’)</li>
-</ul>
-<p>图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加<br>上传本地图片直接点击导航栏的图片标志，选择图片即可 （路径是相对路径）<br>或者直接用img标签<br><code>&lt;img src=&quot;../images/p1.jpg&quot; width=&quot;20%&quot;  /&gt;</code></p>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><a href="超链接地址" title="超链接title">超链接名</a><br>title可加可不加<br><code>&lt;a href=&quot;超链接地址&quot; target=&quot;_blank&quot;&gt;超链接名&lt;/a&gt;</code></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>无序列表用 - + * 任何一种都可以<br>有序列表  数字加点<br>列表嵌套 上一级和下一级之间敲三个空格即可</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br></pre></td></tr></table></figure>
-
-<p>第二行分割表头和内容。</p>
-<ul>
-<li>有一个就行，为了对齐，多加了几个<br>文字默认居左</li>
-<li>两边加：表示文字居中</li>
-<li>右边加：表示文字居右<br>注：原生的语法两边都要用 | 包起来。此处省略  <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>单行代码：代码之间分别用一个反引号包起来<br>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行<br>(<code>)
- 代码...
- 代码...
- 代码...
-(</code>)<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/15/markdown/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1093,8 +375,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
