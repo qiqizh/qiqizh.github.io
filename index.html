@@ -273,23 +273,20 @@
         <h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><ul>
 <li>(1) post （body)</li>
 </ul>
-<p>![image-20201228101228057](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228101228057.png)</p>
-<p><img src="/Users/zhangqi/Desktop/program/blog/blog/hexo-1/source/images/post1.png" alt="img1"></p>
+<p><img src="../images/post1.png" alt="img1"></p>
 <p>方式为： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#39;test&#39;</span><br><span class="line"> Axios.post(ApiUrl.patentProduct.textUpload, data,</span><br><span class="line"> 	&#123;</span><br><span class="line">	headers: &#123; &#39;content-type&#39;: &#39;application&#x2F;xml; charset&#x3D;utf-8&#39;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>(2) post(only—query)</p>
-<p><img src="/Users/zhangqi/Desktop/program/blog/blog/hexo-1/source/images/post2.png" alt="img2"></p>
+<p><img src="../images/post2.png" alt="img2"></p>
 </li>
 </ul>
-<p>![image-20201228101542638](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228101542638.png)</p>
 <p>方式为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line">                  params: &#123;</span><br><span class="line">                    wxFlag: true,</span><br><span class="line">                    smsFlag: true</span><br><span class="line">                  &#125;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line"> Axios.post(ApiUrl.common.wxPush, null ,data);</span><br></pre></td></tr></table></figure>
 
 <p>或者 </p>
-<p>​    <img src="/Users/zhangqi/Desktop/program/blog/blog/hexo-1/source/images/post3.png" alt="img3"></p>
-<p>![image-20201228105141706](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228105141706.png)</p>
+<p>​    <img src="../images/post3.png" alt="img3"></p>
 <p>​    方式为： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> let data &#x3D; &#123;</span><br><span class="line">               id: 64041,</span><br><span class="line">               states: &#39;DISPALY&#39;</span><br><span class="line">           &#125;</span><br><span class="line">  data &#x3D;Qs.stringify(data)</span><br><span class="line">Axios.post(ApiUrl.myPurchase.editStatus, data)</span><br></pre></td></tr></table></figure>
 
@@ -297,10 +294,9 @@
 
 <ul>
 <li><p>(3) post (only—body)</p>
-<p><img src="/Users/zhangqi/Desktop/program/blog/blog/hexo-1/source/images/post4.png" alt="img4"></p>
+<p><img src="../images/post4.png" alt="img4"></p>
 </li>
 </ul>
-<p>![image-20201228102925347](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228102925347.png)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line"> applicationNumber: &#39;2020202945497&#39;,</span><br><span class="line"> id: 4083888,</span><br><span class="line"> patentStatusId: &#39;2&#39;,</span><br><span class="line"> patentTypeName:&#39;INVENTION&#39;,</span><br><span class="line"> paymentDeadline: &#39;2020-12-28&#39;</span><br><span class="line"> price: &#39;140002&#39;,</span><br><span class="line"> title: &#39;一种用于电缆生产切割的废料回收装置&#39;</span><br><span class="line">&#125;</span><br><span class="line">Axios.post(ApiUrl.patentProduct.editProduct,data);</span><br></pre></td></tr></table></figure>
 
 
