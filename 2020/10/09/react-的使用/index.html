@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://qiqizh.github.io">
   <title>react 的使用 | 长路漫漫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建项目 1npm install -g create-react-app  Mac 上把报错 permission denied, access 1sudo npm install -g create-react-app  1create-react-app my-app 创建项目       用法 渲染元素 12345const element &#x3D; &lt;h1&gt;Hello,">
+  <meta name="description" content="创建项目 1npm install -g create-react-app  Mac 上把报错 permission denied, access 1sudo npm install -g create-react-app  1create-react-app my-app 创建项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react 的使用">
 <meta property="og:url" content="https://qiqizh.github.io/2020/10/09/react-%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="长路漫漫">
-<meta property="og:description" content="创建项目 1npm install -g create-react-app  Mac 上把报错 permission denied, access 1sudo npm install -g create-react-app  1create-react-app my-app 创建项目       用法 渲染元素 12345const element &#x3D; &lt;h1&gt;Hello,">
+<meta property="og:description" content="创建项目 1npm install -g create-react-app  Mac 上把报错 permission denied, access 1sudo npm install -g create-react-app  1create-react-app my-app 创建项目">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-09T09:08:36.349Z">
-<meta property="article:modified_time" content="2020-10-12T05:53:15.182Z">
+<meta property="article:published_time" content="2020-10-09T09:08:36.000Z">
+<meta property="article:modified_time" content="2020-12-01T05:48:01.000Z">
 <meta property="article:author" content="qiqi">
 <meta property="article:tag" content="分类">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
 
         
         <a href="/2020/10/09/react-%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-10-09T09:08:36.349Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
+  	<time datetime="2020-10-09T09:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
 </a>
         
       </header>
@@ -201,6 +201,46 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g create-react-app</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app my-app 创建项目</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<a id="more"></a>
+
+<ul>
+<li><p>项目文件</p>
+<p>README.md. 对项目的说明</p>
+<p>Package.json 项目包管理文件，包含项目的依赖项和常用配置</p>
+<p>Package-lock.json 锁定安装时的版本号，上传git，保证其他人npm install时依赖项保持一致。</p>
+<p>Gitignore. Git 上选择上传的配置文件</p>
+<p>Node_modules 项目的依赖包，脚手架自动安装</p>
+<p>public 公共文件，可以是公用模版和图标等文件</p>
+<p>Src 代码编写文件，项目中开发的东西</p>
+<p>public 文件夹的介绍：</p>
+<p>​    favicon.icon 网站图标</p>
+<p>​    index.html 首页的模版文件</p>
+<p>​    mainifest.json 移动端配置文件</p>
+<p>src 文件夹介绍：</p>
+<p>​    index.js 项目的入口文件</p>
+<p>​    index.css   index.js 里的css文件</p>
+<p>​    app.js     方法模块 </p>
+<p>​    serviceWorker.js 用于写移动开发的，PWA必须用到这个文件，相当于又了离线浏览的功能。</p>
+</li>
+</ul>
+<ul>
+<li><p>JSX 语法介绍</p>
+<p>javascript 和xml结合的一种格式，遇到&lt; 当作html解析，遇到{ 当作javascript 解析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul className &#x3D;&quot;my-list&quot;&gt;</span><br><span class="line">	&lt;li&gt;hello world &lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>相当于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var child &#x3D; React.createElement(&#39;li&#39;,null,&#39;hello world&#39;)</span><br><span class="line">var root &#x3D; React.createElement(&#39;ul&#39;,&#123;className: &#39;my-list&#39;&#125;, child)</span><br></pre></td></tr></table></figure>
+
+<p>可以看出jsx 大量简化了工作量</p>
+</li>
+</ul>
+<ul>
+<li><p>jsx中的html 解析问题</p>
+<p>如果想在文本框里输入一个<code>标签，并进行渲染。默认是不会生效的，只会把</code>标签打印到页面上，这并不是我想要的。如果工作中有这种需求，可以使用<code>dangerouslySetInnerHTML</code>属性解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        this.state.list.map((item,index)&#x3D;&gt;&#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;li </span><br><span class="line">                    key&#x3D;&#123;index+item&#125;</span><br><span class="line">                    onClick&#x3D;&#123;this.deleteItem.bind(this,index)&#125;</span><br><span class="line">                    dangerouslySetInnerHTML&#x3D;&#123;&#123;__html:item&#125;&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                &lt;&#x2F;li&gt;</span><br><span class="line">            )</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -260,8 +300,16 @@
 </li>
 </ol>
 <ul>
-<li><p>例子</p>
+<li><p>Simple react snippets</p>
+<p>Vscode. 输入 Simple  React Snippets 下载插件</p>
+<p>直接在<code>vscode</code>中输入<code>imrc</code>，就会快速生成最常用的import代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
 </li>
+</ul>
+<ul>
 <li><p>总结</p>
 </li>
 <li><p>进阶</p>

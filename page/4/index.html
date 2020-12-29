@@ -170,6 +170,277 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-newpage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/01/vue-newpage/">vue 打开新页面</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/01/vue-newpage/" class="archive-article-date">
+  	<time datetime="2020-03-01T12:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="vue项目新打开页面"><a href="#vue项目新打开页面" class="headerlink" title="vue项目新打开页面"></a>vue项目新打开页面</h3><h4 id="router-link-跳转"><a href="#router-link-跳转" class="headerlink" title="router-link 跳转"></a>router-link 跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 直接写上跳转的地址</span><br><span class="line">&lt;router-link to&#x3D;&quot;&#x2F;detail&#x2F;one&quot;&gt;</span><br><span class="line">  &lt;span class&#x3D;&quot;spanfour&quot; &gt;link跳转&lt;&#x2F;span&gt;</span><br><span class="line">&lt;&#x2F;router-link&gt;</span><br><span class="line">&#x2F;&#x2F; 添加参数</span><br><span class="line">&lt;router-link :to&#x3D;&quot;&#123;path:&#39;&#x2F;detail&#x2F;two&#39;, query:&#123;id:1，name:&#39;vue&#39;&#125;&#125;&quot;&gt;</span><br><span class="line"> &lt;&#x2F;router-link&gt;</span><br><span class="line">&#x2F;&#x2F; 参数获取</span><br><span class="line">id &#x3D; this.$route.query.id</span><br><span class="line">&#x2F;&#x2F; 新窗口打开</span><br><span class="line">&lt;router-link :to&#x3D;&quot;&#123;path:&#39;&#x2F;detail&#x2F;three&#39;, query:&#123;id:1，name:&#39;vue&#39;&#125;&#125;&quot; target&#x3D;&quot;_blank&quot;&gt;</span><br><span class="line">&lt;&#x2F;router-link&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="this-router-push跳转"><a href="#this-router-push跳转" class="headerlink" title="this.$router.push跳转"></a>this.$router.push跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">toDeail (e) &#123;</span><br><span class="line">   this.$router.push(&#123;path: &quot;&#x2F;detail&quot;, query: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> &#x2F;&#x2F; 参数获取</span><br><span class="line"> id &#x3D; this.$route.query.id</span><br><span class="line"> </span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   this.$router.push(&#123;name: &quot;&#x2F;detail&quot;, params: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> &#x2F;&#x2F; 注意地址需写在 name后面</span><br><span class="line"> &#x2F;&#x2F;参数获取，params和query区别，query参数在地址栏显示，params的参数不在地址栏显示</span><br><span class="line"> id &#x3D; this.$route.params.id</span><br></pre></td></tr></table></figure>
+
+<h4 id="this-router-replace跳转"><a href="#this-router-replace跳转" class="headerlink" title="this.$router.replace跳转"></a>this.$router.replace跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;和push的区别，push有记录一个history，replace没有</span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   this.$router.replace(&#123;name: &#39;&#x2F;detail&#39;, params: &#123;id: e&#125;&#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="resolve跳转"><a href="#resolve跳转" class="headerlink" title="resolve跳转"></a>resolve跳转</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">resolve页面跳转可用新页面打开</span><br><span class="line"> 2.1.0版本后，使用路由对象的resolve方法解析路由，可以得到location、router、href等目标路由的信息。得到href就可以使用window.open 打开新窗口</span><br><span class="line"> toDeail (e) &#123;</span><br><span class="line">   const new &#x3D; this.$router.resolve(&#123;name: &#39;&#x2F;detail&#39;, params: &#123;id: e&#125;&#125;)</span><br><span class="line">   window.open(new.href,&#39;_blank&#39;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题： nuxt项目中用 nuxt-link 或者 resolve 会使请求被拦截或者速度变慢？ emmmm 还不知道原因 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/01/vue-newpage/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-fee" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/20/fee/">bug</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/20/fee/" class="archive-article-date">
+  	<time datetime="2020-02-20T13:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="tags-分类"><a href="#tags-分类" class="headerlink" title="tags: 分类"></a>tags: 分类</h2><h3 id="bug-list1"><a href="#bug-list1" class="headerlink" title="bug-list1"></a>bug-list1</h3><ul>
+<li><p>nuxt中fee页面刷新出现welcome页面，加载的是css不是项目中的，但是页面改了一个名字，刷新就出页面了，也没有出现错误。 神奇！！没找到原因啊 ，成功的避开了问题</p>
+</li>
+<li><p>打开弹窗时，底部页面滑动的问题。实现打开弹窗时，底部页面不动(位置保持不变)   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 判断有无class</span><br><span class="line">function hasClass(name) &#123;</span><br><span class="line">  let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + name + &#39;(\\s|$)&#39;);</span><br><span class="line">  return reg.test(document.body.className);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.addClass &#x3D; function(name)&#123;</span><br><span class="line">  &#x2F;&#x2F; document.addEventListener(&#39;scroll&#39;,function(e) &#123;</span><br><span class="line">  &#x2F;&#x2F;   console.log(&#39;body&#39;, document.documentElement.scrollTop)</span><br><span class="line">  &#x2F;&#x2F; &#125;)</span><br><span class="line">  &#x2F;&#x2F; return false</span><br><span class="line">  console.log(&#39;ddd&#39;, hasClass(name))</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  let bodyScrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  console.log(&#39;body&#39;, document.body.scrollTop)</span><br><span class="line">  console.log(&#39;bodyScrollTop&#39;,bodyScrollTop)</span><br><span class="line">  if (document.body.className &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">    document.body.className +&#x3D; name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let newClass &#x3D; document.body.className.split(&#39; &#39;);</span><br><span class="line">    newClass.push(name);</span><br><span class="line">    document.body.className &#x3D; newClass.join(&#39; &#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  document.body.style.top &#x3D; -bodyScrollTop + &#39;px&#39;;</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.removeClass &#x3D; function(name) &#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    let styleTop &#x3D; Math.abs(parseInt(document.body.style.top));</span><br><span class="line">    document.body.removeAttribute(&#39;style&#39;);</span><br><span class="line">    document.body.className &#x3D; document.body.className.replace(new RegExp(&#39;(\\s|^)&#39; + name + &#39;(\\s|$)&#39;), &#39;&#39;);</span><br><span class="line">    document.body.scrollTop &#x3D; document.documentElement.scrollTop &#x3D; styleTop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改后使用 nuxt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 判断有无class</span><br><span class="line">function hasClass(name) &#123;</span><br><span class="line">  let reg &#x3D; new RegExp(&#39;(^|\\s)&#39; + name + &#39;(\\s|$)&#39;);</span><br><span class="line">  return reg.test(document.body.className);</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.addClass &#x3D; function(name)&#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  let bodyScrollTop &#x3D; document.body.scrollTop || document.documentElement.scrollTop;</span><br><span class="line">  if (document.body.className &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">    document.body.className +&#x3D; name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let newClass &#x3D; document.body.className.split(&#39; &#39;);</span><br><span class="line">    newClass.push(name);</span><br><span class="line">    document.body.className &#x3D; newClass.join(&#39; &#39;);</span><br><span class="line">  &#125;</span><br><span class="line">  let layout &#x3D; document.getElementById(&#39;__layout&#39;);</span><br><span class="line">  layout.style.transform &#x3D;&#39;translateY( -&#39; + bodyScrollTop + &#39;px)&#39;;</span><br><span class="line">&#125;</span><br><span class="line">Vue.prototype.removeClass &#x3D; function(name) &#123;</span><br><span class="line">  if (hasClass(name)) &#123;</span><br><span class="line">    let layout &#x3D; document.getElementById(&#39;__layout&#39;);</span><br><span class="line">    let top &#x3D; 0;</span><br><span class="line">    if(layout.style.transform) &#123;</span><br><span class="line">      top &#x3D; layout.style.transform.split(&#39;(&#39;)[1].split(&#39;px&#39;)[0];</span><br><span class="line">    &#125;</span><br><span class="line">    let styleTop &#x3D; Math.abs(top);</span><br><span class="line">    layout.style &#x3D; &#39;&#39;;</span><br><span class="line">    document.body.removeAttribute(&#39;style&#39;);</span><br><span class="line">    document.body.className &#x3D; document.body.className.replace(new RegExp(&#39;(\\s|^)&#39; + name + &#39;(\\s|$)&#39;), &#39;&#39;);</span><br><span class="line">    document.body.scrollTop &#x3D; styleTop;</span><br><span class="line">    document.documentElement.scrollTop &#x3D; styleTop;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    打开弹窗时使用： this.addClass()</p>
+<p>​    关闭弹窗时使用： this.removeClass()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">整体样式的设置，在body里去掉overflow-y: auto; overflow-y: hidden;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>antd vue 中 tabs 遍历，设置 activekey 无法激活显示页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a-tabs :activeKey&#x3D;&quot;keys&quot; @change&#x3D;&quot;callback&quot;  ref&#x3D;&quot;tabbar&quot;&gt;</span><br><span class="line">                   &lt;a-tab-pane :tab&#x3D;&quot;item.name&quot; :key&#x3D;&quot;item.id&quot; v-for&#x3D;&quot;item in tablist&quot;&gt;</span><br><span class="line">                   &lt;&#x2F;a-tab-pane&gt;</span><br><span class="line"> &lt;&#x2F;a-tabs&gt;</span><br></pre></td></tr></table></figure>
+
+<p>原因： keys 应该是数字，将字符变为数字</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/20/fee/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-phone-web" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/13/phone-web/">移动端--base</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/13/phone-web/" class="archive-article-date">
+  	<time datetime="2019-12-13T12:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<hr>
+<hr>
+<h4 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h4><p>物理像素</p>
+<p>逻辑像素</p>
+<h4 id="移动端的适配方案"><a href="#移动端的适配方案" class="headerlink" title="移动端的适配方案"></a>移动端的适配方案</h4>
+        
+          <a class="article-more-a" href="/2019/12/13/phone-web/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/13/phone-web/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nuxt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -734,310 +1005,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/04/29/webpack/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/28/git/">git 的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/28/git/" class="archive-article-date">
-  	<time datetime="2019-04-28T12:19:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="基础命令："><a href="#基础命令：" class="headerlink" title="基础命令："></a>基础命令：</h3><p>1、<br>    git status<br>    查看工作区、暂存区状态<br>2、<br>    git add [file name]<br>    将工作区的“新建/修改”添加到暂存区<br>3、<br>    git commit -m “commit message” [file name]<br>    将暂存区的内容提交到本地库<br>4、<br>    git log<br>    git reflog<br>    查看历史记录<br>5、<br>    基于索引值操作[推荐]<br>    git reset –hard [局部索引值]<br>    git reset –hard a6ace91<br>6、<br>    使用^符号：只能后退<br>    git reset –hard HEAD^<br>    注：一个^表示后退一步，n 个表示后退 n 步<br>7、<br>    使用<del>符号：只能后退<br>    git reset –hard HEAD</del>n<br>    注：表示后退 n 步<br>
-        
-          <a class="article-more-a" href="/2019/04/28/git/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/28/git/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/06/array/">array 使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/06/array/" class="archive-article-date">
-  	<time datetime="2019-03-06T03:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>是值的有序列表。数组中的每个值都叫做一个元素，每个元素在数组中有一个位置，以数字来表示，称为索引。<br>每个数组都有一个length属性，就是这个属性让它区别于其他的js对象。</p>
-<ul>
-<li>length的两个特殊行为：<br>为数组增加元素时（使用索引添加，使用索引之外的属性不会触发），length会自动加一。<br>为length属性设置一个小于当前长度的非负整数n时，当前那些下标大于等于n的元素会从数组中删除。<h2 id="Array-对象属性"><a href="#Array-对象属性" class="headerlink" title="Array 对象属性"></a>Array 对象属性</h2><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>constructor</td>
-<td>返回对创建此对象的数组函数的引用。</td>
-</tr>
-<tr>
-<td>length</td>
-<td>设置或返回数组中元素的数目。</td>
-</tr>
-<tr>
-<td>prototype</td>
-<td>使您有能力向对象添加属性和方法。</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/03/06/array/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/06/array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/15/markdown/">markdown 的基本语法</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/15/markdown/" class="archive-article-date">
-  	<time datetime="2019-01-15T12:51:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。<br>标准语法一般在#后跟个空格再写文字</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
-<li>加粗<br>要加粗的文字左右分别用两个*号包起来</li>
-<li>斜体<br>要倾斜的文字左右分别用一个*号包起来</li>
-<li>斜体加粗<br>要倾斜和加粗的文字左右分别用三个*号包起来</li>
-<li>删除线<br>要加删除线的文字左右分别用两个~~号包起来<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt; n个…<br>貌似可以一直加下去<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2>三个或者三个以上的 - 或者 * 都可以<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2>![图片alt](图片地址 ‘’图片title’’)</li>
-</ul>
-<p>图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加<br>上传本地图片直接点击导航栏的图片标志，选择图片即可 （路径是相对路径）<br>或者直接用img标签<br><code>&lt;img src=&quot;../images/p1.jpg&quot; width=&quot;20%&quot;  /&gt;</code></p>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><a href="超链接地址" title="超链接title">超链接名</a><br>title可加可不加<br><code>&lt;a href=&quot;超链接地址&quot; target=&quot;_blank&quot;&gt;超链接名&lt;/a&gt;</code></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>无序列表用 - + * 任何一种都可以<br>有序列表  数字加点<br>列表嵌套 上一级和下一级之间敲三个空格即可</p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br></pre></td></tr></table></figure>
-
-<p>第二行分割表头和内容。</p>
-<ul>
-<li>有一个就行，为了对齐，多加了几个<br>文字默认居左</li>
-<li>两边加：表示文字居中</li>
-<li>右边加：表示文字居右<br>注：原生的语法两边都要用 | 包起来。此处省略  <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>单行代码：代码之间分别用一个反引号包起来<br>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行<br>(<code>)
- 代码...
- 代码...
- 代码...
-(</code>)<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">op&#x3D;&gt;operation: My Operation</span><br><span class="line">cond&#x3D;&gt;condition: Yes or No?</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/15/markdown/">展开全文 >></a>
         </p>
       
 

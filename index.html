@@ -170,6 +170,271 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-公众号的授权流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/29/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%9A%84%E6%8E%88%E6%9D%83%E6%B5%81%E7%A8%8B/">公众号的授权流程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/29/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%9A%84%E6%8E%88%E6%9D%83%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-12-29T07:30:11.821Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html" target="_blank" rel="noopener">网页授权</a></p>
+<h5 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h5><p>用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。</p>
+<p>项目使用范围： 微信支付（微信生态）</p>
+<h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">一般使用它跳转到本页面，静态授权跳转的页面后面会带着个code</span><br><span class="line"> if(this.$route.query.code) &#123;</span><br><span class="line"> 	this.code &#x3D; this.$route.query.code</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F; 判断微信</span><br><span class="line">if(ua.match(&#x2F;MicroMessenger&#x2F;i) &#x3D;&#x3D; &#39;micromessenger&#39;)&#123;</span><br><span class="line">  this.wechat &#x3D; true</span><br><span class="line">  let redirect &#x3D; encodeURIComponent(&#39;重定向页面+传参：xxx?globalId&#x3D;&#39;+ this.id)</span><br><span class="line">  &#x2F;&#x2F;微信授权页面</span><br><span class="line">   let url &#x3D; &#39;https:&#x2F;&#x2F;open.weixin.qq.com&#x2F;connect&#x2F;oauth2&#x2F;authorize?appid&#x3D;wxe6dee784c8c00152&amp;redirect_uri&#x3D;&#39;+redirect+&#39;&amp;response_type&#x3D;code&amp;scope&#x3D;snsapi_base&amp;state&#x3D;123#wechat_redirect&#39;</span><br><span class="line">       if(!this.code) &#123;</span><br><span class="line">         window.location.href &#x3D; url</span><br><span class="line">         this.url &#x3D; url</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;最终是获取code的值，传给后台</span><br></pre></td></tr></table></figure>
+
+<p>![image-20201229153900354](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201229153900354.png)</p>
+<p>![image-20201229153944668](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201229153944668.png)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/29/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%9A%84%E6%8E%88%E6%9D%83%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-axios的参数传递" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/28/axios%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">axios的参数传递</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/28/axios%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" class="archive-article-date">
+  	<time datetime="2020-12-28T02:11:11.464Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><ul>
+<li>(1) post （body)</li>
+</ul>
+<p>![image-20201228101228057](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228101228057.png)</p>
+<p>方式为： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#39;test&#39;</span><br><span class="line"> Axios.post(ApiUrl.patentProduct.textUpload, data,</span><br><span class="line"> 	&#123;</span><br><span class="line">	headers: &#123; &#39;content-type&#39;: &#39;application&#x2F;xml; charset&#x3D;utf-8&#39;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>(2) post(only—query)</li>
+</ul>
+<p>![image-20201228101542638](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228101542638.png)</p>
+<p>方式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line">                  params: &#123;</span><br><span class="line">                    wxFlag: true,</span><br><span class="line">                    smsFlag: true</span><br><span class="line">                  &#125;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line"> Axios.post(ApiUrl.common.wxPush, null ,data);</span><br></pre></td></tr></table></figure>
+
+<p>或者 </p>
+<p>![image-20201228105141706](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228105141706.png)</p>
+<p>​    方式为： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> let data &#x3D; &#123;</span><br><span class="line">               id: 64041,</span><br><span class="line">               states: &#39;DISPALY&#39;</span><br><span class="line">           &#125;</span><br><span class="line">  data &#x3D;Qs.stringify(data)</span><br><span class="line">Axios.post(ApiUrl.myPurchase.editStatus, data)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>(3) post (only—body)</li>
+</ul>
+<p>![image-20201228102925347](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201228102925347.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line"> applicationNumber: &#39;2020202945497&#39;,</span><br><span class="line"> id: 4083888,</span><br><span class="line"> patentStatusId: &#39;2&#39;,</span><br><span class="line"> patentTypeName:&#39;INVENTION&#39;,</span><br><span class="line"> paymentDeadline: &#39;2020-12-28&#39;</span><br><span class="line"> price: &#39;140002&#39;,</span><br><span class="line"> title: &#39;一种用于电缆生产切割的废料回收装置&#39;</span><br><span class="line">&#125;</span><br><span class="line">Axios.post(ApiUrl.patentProduct.editProduct,data);</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>(4) post (query-body)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/28/axios%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-支付宝和微信手机支付" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/01/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%92%8C%E5%BE%AE%E4%BF%A1%E6%89%8B%E6%9C%BA%E6%94%AF%E4%BB%98/">支付宝和微信手机支付</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/01/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%92%8C%E5%BE%AE%E4%BF%A1%E6%89%8B%E6%9C%BA%E6%94%AF%E4%BB%98/" class="archive-article-date">
+  	<time datetime="2020-12-01T02:58:44.383Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form name&#x3D;&quot;punchout_form&quot; method&#x3D;&quot;post&quot; action&#x3D;&quot;https:&#x2F;&#x2F;openapi.alipay.com&#x2F;gateway.do?charset&#x3D;utf-8&amp;method&#x3D;alipay.trade.page.pay&amp;sign&#x3D;x x x &amp;notify_url&#x3D;返回页面&amp;version&#x3D;1.0&amp;app_id&#x3D;x x x&amp;sign_type&#x3D;RSA2&amp;timestamp&#x3D;2020-11-25+18%3A53%3A18&amp;alipay_sdk&#x3D;alipay-sdk-java-4.8.62.ALL&amp;format&#x3D;json&quot;&gt;&lt;&#x2F;form&gt;</span><br><span class="line">&lt;script&gt;document.forms[0].submit();&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>支付宝手机网站支付，前端通过触发后端返回的form，会跳转到支付宝h5收银台。</p>
+<p>支付宝的商户需要开通 手机网站，当面付等功能</p>
+<p>微信支付支付：</p>
+<p>后端返回的链接，触发链接，跳转到微信支付，唤醒微信客户端。</p>
+<p>需要公众号开通H5支付。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/01/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%92%8C%E5%BE%AE%E4%BF%A1%E6%89%8B%E6%9C%BA%E6%94%AF%E4%BB%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IE兼容性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -293,7 +558,7 @@
 
         
         <a href="/2020/10/09/react-%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-10-09T09:08:36.349Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
+  	<time datetime="2020-10-09T09:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
 </a>
         
       </header>
@@ -309,76 +574,11 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app my-app 创建项目</span><br></pre></td></tr></table></figure>
 
-
-
 </li>
 </ul>
-<ul>
-<li><p>用法</p>
-<p>渲染元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const element &#x3D; &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>更新渲染元素</p>
-<p>React 元素都是不可变的。当元素被创建之后，你是无法改变其内容或属性的。</p>
-<p>目前更新界面的唯一办法是创建一个新的元素，然后将它传入 ReactDOM.render() 方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function tick() &#123;</span><br><span class="line">  const element &#x3D; (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;</span><br><span class="line">      &lt;h2&gt;现在是 &#123;new Date().toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">setInterval(tick, 1000);</span><br></pre></td></tr></table></figure>
-
-<p>此方法封装一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Clock(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;</span><br><span class="line">      &lt;h2&gt;现在是 &#123;props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function tick() &#123;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    &lt;Clock date&#x3D;&#123;new Date()&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">setInterval(tick, 1000);</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<p>  用es6 替换</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;</span><br><span class="line">        &lt;h2&gt;现在是 &#123;this.props.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function tick() &#123;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    &lt;Clock date&#x3D;&#123;new Date()&#125; &#x2F;&gt;,</span><br><span class="line">    document.getElementById(&#39;example&#39;)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">setInterval(tick, 1000);</span><br></pre></td></tr></table></figure>
-
-<p>  组合组件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Welcome name&#x3D;&quot;Sara&quot; &#x2F;&gt;</span><br><span class="line">      &lt;Welcome name&#x3D;&quot;Cahal&quot; &#x2F;&gt;</span><br><span class="line">      &lt;Welcome name&#x3D;&quot;Edite&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;App &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;root&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>  提取组件.  以下为Comment组件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function Comment(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className&#x3D;&quot;Comment&quot;&gt;</span><br><span class="line">      &lt;div className&#x3D;&quot;UserInfo&quot;&gt;</span><br><span class="line">        &lt;img className&#x3D;&quot;Avatar&quot;</span><br><span class="line">          src&#x3D;&#123;props.author.avatarUrl&#125;</span><br><span class="line">          alt&#x3D;&#123;props.author.name&#125;</span><br><span class="line">        &#x2F;&gt;</span><br><span class="line">        &lt;div className&#x3D;&quot;UserInfo-name&quot;&gt;</span><br><span class="line">          &#123;props.author.name&#125;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div className&#x3D;&quot;Comment-text&quot;&gt;</span><br><span class="line">        &#123;props.text&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div className&#x3D;&quot;Comment-date&quot;&gt;</span><br><span class="line">        &#123;formatDate(props.date)&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  再提取</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function Avatar(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;img className&#x3D;&quot;Avatar&quot;</span><br><span class="line">      src&#x3D;&#123;props.user.avatarUrl&#125;</span><br><span class="line">      alt&#x3D;&#123;props.user.name&#125;</span><br><span class="line">    &#x2F;&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Comment(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className&#x3D;&quot;Comment&quot;&gt;</span><br><span class="line">      &lt;div className&#x3D;&quot;UserInfo&quot;&gt;</span><br><span class="line">        &lt;Avatar user&#x3D;&#123;props.author&#125; &#x2F;&gt;</span><br><span class="line">        &lt;div className&#x3D;&quot;UserInfo-name&quot;&gt;</span><br><span class="line">          &#123;props.author.name&#125;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div className&#x3D;&quot;Comment-text&quot;&gt;</span><br><span class="line">        &#123;props.text&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;div className&#x3D;&quot;Comment-date&quot;&gt;</span><br><span class="line">        &#123;formatDate(props.date)&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  State 的使用</p>
-<h2 id="将函数组件转换成-class-组件"><a href="#将函数组件转换成-class-组件" class="headerlink" title="将函数组件转换成 class 组件"></a>将函数组件转换成 class 组件</h2><p>  通过以下五步将 <code>Clock</code> 的函数组件转成 class 组件：</p>
-<ol>
-<li><p>创建一个同名的 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="noopener">ES6 class</a>，并且继承于 <code>React.Component</code>。</p>
-</li>
-<li><p>添加一个空的 <code>render()</code> 方法。</p>
-</li>
-<li><p>将函数体移动到 <code>render()</code> 方法之中。</p>
-</li>
-<li><p>在 <code>render()</code> 方法中使用 <code>this.props</code> 替换 <code>props</code>。</p>
-</li>
-<li><p>删除剩余的空函数声明。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Clock extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state &#x3D; &#123;date: new Date()&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">   &#x2F;&#x2F;componentDidMount() 方法会在组件已经被渲染到 DOM 中后运行</span><br><span class="line">    this.timerID &#x3D; setInterval(</span><br><span class="line">      () &#x3D;&gt; this.tick(),</span><br><span class="line">      1000</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">  	clearInterval(this.timerID);</span><br><span class="line">  &#125;</span><br><span class="line">  tick() &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      date: new Date()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Hello, world!&lt;&#x2F;h1&gt;</span><br><span class="line">        &lt;h2&gt;It is &#123;this.state.date.toLocaleTimeString()&#125;.&lt;&#x2F;h2&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关于 <code>setState()</code> 你应该了解三件事：</p>
-<p>1\不要直接修改 State，应该使用 <code>setState()</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;comment: &#39;Hello&#39;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>2\State 的更新可能是异步的</p>
-<p><code>this.props</code> 和 <code>this.state</code> 可能会异步更新，所以你不要依赖他们的值来更新下一个状态</p>
-<p>3\State 的更新会被合并</p>
-<p>当你调用 <code>setState()</code> 的时候，React 会把你提供的对象合并到当前的 state。</p>
-</li>
-</ol>
-<ul>
-<li><p>例子</p>
-</li>
-<li><p>总结</p>
-</li>
-<li><p>进阶</p>
-</li>
-<li><p>优势</p>
-</li>
-<li><p>生态</p>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2020/10/09/react-%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
       
 
       
@@ -788,276 +988,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/10/QQ%20%E5%88%86%E4%BA%AB%E4%BD%BF%E7%94%A8QQ%E6%9C%AC%E8%BA%AB%E7%9A%84%E5%88%86%E4%BA%AB%E6%A0%B7%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IE上的兼容性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/IE%E4%B8%8A%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7/">IE 兼容性</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/01/IE%E4%B8%8A%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2020-09-01T12:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>IE  i hate you </p>
-<p>没想到还是碰到了这个 </p>
-<hr>
-<p>nuxt 项目在IE11上不兼容，服务端渲染的数据是显示出来了，但是通过 axios 获取的数据，出现语法错误。点击无用</p>
-        
-          <a class="article-more-a" href="/2020/09/01/IE%E4%B8%8A%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/分类//" class="article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/IE%E4%B8%8A%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-editor插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/editor%E6%8F%92%E4%BB%B6/">editor</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/01/editor%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-09-01T12:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、tinymce</p>
-<p>2、wangeditor</p>
-<p>3、 vue-quille-editor</p>
-        
-          <a class="article-more-a" href="/2020/09/01/editor%E6%8F%92%E4%BB%B6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/分类//" class="article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/editor%E6%8F%92%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-css-flex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/11/css-flex/">css</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/11/css-flex/" class="archive-article-date">
-  	<time datetime="2020-08-11T11:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><ul>
-<li><p>css 设置主题色</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body &#123; --themeColor: #ff7c3c; &#125; </span><br><span class="line"></span><br><span class="line">.tit.active &#123;</span><br><span class="line">	</span><br><span class="line">   color: var(--themeColor);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.body.style.setProperty(&#39;--themeColor&#39;, &#39;#278ce2&#39;)</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/08/11/css-flex/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/分类//" class="article-tag-list-link color3">分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/11/css-flex/">展开全文 >></a>
         </p>
       
 
