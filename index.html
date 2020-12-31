@@ -195,8 +195,6 @@
 <p>项目使用范围： 微信支付（微信生态）</p>
 <h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">一般使用它跳转到本页面，静态授权跳转的页面后面会带着个code</span><br><span class="line"> if(this.$route.query.code) &#123;</span><br><span class="line"> 	this.code &#x3D; this.$route.query.code</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F; 判断微信</span><br><span class="line">if(ua.match(&#x2F;MicroMessenger&#x2F;i) &#x3D;&#x3D; &#39;micromessenger&#39;)&#123;</span><br><span class="line">  this.wechat &#x3D; true</span><br><span class="line">  let redirect &#x3D; encodeURIComponent(&#39;重定向页面+传参：xxx?globalId&#x3D;&#39;+ this.id)</span><br><span class="line">  &#x2F;&#x2F;微信授权页面</span><br><span class="line">   let url &#x3D; &#39;https:&#x2F;&#x2F;open.weixin.qq.com&#x2F;connect&#x2F;oauth2&#x2F;authorize?appid&#x3D;wxe6dee784c8c00152&amp;redirect_uri&#x3D;&#39;+redirect+&#39;&amp;response_type&#x3D;code&amp;scope&#x3D;snsapi_base&amp;state&#x3D;123#wechat_redirect&#39;</span><br><span class="line">       if(!this.code) &#123;</span><br><span class="line">         window.location.href &#x3D; url</span><br><span class="line">         this.url &#x3D; url</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;最终是获取code的值，传给后台</span><br></pre></td></tr></table></figure>
 
-<p>![image-20201229153900354](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201229153900354.png)</p>
-<p>![image-20201229153944668](/Users/zhangqi/Library/Application Support/typora-user-images/image-20201229153944668.png)</p>
 
       
 
@@ -270,41 +268,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><ul>
-<li>(1) post （body)</li>
-</ul>
-<p><img src="../images/post1.png" alt="img1"></p>
-<p>方式为： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#39;test&#39;</span><br><span class="line"> Axios.post(ApiUrl.patentProduct.textUpload, data,</span><br><span class="line"> 	&#123;</span><br><span class="line">	headers: &#123; &#39;content-type&#39;: &#39;application&#x2F;xml; charset&#x3D;utf-8&#39;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>(2) post(only—query)</p>
-<p><img src="../images/post2.png" alt="img2"></p>
-</li>
-</ul>
-<p>方式为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line">                  params: &#123;</span><br><span class="line">                    wxFlag: true,</span><br><span class="line">                    smsFlag: true</span><br><span class="line">                  &#125;</span><br><span class="line">             &#125;</span><br><span class="line">             </span><br><span class="line"> Axios.post(ApiUrl.common.wxPush, null ,data);</span><br></pre></td></tr></table></figure>
-
-<p>或者 </p>
-<p>​    <img src="../images/post3.png" alt="img3"></p>
-<p>​    方式为： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> let data &#x3D; &#123;</span><br><span class="line">               id: 64041,</span><br><span class="line">               states: &#39;DISPALY&#39;</span><br><span class="line">           &#125;</span><br><span class="line">  data &#x3D;Qs.stringify(data)</span><br><span class="line">Axios.post(ApiUrl.myPurchase.editStatus, data)</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li><p>(3) post (only—body)</p>
-<p><img src="../images/post4.png" alt="img4"></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line"> applicationNumber: &#39;2020202945497&#39;,</span><br><span class="line"> id: 4083888,</span><br><span class="line"> patentStatusId: &#39;2&#39;,</span><br><span class="line"> patentTypeName:&#39;INVENTION&#39;,</span><br><span class="line"> paymentDeadline: &#39;2020-12-28&#39;</span><br><span class="line"> price: &#39;140002&#39;,</span><br><span class="line"> title: &#39;一种用于电缆生产切割的废料回收装置&#39;</span><br><span class="line">&#125;</span><br><span class="line">Axios.post(ApiUrl.patentProduct.editProduct,data);</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>(4) post (query-body)</li>
-</ul>
-
+        <h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let data &#x3D; &#123;</span><br><span class="line">	 params: &#123;</span><br><span class="line">	 	xxx: qqqq</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line">Axios.get(ApiUrl.path, data&#125;);</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/12/28/axios%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/#more">more >></a>
+        
       
 
       
@@ -381,9 +348,16 @@
 
 <p>支付宝手机网站支付，前端通过触发后端返回的form，会跳转到支付宝h5收银台。</p>
 <p>支付宝的商户需要开通 手机网站，当面付等功能</p>
-<p>微信支付支付：</p>
+<p>微信支付支付：(非微信生态)</p>
 <p>后端返回的链接，触发链接，跳转到微信支付，唤醒微信客户端。</p>
 <p>需要公众号开通H5支付。</p>
+<p>微信支付（微信生态）</p>
+<p>网页授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">if(this.$route.query.code) &#123;</span><br><span class="line">            this.code &#x3D; this.$route.query.code</span><br><span class="line">        &#125;</span><br><span class="line">        if(ua.match(&#x2F;MicroMessenger&#x2F;i) &#x3D;&#x3D; &#39;micromessenger&#39;)&#123;</span><br><span class="line">            this.wechat &#x3D; true</span><br><span class="line">            let redirect &#x3D; encodeURIComponent(&#39;url+参数?globalId&#x3D;&#39;+ this.id)</span><br><span class="line">            let url &#x3D; &#39;https:&#x2F;&#x2F;open.weixin.qq.com&#x2F;connect&#x2F;oauth2&#x2F;authorize?appid&#x3D;wxe6dee784c8c00152&amp;redirect_uri&#x3D;&#39;+redirect+&#39;&amp;response_type&#x3D;code&amp;scope&#x3D;snsapi_base&amp;state&#x3D;123#wechat_redirect&#39;</span><br><span class="line">            if(!this.code) &#123;</span><br><span class="line">                window.location.href &#x3D; url</span><br><span class="line">                this.url &#x3D; url</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">得到code 传给后台，获取到 this.body</span><br></pre></td></tr></table></figure>
+
+<p>触发支付按钮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">if( typeof WeixinJSBridge &#x3D;&#x3D;&#39;undefined&#39;) &#123;</span><br><span class="line">                if(document.addEventListener)&#123;</span><br><span class="line">                    document.addEventListener(&#39;WeixinJSBridgeReady&#39;, this.onBridgeReady(),false); </span><br><span class="line">                &#125;else if(document.attachEvent)&#123;</span><br><span class="line">                    document.attachEvent(&#39;WeixinJSBridgeReady&#39; , this.onBridgeReady());</span><br><span class="line">                    document.attachEvent(&#39;onWeixinJSBridgeReady&#39; , this.onBridgeReady()); </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else &#123;    </span><br><span class="line">                this.onBridgeReady()</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            onBridgeReady() &#123;</span><br><span class="line">            let time &#x3D; new Date().getTime()</span><br><span class="line">            let _this &#x3D; this</span><br><span class="line">             WeixinJSBridge.invoke(</span><br><span class="line">                &#39;getBrandWCPayRequest&#39;, &#123;</span><br><span class="line">                &quot;appId&quot;: this.body.appId,     &#x2F;&#x2F;公众号名称，由商户传入</span><br><span class="line">                &quot;timeStamp&quot;: this.body.timeStamp,         &#x2F;&#x2F;时间戳，自1970年以来的秒数</span><br><span class="line">                &quot;nonceStr&quot;: this.body.nonceStr, &#x2F;&#x2F;随机串</span><br><span class="line">                &quot;package&quot;:  this.body.package,</span><br><span class="line">                &quot;signType&quot;: this.body.signType,         &#x2F;&#x2F;微信签名方式：</span><br><span class="line">                &quot;paySign&quot;: this.body.paySign &#x2F;&#x2F;微信签名</span><br><span class="line">            &#125;,</span><br><span class="line">            function(res)&#123;</span><br><span class="line">                _this.$router.push(&#123;</span><br><span class="line">                    path: &#39;&#x2F;walletInfo&#x2F;result&#39;,</span><br><span class="line">                    query: &#123;</span><br><span class="line">                        globalOrderId: _this.id</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                &#x2F;&#x2F; _this.$message.info(res)</span><br><span class="line">                &#x2F;&#x2F; if(res.err_msg &#x3D;&#x3D; &quot;get_brand_wcpay_request:ok&quot; ) &#123;&#125;     &#x2F;&#x2F; 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+
 
       
 
